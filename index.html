@@ -93,9 +93,10 @@
   .phone { flex: 0 0 58%; scroll-snap-align: center; margin: 0; text-align: center; }
   .phone img { display: block; width: 100%; height: auto; border: 7px solid #111; border-radius: 30px; box-shadow: 0 8px 24px rgba(0,0,0,.14); background: var(--card); }
   .phone figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
-  @media (min-width: 640px) { .shots { margin: 0; padding: 4px 4px 14px; } .phone { flex: 0 0 31%; } }
+  /* Tablet or a narrow window: all four at once, two by two: nothing to scroll. */
+  @media (min-width: 640px) { .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; overflow: visible; margin: 0; padding: 4px 0 14px; } .phone { flex: none; } }
   /* On a computer the four screens get the room to be readable: wider than the text column. */
-  @media (min-width: 900px) { .shots { overflow: visible; width: min(980px, calc(100vw - 48px)); margin: 0 0 0 50%; transform: translateX(-50%); padding: 4px 0 14px; gap: 22px; } .phone { flex: 1 1 0; } }
+  @media (min-width: 900px) { .shots { display: flex; width: min(980px, calc(100vw - 48px)); margin: 0 0 0 50%; transform: translateX(-50%); gap: 22px; } .phone { flex: 1 1 0; } }
   .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
   .legend li { display: grid; grid-template-columns: 8.4rem 1fr; gap: 12px; align-items: baseline; margin: 0; font-size: 16px; }
   .legend strong { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
