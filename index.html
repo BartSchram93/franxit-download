@@ -98,8 +98,8 @@
   /* On a computer the four screens get the room to be readable: wider than the text column. */
   @media (min-width: 900px) { .shots { display: flex; width: min(980px, calc(100vw - 48px)); margin: 0 0 0 50%; transform: translateX(-50%); gap: 22px; } .phone { flex: 1 1 0; } }
   .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
-  .legend li { display: grid; grid-template-columns: 8.4rem 1fr; gap: 12px; align-items: baseline; margin: 0; font-size: 16px; }
-  .legend strong { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .legend li { display: grid; grid-template-columns: 9.6rem 1fr; gap: 12px; align-items: baseline; margin: 0; font-size: 16px; }
+  .legend strong { display: flex; align-items: center; gap: 8px; }
   .legend i { flex: none; width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
   .legend span { color: var(--muted); }
 
@@ -161,14 +161,14 @@
     <figure class="phone"><img src="screens/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="948" loading="lazy"><figcaption>De goedkoopste winkel</figcaption></figure>
     <figure class="phone"><img src="screens/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="948" loading="lazy"><figcaption>Het advies, met uitleg</figcaption></figure>
   </div>
-  <p class="note">De app is voorlopig in het Engels. Dit betekent elk advies:</p>
+  <p class="note">Dit betekent elk advies:</p>
 
   <ul class="legend">
-    <li><strong><i style="background:var(--green)"></i>Buy now</strong><span>De prijs is historisch erg aantrekkelijk.</span></li>
-    <li><strong><i style="background:var(--blue)"></i>Consider</strong><span>Goed, maar niet uitzonderlijk.</span></li>
-    <li><strong><i style="background:var(--orange)"></i>Wait</strong><span>Niet bijzonder aantrekkelijk. Wacht, of zet een prijsalert.</span></li>
-    <li><strong><i style="background:var(--red)"></i>Expensive</strong><span>Hoog vergeleken met de prijsgeschiedenis.</span></li>
-    <li><strong><i style="background:var(--muted)"></i>No advice yet</strong><span>Te weinig geschiedenis om te oordelen. Franxit zegt dat eerlijk.</span></li>
+    <li><strong><i style="background:var(--green)"></i>Nu kopen</strong><span>De prijs is historisch erg aantrekkelijk.</span></li>
+    <li><strong><i style="background:var(--blue)"></i>Overwegen</strong><span>Goed, maar niet uitzonderlijk.</span></li>
+    <li><strong><i style="background:var(--orange)"></i>Wachten</strong><span>Niet bijzonder aantrekkelijk. Wacht, of zet een prijsalert.</span></li>
+    <li><strong><i style="background:var(--red)"></i>Duur</strong><span>Hoog vergeleken met de prijsgeschiedenis.</span></li>
+    <li><strong><i style="background:var(--muted)"></i>Nog geen advies</strong><span>Te weinig geschiedenis om te oordelen. Franxit zegt dat eerlijk.</span></li>
   </ul>
 
   <h2>Wat je er verder mee kan</h2>
@@ -203,7 +203,7 @@
   <h2>Vragen</h2>
   <details>
     <summary>Hoe betrouwbaar is het advies?</summary>
-    <p>Zo betrouwbaar als de prijsgeschiedenis. Heeft een product te weinig geschiedenis, dan zegt Franxit "No advice yet" in plaats van te gokken. Het kijkt achteruit en voorspelt niets.</p>
+    <p>Zo betrouwbaar als de prijsgeschiedenis. Heeft een product te weinig geschiedenis, dan zegt Franxit "Nog geen advies" in plaats van te gokken. Het kijkt achteruit en voorspelt niets.</p>
   </details>
   <details>
     <summary>Kost het iets?</summary>
