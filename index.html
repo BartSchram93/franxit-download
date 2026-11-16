@@ -88,6 +88,12 @@
   .reasons li::before { content: "+"; position: absolute; left: 4px; top: 0; font-weight: 700; color: var(--green); }
   .advice .foot { color: var(--muted); font-size: 13px; margin: 0; }
 
+  .shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -22px; padding: 4px 22px 14px; scrollbar-width: none; }
+  .shots::-webkit-scrollbar { display: none; }
+  .phone { flex: 0 0 58%; scroll-snap-align: center; margin: 0; text-align: center; }
+  .phone img { display: block; width: 100%; height: auto; border: 7px solid #111; border-radius: 30px; box-shadow: 0 8px 24px rgba(0,0,0,.14); background: var(--card); }
+  .phone figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
+  @media (min-width: 640px) { .shots { margin: 0; padding: 4px 4px 14px; } .phone { flex: 0 0 31%; } }
   .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
   .legend li { display: grid; grid-template-columns: 8.4rem 1fr; gap: 12px; align-items: baseline; margin: 0; font-size: 16px; }
   .legend strong { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
@@ -144,26 +150,15 @@
     <li><div><strong>Je krijgt advies</strong><span>De goedkoopste winkel, en of je nu best koopt of wacht.</span></div></li>
   </ol>
 
-  <h2>Een advies met uitleg</h2>
-  <p class="sub">Franxit geeft advies en legt uit waarom.</p>
-  <div class="advice">
-    <div class="head">
-      <span class="dot"></span>
-      <div>
-        <div class="title">Buy now</div>
-        <div class="what">The current price is historically very attractive</div>
-      </div>
-    </div>
-    <div class="bar"><span></span></div>
-    <p>€&nbsp;199,00 is 14% below the typical price, and €&nbsp;10,00 above the lowest recorded price.</p>
-    <ul class="reasons">
-      <li>14% below the typical price (€&nbsp;231)</li>
-      <li>Within 5% of the lowest price (€&nbsp;189,00)</li>
-      <li>Based on 12 months of price history</li>
-    </ul>
-    <p class="foot">Based on past prices · plenty of history. Not a forecast.</p>
+  <h2>Zo ziet het eruit</h2>
+  <p class="sub">Echte schermen uit de app, met de echte prijzen van 16 november 2026.</p>
+  <div class="shots">
+    <figure class="phone"><img src="screens/search.webp" alt="Zoeken naar een product in Franxit" width="460" height="948" loading="lazy"><figcaption>Zoek een product</figcaption></figure>
+    <figure class="phone"><img src="screens/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="948" loading="lazy"><figcaption>Je producten en hun advies</figcaption></figure>
+    <figure class="phone"><img src="screens/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="948" loading="lazy"><figcaption>De goedkoopste winkel</figcaption></figure>
+    <figure class="phone"><img src="screens/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="948" loading="lazy"><figcaption>Het advies, met uitleg</figcaption></figure>
   </div>
-  <p class="note">Voorbeeld met verzonnen prijzen. De app is voorlopig in het Engels.</p>
+  <p class="note">De app is voorlopig in het Engels. Dit betekent elk advies:</p>
 
   <ul class="legend">
     <li><strong><i style="background:var(--green)"></i>Buy now</strong><span>De prijs is historisch erg aantrekkelijk.</span></li>
