@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Franxit · Weet wanneer het een goed moment is om te kopen</title>
-<meta name="description" content="Franxit volgt de prijzen van wat je wil kopen en zegt of het een goed moment is om te kopen. Gratis, zonder account, voor Android.">
+<title>Franxit · Is dit een goeie prijs?</title>
+<meta name="description" content="Franxit houdt de prijs bij van wat je wil kopen en zegt je eerlijk of het nu een goed moment is. Gratis, zonder account, voor Android.">
 <meta name="theme-color" content="#2f6fdb">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://franxit.be/">
-<meta property="og:title" content="Franxit: weet wanneer het een goed moment is om te kopen">
-<meta property="og:description" content="Franxit volgt de prijzen van wat je wil kopen en zegt of het een goed moment is om te kopen. Gratis, zonder account, voor Android.">
+<meta property="og:title" content="Franxit: is dit een goeie prijs, of kan ik beter wachten?">
+<meta property="og:description" content="Franxit houdt de prijs bij van wat je wil kopen en zegt je eerlijk of het nu een goed moment is. Gratis, zonder account, voor Android.">
 <meta property="og:image" content="https://franxit.be/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -46,6 +46,7 @@
     box-shadow: 0 6px 18px rgba(47,111,219,.30);
   }
   .version { color: var(--muted); font-size: 14px; text-align: center; margin: 10px 0 0; min-height: 1.4em; }
+  .calm { color: var(--muted); font-size: 15px; text-align: center; margin: 18px auto 0; max-width: 420px; }
   .badges { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 0; margin: 20px 0 0; }
   .badges li { margin: 0; padding: 6px 12px; border: 1px solid var(--line); background: var(--card); border-radius: 999px; font-size: 14px; color: var(--muted); }
 
@@ -103,17 +104,15 @@
   <section class="hero">
     <img class="logo" src="icon.png" alt="Franxit">
     <p class="brand">FRANXIT</p>
-    <h1>Weet wanneer het een goed moment is om te kopen</h1>
-    <p class="lead">Franxit volgt de prijzen van wat je wil kopen en blijft op je geld zitten tot het écht de moeite is.</p>
-    <a class="button" id="download" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Download Franxit voor Android</a>
+    <h1>Is dit een goeie prijs, of kan ik beter wachten?</h1>
+    <p class="lead">Franxit houdt de prijs bij van de dingen die je wil kopen en zegt je eerlijk of het nu een goed moment is. Je gsm doet het opzoekwerk, jij beslist.</p>
+    <a class="button" id="download" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Franxit downloaden voor Android</a>
     <p class="version" id="version"></p>
-    <ul class="badges">
-      <li>Gratis</li><li>Geen account</li><li>Geen reclame</li><li>Blijft op je gsm</li>
-    </ul>
+    <p class="calm">Gratis. Geen account, geen reclame. Wat je volgt blijft op je gsm.</p>
   </section>
 
-  <h2>Zo ziet het advies eruit</h2>
-  <p class="sub">Bij elk product zegt Franxit in één woord hoe de prijs er nu voor staat.</p>
+  <h2>Zo zegt Franxit het</h2>
+  <p class="sub">Bij elk product krijg je één woord. Geen grafieken om te ontcijferen.</p>
   <div class="verdicts">
     <figure class="verdict">
       <div class="app-card">
@@ -121,7 +120,7 @@
         <div class="mid"><strong>Draadloze oordopjes</strong><span>MediaMarkt.be</span></div>
         <div class="right"><b>€ 199,00</b><span class="tag buy"><i style="background:var(--green)"></i>Buy now</span></div>
       </div>
-      <figcaption><strong>Buy now:</strong> de prijs is historisch erg aantrekkelijk.</figcaption>
+      <figcaption><strong>Buy now:</strong> de prijs zit laag, vergeleken met het voorbije jaar. Ga er maar voor.</figcaption>
     </figure>
     <figure class="verdict">
       <div class="app-card">
@@ -129,7 +128,7 @@
         <div class="mid"><strong>Robotstofzuiger</strong><span>Coolblue.be</span></div>
         <div class="right"><b>€ 329,00</b><span class="tag"><i style="background:var(--blue)"></i>Consider</span></div>
       </div>
-      <figcaption><strong>Consider:</strong> een goede prijs, maar niet de laagste die hij had.</figcaption>
+      <figcaption><strong>Consider:</strong> een nette prijs, al heeft hij al lager gestaan. Aan jou.</figcaption>
     </figure>
     <figure class="verdict">
       <div class="app-card">
@@ -137,7 +136,7 @@
         <div class="mid"><strong>Koffiemachine</strong><span>Bol.com</span></div>
         <div class="right"><b>€ 449,00</b><span class="tag"><i style="background:var(--orange)"></i>Wait</span></div>
       </div>
-      <figcaption><strong>Wait:</strong> hij was vroeger goedkoper. Wacht liever, of zet een prijsalert.</figcaption>
+      <figcaption><strong>Wait:</strong> hij was al goedkoper. Even geduld, of zet een prijsalert.</figcaption>
     </figure>
     <figure class="verdict">
       <div class="app-card">
@@ -145,69 +144,74 @@
         <div class="mid"><strong>Spelconsole</strong><span>Fnac.be</span></div>
         <div class="right"><b>€ 599,00</b><span class="tag"><i style="background:var(--red)"></i>Expensive</span></div>
       </div>
-      <figcaption><strong>Expensive:</strong> nu duurder dan normaal. Een prijsalert zet je zo.</figcaption>
+      <figcaption><strong>Expensive:</strong> op dit moment duurder dan normaal. Een prijsalert zet je zo.</figcaption>
     </figure>
   </div>
-  <p class="note">Voorbeelden met verzonnen prijzen. Het advies komt uit de prijsgeschiedenis van het afgelopen jaar en is geen voorspelling.</p>
+  <p class="note">Voorbeelden met verzonnen prijzen. Franxit kijkt naar de prijzen van het voorbije jaar, niet in een glazen bol. Soms komt er de dag nadien toch een promo.</p>
 
-  <h2>Wat kan het?</h2>
-  <p class="sub">Typ een productnaam in, of deel de pagina van een winkel (bv. MediaMarkt) met Franxit. De rest doet de app.</p>
+  <h2>Wat het voor je doet</h2>
+  <p class="sub">Je typt een productnaam in, of je deelt de pagina van een winkelsite (zoals MediaMarkt) met Franxit. Meer moet je niet doen.</p>
   <ul class="features">
-    <li class="feature"><span class="icon">📉</span><strong>Advies uit de prijsgeschiedenis</strong><p>Franxit volgt elke dag de prijs bij de winkels en zegt kort of het nu een goed moment is.</p></li>
-    <li class="feature"><span class="icon">🔔</span><strong>Prijsalert</strong><p>Stel zelf een bedrag in. Zakt de prijs daaronder, dan krijg je een melding.</p></li>
-    <li class="feature"><span class="icon">🏷️</span><strong>Jouw korting</strong><p>Heb je een korting bij een winkel, bv. via je werkgever? Vul ze in en Franxit rekent ermee.</p></li>
-    <li class="feature"><span class="icon">📱</span><strong>Widget</strong><p>Zet al je producten en hun prijs op je startscherm.</p></li>
-    <li class="feature"><span class="icon">🛒</span><strong>Meer winkels</strong><p>Zet Google Shopping aan en vergelijk bij nog meer winkels. Daarvoor maak je gratis een account bij SerpApi.</p></li>
-    <li class="feature"><span class="icon">🔒</span><strong>Blijft op je gsm</strong><p>Geen account. Je producten en prijzen verlaten je gsm niet.</p></li>
+    <li class="feature"><span class="icon">📉</span><strong>Een eerlijk advies</strong><p>Franxit kijkt elke dag naar de prijs en zegt kort of het nu een goed moment is. Alleen de feiten, op een rijtje.</p></li>
+    <li class="feature"><span class="icon">🔔</span><strong>Een seintje als de prijs zakt</strong><p>Kies zelf een bedrag. Zakt de prijs daaronder, dan krijg je een melding.</p></li>
+    <li class="feature"><span class="icon">🏷️</span><strong>Rekent met jouw korting</strong><p>Heb je korting bij een winkel, bijvoorbeeld via je werkgever? Vul ze in en Franxit toont wat jij echt betaalt.</p></li>
+    <li class="feature"><span class="icon">📱</span><strong>Op je startscherm</strong><p>Een widget met al je producten en hun prijs, zonder dat je de app moet openen.</p></li>
+    <li class="feature"><span class="icon">🛒</span><strong>Nog meer winkels</strong><p>Wil je in meer winkels kijken? Zet Google Shopping aan. Daarvoor heb je een gratis account bij SerpApi nodig. In de app staat stap voor stap wat je moet doen.</p></li>
+    <li class="feature"><span class="icon">🔒</span><strong>Blijft van jou</strong><p>Geen account. Wat je volgt blijft op je gsm.</p></li>
   </ul>
 
-  <h2>Installeren</h2>
-  <p class="sub">Franxit staat (nog) niet in de Play Store, dus Android vraagt eerst toestemming. Dat is normaal.</p>
+  <h2>Wie zit erachter?</h2>
   <div class="card">
-    <ol>
-      <li>Tik op <strong>Download Franxit voor Android</strong>. Vraagt je browser of je dit bestand wil bewaren? Kies <strong>Toch downloaden</strong>.</li>
-      <li>Open het bestand <strong>franxit.apk</strong> (onderaan je scherm of in de map Downloads). Android vraagt of je apps van deze bron mag installeren: tik op <strong>Instellingen</strong>, zet het aan voor je browser en ga terug.</li>
-      <li>Tik op <strong>Installeren</strong>. Toont Google Play Protect een waarschuwing? Kies <strong>Meer details</strong> en dan <strong>Toch installeren</strong>.</li>
-    </ol>
-    <p class="small" style="margin-top:12px">Updates: de app zegt het zelf als er een nieuwe versie is. Dan tik je op <strong>Download</strong> en installeer je die over de oude heen. Je producten blijven staan.</p>
+    <p>Ik ben Bart. Ik maakte Franxit in Vlaanderen en ik gebruik het zelf. Er zit geen reclame in en je moet je nergens voor aanmelden.</p>
   </div>
 
-  <h2>Vragen</h2>
+  <h2>Zo krijg je het op je gsm</h2>
+  <p class="sub">Franxit staat niet in de Play Store. Daarom stelt Android je eerst een paar vragen. Dat is normaal, en het duurt een minuutje.</p>
+  <div class="card">
+    <ol>
+      <li>Tik op de downloadknop. Zegt je browser dat het bestand schadelijk kan zijn? Dat zegt hij bij elke app van buiten de Play Store. Kies <strong>Toch downloaden</strong>.</li>
+      <li>Open het bestand <strong>franxit.apk</strong> (onderaan je scherm of in de map Downloads). Android vraagt of je apps van deze bron mag installeren. Tik op <strong>Instellingen</strong>, zet het aan voor je browser en ga terug.</li>
+      <li>Tik op <strong>Installeren</strong>. Toont Google Play Protect een waarschuwing? Kies <strong>Meer details</strong> en dan <strong>Toch installeren</strong>.</li>
+    </ol>
+    <p class="small" style="margin-top:12px">Komt er een nieuwe versie, dan zegt de app het zelf. Je installeert die gewoon over de oude heen. Je producten blijven staan.</p>
+  </div>
+
+  <h2>Veelgestelde vragen</h2>
   <details>
-    <summary>Is Franxit gratis?</summary>
-    <p>Ja, zonder abonnement en zonder reclame. Alleen als je extra winkels wil via Google Shopping, maak je zelf een gratis account bij SerpApi.</p>
+    <summary>Kost het iets?</summary>
+    <p>Nee. Geen abonnement en geen reclame. Alleen als je extra winkels via Google Shopping wil, maak je zelf een gratis account bij SerpApi aan.</p>
   </details>
   <details>
     <summary>Is het veilig?</summary>
-    <p>Franxit vraagt enkel toegang tot internet en tot meldingen. Er is geen account en je producten blijven op je gsm. De waarschuwing bij het installeren komt omdat de app niet in de Play Store staat, niet omdat er iets mis is.</p>
+    <p>Franxit vraagt enkel toegang tot internet en tot meldingen. Er is geen account en je producten blijven op je gsm. De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat, niet omdat er iets mis mee is.</p>
   </details>
   <details>
     <summary>Werkt het op een iPhone?</summary>
-    <p>Nee, Franxit is er alleen voor Android.</p>
+    <p>Nee, Franxit is er enkel voor Android.</p>
   </details>
   <details>
     <summary>Hoe komt het advies tot stand?</summary>
-    <p>Franxit vergelijkt de prijs van nu met de prijsgeschiedenis van het afgelopen jaar: wat een normale prijs is, wat de laagste prijs was en wat het de laatste maanden kostte. Het is een lezing van het verleden en geen voorspelling.</p>
+    <p>Franxit vergelijkt de prijs van nu met de prijzen van het voorbije jaar: wat normaal is, wat de laagste prijs was en wat het de laatste maanden kostte. Het kijkt achteruit en voorspelt niets.</p>
   </details>
   <details>
-    <summary>Bij welke winkels kijkt het?</summary>
-    <p>Franxit leest de prijzen van vergelijk.be, dat veel winkels vergelijkt, en van de winkelpagina's die je deelt. Met Google Shopping komen er extra winkels bij.</p>
+    <summary>In welke winkels kijkt het?</summary>
+    <p>Franxit leest de prijzen op vergelijk.be, dat veel winkels naast elkaar zet, en op de winkelpagina's die je deelt. Met Google Shopping komen er nog winkels bij.</p>
   </details>
   <details>
-    <summary>Hoe krijg ik updates?</summary>
-    <p>De app meldt het zelf: bovenaan staat "New version available" en je krijgt een stille melding. Tik op <strong>Download</strong> en installeer de nieuwe versie over de oude heen.</p>
+    <summary>Hoe weet ik dat er een update is?</summary>
+    <p>De app zegt het zelf: bovenaan staat "New version available" en je krijgt een stille melding. Tik op <strong>Download</strong> en installeer de nieuwe versie over de oude heen.</p>
   </details>
   <details>
     <summary>Wat gebeurt er met mijn gegevens?</summary>
-    <p>Je producten, prijzen en instellingen blijven op je gsm. Franxit telt alleen anoniem hoeveel toestellen de app per dag gebruiken, zonder nummer en zonder producten. <a href="privacy.html">Lees de privacyverklaring</a>.</p>
+    <p>Je producten, prijzen en instellingen blijven op je gsm. Franxit telt alleen anoniem hoeveel toestellen de app per dag gebruiken, zonder nummer en zonder producten. <a href="privacy.html">Hier staat het volledige verhaal</a>.</p>
   </details>
   <details>
     <summary>Waar komt de naam vandaan?</summary>
-    <p>Van de Belgische frank en het Engelse "sit": op je geld blijven zitten tot het écht de moeite is.</p>
+    <p>Van de Belgische frank en het Engelse "sit". Op je geld blijven zitten tot het de moeite is.</p>
   </details>
 
   <footer>
-    Gemaakt in Vlaanderen 🇧🇪 · Alleen voor Android · <a href="privacy.html">Privacy</a>
+    Gemaakt in Vlaanderen 🇧🇪 · Enkel voor Android · <a href="privacy.html">Privacy</a>
   </footer>
 </main>
 <script>
