@@ -72,9 +72,6 @@
   .legend strong { white-space: nowrap; }
   .legend span { color: var(--muted); }
 
-  .points { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-  .points li { margin: 0; padding-left: 26px; position: relative; }
-  .points li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
 
   .features { display: grid; gap: 12px; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
   @media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; } }
@@ -145,14 +142,6 @@
     <li><i style="background:var(--muted)"></i><strong>No advice yet</strong><span>Te weinig geschiedenis om te oordelen. Franxit zegt dat eerlijk.</span></li>
   </ul>
 
-  <h2>Waarop het advies steunt</h2>
-  <ul class="points">
-    <li><strong>De typische prijs van het voorbije jaar.</strong> Franxit neemt de middenwaarde, dus één uitschieter telt niet mee.</li>
-    <li><strong>De laagste prijs die echt bestond.</strong> Een prijs moet minstens twee dagen gegolden hebben. Een foutje van één dag telt niet.</li>
-    <li><strong>De laatste 30 en 90 dagen.</strong> Zo zie je of de prijs stijgt, daalt of al lager stond.</li>
-    <li><strong>Niet de doorstreepte prijs van de winkel.</strong> Franxit kijkt naar wat het product werkelijk kostte.</li>
-  </ul>
-
   <h2>Wat je er verder mee kan</h2>
   <p class="sub">Typ een productnaam, of deel een winkelpagina met Franxit.</p>
   <ul class="features">
@@ -166,9 +155,10 @@
 
   <h2>Waarom ik dit maakte</h2>
   <div class="card">
-    <p>Ik ben Bart. Ik maakte Franxit omdat producten vaak "in korting" staan. Maar dat is niet altijd echt zo.</p>
-    <p>Rond Black Friday wou ik zeker zijn dat een deal ook echt een deal is.</p>
-    <p>Van mijn ouders leerde ik goed op mijn centjes te passen. Dat lukt niet altijd, maar ik doe mijn best. Deze app helpt mij daarbij. Ik hoop dat hij ook anderen helpt.</p>
+    <p>Je kent het wel. Een product staat al weken op “-30%”. Of je koopt iets, en een week later kost het minder. Dan blijft er een vraag hangen: was die korting wel echt?</p>
+    <p>Rond Black Friday is dat gevoel nog sterker. Overal rode labels, overal “enkel vandaag”.</p>
+    <p>Ik ben opgevoed om op mijn centen te letten. Ik wou gewoon kunnen zien wat iets echt gekost heeft. Dat werd Franxit. Het helpt mij, en misschien helpt het jou ook.</p>
+    <p class="small">Bart</p>
   </div>
 
   <h2 id="installeren">Zo krijg je het op je gsm</h2>
@@ -193,32 +183,9 @@
   </details>
   <details>
     <summary>Is het veilig?</summary>
-    <p>Franxit vraagt enkel toegang tot internet en meldingen. Er is geen account en je producten blijven op je gsm. De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat.</p>
-  </details>
-  <details>
-    <summary>Hoe weet ik dat dit het echte bestand is?</summary>
-    <p>Het bestand komt rechtstreeks van GitHub. Wil je het controleren? Dit is de SHA-256-code van de laatste versie. Zo'n code is een vingerafdruk: dezelfde code betekent hetzelfde bestand.</p>
+    <p>Franxit vraagt enkel toegang tot internet en meldingen. Er is geen account en je producten blijven op je gsm. Franxit telt enkel anoniem hoeveel toestellen de app per dag gebruiken. <a href="privacy.html">Het volledige verhaal staat hier</a>.</p>
+    <p>De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat. Wil je het bestand controleren? Dit is de SHA-256-code van de laatste versie, een vingerafdruk van het bestand:</p>
     <p class="hash" id="hash">Wordt geladen…</p>
-  </details>
-  <details>
-    <summary>In welke winkels kijkt het?</summary>
-    <p>Op vergelijk.be, dat veel winkels naast elkaar zet, en op de winkelpagina's die je deelt. Met Google Shopping komen er nog winkels bij.</p>
-  </details>
-  <details>
-    <summary>In welke taal is de app?</summary>
-    <p>Voorlopig in het Engels.</p>
-  </details>
-  <details>
-    <summary>Werkt het op een iPhone?</summary>
-    <p>Nee, Franxit is er enkel voor Android.</p>
-  </details>
-  <details>
-    <summary>Hoe weet ik dat er een update is?</summary>
-    <p>De app zegt het zelf. Bovenaan staat "New version available" en je krijgt een stille melding. Tik op <strong>Download</strong> en installeer over de oude heen.</p>
-  </details>
-  <details>
-    <summary>Wat gebeurt er met mijn gegevens?</summary>
-    <p>Je producten en prijzen blijven op je gsm. Franxit telt enkel anoniem hoeveel toestellen de app per dag gebruiken. <a href="privacy.html">Het volledige verhaal staat hier</a>.</p>
   </details>
   <details>
     <summary>Waar komt de naam vandaan?</summary>
