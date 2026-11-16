@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Franxit · Is dit echt een deal?</title>
-<meta name="description" content="Franxit houdt de prijs bij van wat je wil kopen en toont of een korting echt een korting is. Gratis, zonder account, voor Android.">
+<title>Franxit · Prijsadvies uit het voorbije jaar</title>
+<meta name="description" content="Franxit vergelijkt de prijs van wat je wil kopen met het voorbije jaar en zegt of het nu een goed moment is. Gratis, zonder account, voor Android.">
 <meta name="theme-color" content="#2f6fdb">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://franxit.be/">
-<meta property="og:title" content="Franxit: is dit echt een deal?">
-<meta property="og:description" content="Franxit houdt de prijs bij van wat je wil kopen en toont of een korting echt een korting is. Gratis, zonder account, voor Android.">
+<meta property="og:title" content="Franxit: prijsadvies uit het voorbije jaar">
+<meta property="og:description" content="Franxit vergelijkt de prijs van wat je wil kopen met het voorbije jaar en zegt of het nu een goed moment is. Gratis, zonder account, voor Android.">
 <meta property="og:image" content="https://franxit.be/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,73 +20,65 @@
   :root {
     --bg: #f6f6f3; --card: #ffffff; --ink: #111111; --muted: #5d5d58; --line: #e2e2dc;
     --blue: #2f6fdb; --on-blue: #ffffff; --green: #1f9d61; --orange: #d9822b; --red: #d9483b;
-    --thumb: #ecece6;
+    --track: #e6e6e0;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #0f0f10; --card: #1a1a1c; --ink: #f2f2ee; --muted: #a2a29c; --line: #2c2c2f; --thumb: #2a2a2d; }
+    :root { --bg: #0f0f10; --card: #1a1a1c; --ink: #f2f2ee; --muted: #a2a29c; --line: #2c2c2f; --track: #2e2e31; }
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
   main { max-width: 720px; margin: 0 auto; padding: 0 20px 56px; }
   a { color: var(--blue); }
 
-  /* Hero */
   .hero { padding: 44px 0 8px; text-align: center; }
   .logo { width: 84px; height: 84px; border-radius: 21px; display: block; margin: 0 auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   .brand { font-weight: 700; letter-spacing: .5px; color: var(--muted); margin: 0 0 10px; }
   h1 { font-size: 36px; line-height: 1.12; margin: 0 0 14px; letter-spacing: -0.6px; }
   .lead { color: var(--muted); font-size: 19px; margin: 0 auto 26px; max-width: 540px; }
-  .button {
-    display: block; max-width: 420px; margin: 0 auto; text-align: center; background: var(--blue); color: var(--on-blue);
-    text-decoration: none; font-weight: 600; font-size: 19px; padding: 16px 20px; border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(47,111,219,.30);
-  }
+  .button { display: block; max-width: 420px; margin: 0 auto; text-align: center; background: var(--blue); color: var(--on-blue); text-decoration: none; font-weight: 600; font-size: 19px; padding: 16px 20px; border-radius: 16px; box-shadow: 0 6px 18px rgba(47,111,219,.30); }
   .version { color: var(--muted); font-size: 14px; text-align: center; margin: 10px 0 0; min-height: 1.4em; }
   .calm { color: var(--muted); font-size: 15px; text-align: center; margin: 18px auto 0; max-width: 420px; }
-  .badges { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 0; margin: 20px 0 0; }
-  .badges li { margin: 0; padding: 6px 12px; border: 1px solid var(--line); background: var(--card); border-radius: 999px; font-size: 14px; color: var(--muted); }
 
   h2 { font-size: 24px; line-height: 1.2; margin: 52px 0 6px; letter-spacing: -0.3px; }
   .sub { color: var(--muted); margin: 0 0 18px; }
+  .note { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
 
-  /* The advice, drawn like the app's cards */
-  .verdicts { display: grid; gap: 16px; }
-  .verdict { margin: 0; }
-  .app-card {
-    display: flex; align-items: flex-start; gap: 14px; background: var(--card); border: 1px solid var(--line);
-    border-radius: 20px; padding: 14px 16px;
-  }
-  .thumb { flex: none; width: 52px; height: 52px; border-radius: 14px; background: var(--thumb); display: grid; place-items: center; font-size: 26px; }
-  .mid { flex: 1; min-width: 0; }
-  .mid strong { display: block; font-size: 16px; line-height: 1.25; }
-  .mid span { color: var(--muted); font-size: 14px; }
-  .right { text-align: right; white-space: nowrap; }
-  .right b { display: block; font-size: 18px; }
-  .tag { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); }
-  .tag i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-  .tag.buy { color: var(--green); font-weight: 600; }
-  .verdict figcaption { color: var(--muted); font-size: 15px; margin: 8px 6px 0; }
-  .note { color: var(--muted); font-size: 14px; margin: 14px 0 0; }
+  /* The advice card, as the app shows it */
+  .advice { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 18px 20px; }
+  .advice .head { display: flex; align-items: flex-start; gap: 10px; }
+  .advice .dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--green); margin-top: 9px; }
+  .advice .title { font-size: 21px; font-weight: 600; color: var(--green); line-height: 1.3; }
+  .advice .what { color: var(--muted); font-size: 14px; margin-top: 1px; }
+  .bar { margin: 14px 0 12px; height: 8px; border-radius: 6px; background: var(--track); overflow: hidden; }
+  .bar span { display: block; height: 100%; width: 82%; background: var(--green); border-radius: 6px; }
+  .advice p { margin: 0 0 10px; font-size: 16px; }
+  .reasons { list-style: none; padding: 0; margin: 0 0 12px; }
+  .reasons li { position: relative; padding-left: 22px; margin: 0 0 6px; font-size: 15px; }
+  .reasons li::before { content: "+"; position: absolute; left: 4px; top: 0; font-weight: 700; color: var(--green); }
+  .advice .foot { color: var(--muted); font-size: 13px; margin: 0; }
 
-  /* Features */
+  .legend { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; }
+  .legend li { display: flex; gap: 10px; align-items: baseline; margin: 0; font-size: 16px; }
+  .legend i { flex: none; width: 9px; height: 9px; border-radius: 50%; display: inline-block; position: relative; top: -1px; }
+  .legend strong { white-space: nowrap; }
+  .legend span { color: var(--muted); }
+
+  .points { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .points li { margin: 0; padding-left: 26px; position: relative; }
+  .points li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+
   .features { display: grid; gap: 12px; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
   @media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; } }
-  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; }
-  .feature .icon { font-size: 26px; line-height: 1; display: block; margin-bottom: 8px; }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; margin: 0; }
   .feature strong { display: block; font-size: 17px; margin-bottom: 2px; }
   .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
-  /* Install */
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
   .card p { margin: 0 0 10px; } .card p:last-child { margin: 0; }
   ol { padding-left: 22px; margin: 0; } li { margin: 0 0 10px; }
   .small { color: var(--muted); font-size: 15px; }
 
-  /* FAQ */
   details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 0 18px; margin: 0 0 10px; }
   summary { cursor: pointer; font-weight: 600; padding: 14px 0; list-style: none; position: relative; padding-right: 28px; }
   summary::-webkit-details-marker { display: none; }
@@ -104,60 +96,59 @@
   <section class="hero">
     <img class="logo" src="icon.png" alt="Franxit">
     <p class="brand">FRANXIT</p>
-    <h1>Is dit echt een deal?</h1>
-    <p class="lead">Franxit houdt prijzen bij. Zo zie je of een korting echt een korting is.</p>
+    <h1>Prijsadvies uit het voorbije jaar</h1>
+    <p class="lead">Franxit vergelijkt de prijs met wat het product het voorbije jaar kostte. Zo weet je of het nu een goed moment is.</p>
     <a class="button" id="download" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Download voor Android</a>
     <p class="version" id="version"></p>
     <p class="calm">Gratis. Geen account. Geen reclame.</p>
   </section>
 
-  <h2>Zo zegt Franxit het</h2>
-  <p class="sub">Bij elk product krijg je één woord.</p>
-  <div class="verdicts">
-    <figure class="verdict">
-      <div class="app-card">
-        <div class="thumb">🎧</div>
-        <div class="mid"><strong>Draadloze oordopjes</strong><span>MediaMarkt.be</span></div>
-        <div class="right"><b>€ 199,00</b><span class="tag buy"><i style="background:var(--green)"></i>Buy now</span></div>
+  <h2>Een advies met uitleg</h2>
+  <p class="sub">Franxit zegt niet alleen wat je best doet, maar ook waarom. Zo ziet dat eruit in de app.</p>
+  <div class="advice">
+    <div class="head">
+      <span class="dot"></span>
+      <div>
+        <div class="title">Buy now</div>
+        <div class="what">The current price is historically very attractive</div>
       </div>
-      <figcaption><strong>Buy now:</strong> een lage prijs, vergeleken met het voorbije jaar. Ga ervoor.</figcaption>
-    </figure>
-    <figure class="verdict">
-      <div class="app-card">
-        <div class="thumb">🤖</div>
-        <div class="mid"><strong>Robotstofzuiger</strong><span>Coolblue.be</span></div>
-        <div class="right"><b>€ 329,00</b><span class="tag"><i style="background:var(--blue)"></i>Consider</span></div>
-      </div>
-      <figcaption><strong>Consider:</strong> een nette prijs, maar hij stond al lager. Aan jou.</figcaption>
-    </figure>
-    <figure class="verdict">
-      <div class="app-card">
-        <div class="thumb">☕</div>
-        <div class="mid"><strong>Koffiemachine</strong><span>Bol.com</span></div>
-        <div class="right"><b>€ 449,00</b><span class="tag"><i style="background:var(--orange)"></i>Wait</span></div>
-      </div>
-      <figcaption><strong>Wait:</strong> hij was al goedkoper. Even geduld, of zet een prijsalert.</figcaption>
-    </figure>
-    <figure class="verdict">
-      <div class="app-card">
-        <div class="thumb">🎮</div>
-        <div class="mid"><strong>Spelconsole</strong><span>Fnac.be</span></div>
-        <div class="right"><b>€ 599,00</b><span class="tag"><i style="background:var(--red)"></i>Expensive</span></div>
-      </div>
-      <figcaption><strong>Expensive:</strong> duurder dan normaal. Zet een prijsalert.</figcaption>
-    </figure>
+    </div>
+    <div class="bar"><span></span></div>
+    <p>€ 199,00 is 14% below the typical price, and € 10,00 above the lowest recorded price.</p>
+    <ul class="reasons">
+      <li>14% below the typical price (€ 231)</li>
+      <li>Within 5% of the lowest price (€ 189,00)</li>
+      <li>Based on 12 months of price history</li>
+    </ul>
+    <p class="foot">Based on past prices · plenty of history. Not a forecast.</p>
   </div>
-  <p class="note">Voorbeelden met verzonnen prijzen. Franxit kijkt naar het verleden en voorspelt niets. Soms komt er morgen toch een promo.</p>
+  <p class="note">Voorbeeld met verzonnen prijzen. De app is voorlopig in het Engels.</p>
 
-  <h2>Wat het doet</h2>
-  <p class="sub">Typ een productnaam, of deel een winkelpagina met Franxit. Meer is het niet.</p>
+  <ul class="legend">
+    <li><i style="background:var(--green)"></i><strong>Buy now</strong><span>De prijs is historisch erg aantrekkelijk.</span></li>
+    <li><i style="background:var(--blue)"></i><strong>Consider</strong><span>Goed, maar niet uitzonderlijk.</span></li>
+    <li><i style="background:var(--orange)"></i><strong>Wait</strong><span>Niet bijzonder aantrekkelijk. Wacht, of zet een prijsalert.</span></li>
+    <li><i style="background:var(--red)"></i><strong>Expensive</strong><span>Hoog vergeleken met de prijsgeschiedenis.</span></li>
+    <li><i style="background:var(--muted)"></i><strong>No advice yet</strong><span>Te weinig geschiedenis om te oordelen. Franxit zegt dat eerlijk.</span></li>
+  </ul>
+
+  <h2>Waarop het advies steunt</h2>
+  <ul class="points">
+    <li><strong>De typische prijs van het voorbije jaar.</strong> Franxit neemt de middenwaarde, dus één uitschieter telt niet mee.</li>
+    <li><strong>De laagste prijs die echt bestond.</strong> Een prijs moet minstens twee dagen gegolden hebben. Een foutje van één dag telt niet.</li>
+    <li><strong>De laatste 30 en 90 dagen.</strong> Zo zie je of de prijs stijgt, daalt of al lager stond.</li>
+    <li><strong>Niet de doorstreepte prijs van de winkel.</strong> Franxit kijkt naar wat het product werkelijk kostte.</li>
+  </ul>
+
+  <h2>Wat je er verder mee kan</h2>
+  <p class="sub">Typ een productnaam, of deel een winkelpagina met Franxit.</p>
   <ul class="features">
-    <li class="feature"><span class="icon">📉</span><strong>Eerlijk advies</strong><p>Franxit zegt kort of het nu een goed moment is. Alleen de feiten.</p></li>
-    <li class="feature"><span class="icon">🔔</span><strong>Seintje bij prijsdaling</strong><p>Kies een bedrag. Zakt de prijs daaronder, dan krijg je een melding.</p></li>
-    <li class="feature"><span class="icon">🏷️</span><strong>Jouw korting</strong><p>Korting via je werkgever? Vul ze in en zie wat jij echt betaalt.</p></li>
-    <li class="feature"><span class="icon">📱</span><strong>Op je startscherm</strong><p>Een widget met je producten en hun prijs.</p></li>
-    <li class="feature"><span class="icon">🛒</span><strong>Meer winkels</strong><p>Zet Google Shopping aan om in meer winkels te kijken. De app legt uit hoe.</p></li>
-    <li class="feature"><span class="icon">🔒</span><strong>Blijft van jou</strong><p>Geen account. Wat je volgt blijft op je gsm.</p></li>
+    <li class="feature"><strong>Geschiedenis vanaf dag één</strong><p>Voor producten op vergelijk.be haalt Franxit de prijzen van het voorbije jaar meteen op. Je hoeft geen maanden te wachten.</p></li>
+    <li class="feature"><strong>De prijs per winkel</strong><p>Je ziet wat elke winkel vraagt, na hun kortingen, en tikt door naar de winkel.</p></li>
+    <li class="feature"><strong>Jouw korting</strong><p>Korting via je werkgever? Vul ze in en zie wat jij echt betaalt. In de geschiedenis zit ze niet, zodat die eerlijk blijft.</p></li>
+    <li class="feature"><strong>Prijsalert</strong><p>Kies een bedrag, of laat Franxit er een voorstellen uit de geschiedenis. Zakt de prijs daaronder, dan krijg je een melding.</p></li>
+    <li class="feature"><strong>Widget</strong><p>Een widget op je startscherm met je producten, hun prijs en het advies.</p></li>
+    <li class="feature"><strong>Meer winkels</strong><p>Met Google Shopping kijkt Franxit ook in winkels die vergelijk.be mist. Alleen bekende of goed beoordeelde winkels, en geen tweedehands.</p></li>
   </ul>
 
   <h2>Waarom ik dit maakte</h2>
@@ -180,6 +171,10 @@
 
   <h2>Vragen</h2>
   <details>
+    <summary>Hoe betrouwbaar is het advies?</summary>
+    <p>Zo betrouwbaar als de prijsgeschiedenis. Heeft een product te weinig geschiedenis, dan zegt Franxit "No advice yet" in plaats van te gokken. Het kijkt achteruit en voorspelt niets.</p>
+  </details>
+  <details>
     <summary>Kost het iets?</summary>
     <p>Nee. Geen abonnement en geen reclame. Voor extra winkels via Google Shopping maak je zelf een gratis account bij SerpApi.</p>
   </details>
@@ -188,16 +183,16 @@
     <p>Franxit vraagt enkel toegang tot internet en meldingen. Er is geen account en je producten blijven op je gsm. De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat.</p>
   </details>
   <details>
-    <summary>Werkt het op een iPhone?</summary>
-    <p>Nee, Franxit is er enkel voor Android.</p>
-  </details>
-  <details>
-    <summary>Hoe komt het advies tot stand?</summary>
-    <p>Franxit vergelijkt de prijs van nu met het voorbije jaar. Wat is normaal? Wat was de laagste prijs? Wat kostte het de laatste maanden? Het kijkt achteruit en voorspelt niets.</p>
-  </details>
-  <details>
     <summary>In welke winkels kijkt het?</summary>
     <p>Op vergelijk.be, dat veel winkels naast elkaar zet, en op de winkelpagina's die je deelt. Met Google Shopping komen er nog winkels bij.</p>
+  </details>
+  <details>
+    <summary>In welke taal is de app?</summary>
+    <p>Voorlopig in het Engels.</p>
+  </details>
+  <details>
+    <summary>Werkt het op een iPhone?</summary>
+    <p>Nee, Franxit is er enkel voor Android.</p>
   </details>
   <details>
     <summary>Hoe weet ik dat er een update is?</summary>
