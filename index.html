@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Franxit</title>
+<meta name="description" content="Franxit volgt de prijzen van wat je wil kopen en zegt of het een goed moment is om te kopen.">
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --bg: #f6f6f3; --card: #ffffff; --ink: #111111; --muted: #5d5d58; --line: #e2e2dc; --blue: #2f6fdb; --on-blue: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f0f10; --card: #1a1a1c; --ink: #f2f2ee; --muted: #a2a29c; --line: #2c2c2f; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 40px 20px 64px; }
+  .logo { width: 88px; height: 88px; border-radius: 22px; display: block; }
+  h1 { font-size: 38px; line-height: 1.1; margin: 20px 0 8px; letter-spacing: -0.5px; }
+  .tagline { color: var(--muted); font-size: 19px; margin: 0 0 28px; }
+  .button {
+    display: block; text-align: center; background: var(--blue); color: var(--on-blue); text-decoration: none;
+    font-weight: 600; font-size: 19px; padding: 16px 20px; border-radius: 16px;
+  }
+  .version { color: var(--muted); font-size: 14px; text-align: center; margin: 10px 0 0; min-height: 1.4em; }
+  h2 { font-size: 22px; margin: 44px 0 12px; }
+  ol, ul { padding-left: 22px; margin: 0; }
+  li { margin: 0 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
+  .card p { margin: 0 0 10px; }
+  .card p:last-child { margin: 0; }
+  .small { color: var(--muted); font-size: 15px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="icon.png" alt="Franxit">
+  <h1>Franxit</h1>
+  <p class="tagline">Op je geld blijven zitten tot het écht de moeite is.</p>
+
+  <a class="button" id="download" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Download Franxit voor Android</a>
+  <p class="version" id="version"></p>
+
+  <h2>Wat doet het?</h2>
+  <ul>
+    <li><strong>Prijzen volgen.</strong> Typ een productnaam in, of deel een pagina van een winkel (bv. MediaMarkt) met Franxit. Elke dag checkt de app de prijzen bij alle winkels en bewaart de prijsgeschiedenis.</li>
+    <li><strong>Advies.</strong> Op basis van die geschiedenis zegt Franxit kort of het een goed moment is om te kopen of niet.</li>
+    <li><strong>Prijsalert.</strong> Stel zelf een bedrag in. Zakt de prijs daaronder, dan krijg je een melding.</li>
+    <li><strong>Jouw korting.</strong> Heb je een persoonlijke korting bij een winkel, bv. via je werkgever? Vul ze in en Franxit rekent ermee.</li>
+    <li><strong>Widget.</strong> Zet al je producten en hun prijs op je startscherm.</li>
+    <li><strong>Nog meer winkels</strong> (optioneel). Zet in de instellingen Google Shopping aan. Daarvoor maak je gratis een account bij SerpApi en kopieer je een sleutel, een soort wachtwoord waarmee de app in Google mag meezoeken.</li>
+  </ul>
+
+  <h2>Installeren</h2>
+  <p class="small" style="margin-top:-4px">Franxit staat (nog) niet in de Play Store, dus Android vraagt eerst toestemming. Dat is normaal.</p>
+  <div class="card">
+    <ol>
+      <li>Tik op <strong>Download Franxit voor Android</strong>. Vraagt je browser of je dit bestand wil bewaren? Kies <strong>Toch downloaden</strong>.</li>
+      <li>Open het bestand <strong>franxit.apk</strong> (onderaan je scherm of in de map Downloads). Android vraagt of je apps van deze bron mag installeren: tik op <strong>Instellingen</strong>, zet het aan voor je browser en ga terug.</li>
+      <li>Tik op <strong>Installeren</strong>. Toont Google Play Protect een waarschuwing? Kies <strong>Meer details</strong> en dan <strong>Toch installeren</strong>.</li>
+    </ol>
+    <p class="small" style="margin-top:12px">Updates: de app zegt het zelf als er een nieuwe versie is. Dan tik je op <strong>Download</strong> en installeer je die over de oude heen. Je producten blijven staan.</p>
+  </div>
+
+  <h2>Privacy</h2>
+  <div class="card">
+    <p>Geen account, geen reclame. Je producten, prijzen en instellingen blijven op je gsm. De app maakt enkel verbinding met de winkelsites om prijzen te lezen, met Google Shopping als je dat zelf aanzet, en af en toe met GitHub om te kijken of er een nieuwe versie is.</p>
+  </div>
+
+  <footer>Gemaakt in Vlaanderen 🇧🇪 · Alleen voor Android</footer>
+</main>
+<script>
+  // Shows which version the download button gives (no problem if this fails).
+  fetch("https://api.github.com/repos/BartSchram93/franxit-download/releases/latest")
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (rel) {
+      if (!rel || !rel.tag_name) return;
+      var date = rel.published_at ? new Date(rel.published_at).toLocaleDateString("nl-BE", { day: "numeric", month: "long", year: "numeric" }) : "";
+      document.getElementById("version").textContent = "Versie " + rel.tag_name.replace(/^v/, "") + (date ? " · " + date : "");
+    })
+    .catch(function () {});
+</script>
+</body>
+</html>
