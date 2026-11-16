@@ -16,6 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
+<script>(function(){var u=navigator.userAgent||"",d=document.documentElement;d.className=/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&navigator.maxTouchPoints>1)?"ios":/Android/.test(u)?"android":"desktop";})();</script>
 <style>
   :root {
     --bg: #f6f6f3; --card: #ffffff; --ink: #111111; --muted: #5d5d58; --line: #e2e2dc;
@@ -51,6 +52,20 @@
   .source { color: var(--muted); font-size: 14px; text-align: center; margin: 12px auto 0; max-width: 440px; }
   .version { color: var(--muted); font-size: 14px; text-align: center; margin: 10px 0 0; min-height: 1.4em; }
   .calm { color: var(--muted); font-size: 15px; text-align: center; margin: 18px auto 0; max-width: 420px; }
+
+  .ios-note, .qr { display: none; }
+  .ios .ios-note { display: block; max-width: 440px; margin: 0 auto 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; font-size: 15px; color: var(--muted); text-align: left; }
+  .ios .get, .ios .source { display: none; }
+  .desktop .qr { display: flex; align-items: center; gap: 16px; max-width: 440px; margin: 0 auto 14px; text-align: left; color: var(--muted); font-size: 15px; }
+  .qr img { width: 96px; height: 96px; border-radius: 10px; flex: none; background: #fff; }
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
+  .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); font-weight: 700; display: grid; place-items: center; }
+  .steps strong { display: block; }
+  .steps span { color: var(--muted); font-size: 15px; }
+  .dl2 { display: block; max-width: 440px; margin: 16px auto 0; text-align: center; background: var(--blue); color: var(--on-blue); font-weight: 600; padding: 12px; border-radius: 12px; text-decoration: none; }
+  .ios .dl2 { display: none; }
+  .share { display: inline-block; margin-top: 10px; }
 
   h2 { font-size: 24px; line-height: 1.2; margin: 64px 0 8px; letter-spacing: -0.3px; }
   .sub { color: var(--muted); margin: 0 0 20px; }
@@ -105,7 +120,9 @@
   <section class="hero">
     <p class="brand">FRANXIT</p>
     <h1>Prijsadvies uit het voorbije jaar</h1>
-    <p class="lead">Franxit vergelijkt de prijs met wat het product het voorbije jaar kostte. Zo weet je of het nu een goed moment is.</p>
+    <p class="lead">Was die korting wel echt? Franxit vergelijkt de prijs met het voorbije jaar en zegt of het nu een goed moment is.</p>
+    <p class="ios-note">Franxit is er enkel voor Android. Open deze pagina op je Android-gsm om het te installeren.</p>
+    <div class="qr"><img src="qr.svg" alt="QR-code naar franxit.be" width="96" height="96"><span>Sta je op je computer? Scan de code met je Android-gsm.</span></div>
     <a class="get" id="download" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">
       <span class="get-top">
         <img class="get-icon" src="icon.png" alt="">
@@ -113,9 +130,16 @@
       </span>
       <span class="get-go">Downloaden</span>
     </a>
-    <p class="source">Het bestand komt rechtstreeks van GitHub.<br><a href="#installeren">Hoe installeer ik het?</a></p>
+    <p class="source">Android waarschuwt je bij het installeren, omdat Franxit niet in de Play Store staat. <a href="#installeren">Zo los je dat op</a>.</p>
     <p class="calm">Gratis. Geen account. Geen reclame.</p>
   </section>
+
+  <h2>Zo werkt het</h2>
+  <ol class="steps">
+    <li><div><strong>Voeg een product toe</strong><span>Typ de naam, of deel een winkelpagina met Franxit.</span></div></li>
+    <li><div><strong>Franxit kijkt terug</strong><span>Je ziet wat het product het voorbije jaar kostte.</span></div></li>
+    <li><div><strong>Jij beslist</strong><span>Koop nu, of laat Franxit een melding sturen als de prijs zakt.</span></div></li>
+  </ol>
 
   <h2>Een advies met uitleg</h2>
   <p class="sub">Franxit zegt wat je best doet, en waarom.</p>
@@ -147,14 +171,12 @@
   </ul>
 
   <h2>Wat je er verder mee kan</h2>
-  <p class="sub">Typ een productnaam, of deel een winkelpagina met Franxit.</p>
+  <p class="sub">Een paar dingen die je zal waarderen.</p>
   <ul class="features">
-    <li class="feature"><strong>Geschiedenis vanaf dag één</strong><p>Voor producten op vergelijk.be haalt Franxit de prijzen van het voorbije jaar meteen op. Je hoeft geen maanden te wachten.</p></li>
+    <li class="feature"><strong>Geschiedenis vanaf dag één</strong><p>Je hoeft geen maanden te wachten: de prijzen van het voorbije jaar zijn er meteen.</p></li>
     <li class="feature"><strong>De prijs per winkel</strong><p>Je ziet wat elke winkel vraagt, na hun kortingen, en tikt door naar de winkel.</p></li>
-    <li class="feature"><strong>Jouw korting</strong><p>Korting via je werkgever? Vul ze in en zie wat jij echt betaalt. In de geschiedenis zit ze niet, zodat die eerlijk blijft.</p></li>
-    <li class="feature"><strong>Prijsalert</strong><p>Kies een bedrag, of laat Franxit er een voorstellen uit de geschiedenis. Zakt de prijs daaronder, dan krijg je een melding.</p></li>
-    <li class="feature"><strong>Widget</strong><p>Een widget op je startscherm met je producten, hun prijs en het advies.</p></li>
-    <li class="feature"><strong>Meer winkels</strong><p>Met Google Shopping kijkt Franxit ook in winkels die vergelijk.be mist. Alleen bekende of goed beoordeelde winkels, en geen tweedehands.</p></li>
+    <li class="feature"><strong>Jouw korting</strong><p>Korting via je werkgever? Vul ze in en zie wat jij echt betaalt.</p></li>
+    <li class="feature"><strong>Prijsalert en widget</strong><p>Zakt de prijs onder jouw bedrag, dan krijg je een melding. Op je startscherm zie je het advies in één oogopslag.</p></li>
   </ul>
 
   <h2>Waarom ik dit maakte</h2>
@@ -175,6 +197,8 @@
     </ol>
     <p class="small" style="margin-top:12px">Komt er een nieuwe versie, dan zegt de app het. Installeer ze over de oude heen. Je producten blijven staan.</p>
   </div>
+
+  <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Downloaden</a>
 
   <h2>Vragen</h2>
   <details>
@@ -197,7 +221,8 @@
 
   <footer>
     <p>Gemaakt in Vlaanderen 🇧🇪 · Enkel voor Android</p>
-    <p><a href="privacy.html">Privacy</a></p>
+    <p><a class="share" href="https://wa.me/?text=Franxit%20zegt%20of%20de%20prijs%20van%20wat%20je%20wil%20kopen%20nu%20goed%20zit%2C%20op%20basis%20van%20het%20voorbije%20jaar.%20Gratis%2C%20voor%20Android%3A%20https%3A%2F%2Ffranxit.be%2F" rel="noopener">Deel via WhatsApp</a></p>
+    <p><a href="privacy.html">Privacy</a> · <span id="updated"></span></p>
   </footer>
 </main>
 <script>
@@ -212,6 +237,11 @@
       var meta = document.getElementById("meta");
       meta.textContent = parts.join(" · ");
       meta.className = "on";
+      if (rel.published_at) {
+        var d = new Date(rel.published_at);
+        var m = ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"];
+        document.getElementById("updated").textContent = "Bijgewerkt op " + d.getDate() + " " + m[d.getMonth()] + " " + d.getFullYear();
+      }
     })
     .catch(function () {});
 </script>
