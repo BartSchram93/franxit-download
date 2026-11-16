@@ -44,7 +44,6 @@
   .get-go { display: block; margin-top: 14px; text-align: center; background: var(--blue); color: var(--on-blue); font-weight: 600; font-size: 17px; padding: 12px; border-radius: 12px; }
   .get:hover .get-go { filter: brightness(1.06); }
   .source { color: var(--muted); font-size: 14px; text-align: center; margin: 12px auto 0; max-width: 440px; }
-  .hash { word-break: break-all; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
   .version { color: var(--muted); font-size: 14px; text-align: center; margin: 10px 0 0; min-height: 1.4em; }
   .calm { color: var(--muted); font-size: 15px; text-align: center; margin: 18px auto 0; max-width: 420px; }
 
@@ -184,8 +183,7 @@
   <details>
     <summary>Is het veilig?</summary>
     <p>Franxit vraagt enkel toegang tot internet en meldingen. Er is geen account en je producten blijven op je gsm. Franxit telt enkel anoniem hoeveel toestellen de app per dag gebruiken. <a href="privacy.html">Het volledige verhaal staat hier</a>.</p>
-    <p>De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat. Wil je het bestand controleren? Dit is de SHA-256-code van de laatste versie, een vingerafdruk van het bestand:</p>
-    <p class="hash" id="hash">Wordt geladen…</p>
+    <p>De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat.</p>
   </details>
   <details>
     <summary>Waar komt de naam vandaan?</summary>
@@ -197,7 +195,7 @@
   </footer>
 </main>
 <script>
-  // Fills in the version, size and file code of the latest release (no problem if this fails).
+  // Fills in the version and size of the latest release (no problem if this fails).
   fetch("https://api.github.com/repos/BartSchram93/franxit-download/releases/latest")
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (rel) {
@@ -207,10 +205,8 @@
       if (apk && apk.size) parts.push((apk.size / 1e6).toFixed(1).replace(".", ",") + " MB");
       parts.push("Android 8 of nieuwer");
       document.getElementById("meta").textContent = parts.join(" · ");
-      var hash = document.getElementById("hash");
-      hash.textContent = apk && apk.digest ? apk.digest.replace(/^sha256:/, "") : "Niet beschikbaar.";
     })
-    .catch(function () { document.getElementById("hash").textContent = "Niet beschikbaar."; });
+    .catch(function () {});
 </script>
 </body>
 </html>
