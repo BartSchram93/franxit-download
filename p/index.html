@@ -366,7 +366,7 @@
   .story p:last-child { margin-bottom: 0; }
   #updated { display: block; margin-top: 4px; }
   @media (min-width: 900px) {
-    .legend-card { max-width: 720px; margin: 72px auto 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px 30px 28px; }
+    .legend-card { max-width: none; margin: 72px 0 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px 30px 28px; }
     .legend-card .advice-h { margin: 0 0 18px; max-width: none; }
     .legend-card .legend { max-width: none; margin: 0; }
     .hero-shot { height: 450px; }
@@ -409,7 +409,8 @@
 
   /* Desktop legend: every row is as tall as the tallest, so the labels sit at an even distance. */
   @media (min-width: 900px) {
-    .legend-card .legend { grid-auto-rows: 1fr; gap: 6px; }
+    .legend-card .legend { gap: 14px; }
+    .legend-card .legend li { grid-template-columns: 190px 1fr; }
     .legend-card .legend li { align-items: center; align-content: center; }
   }
 
