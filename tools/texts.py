@@ -155,7 +155,7 @@ LANGS = {
     source='Android will warn you when installing, because Franxit isn\'t on the Play Store. <a href="#installeren">Here\'s how to get past that</a>.',
     steps_h="How it works",
     steps=[("Pick a product", "Type the name of a product, or share an online shop page with Franxit. That's how we get started."),
-           ("Compare the shops", "Franxit lists the prices of all the shops one below the other, so you see right away where it's cheapest."),
+           ("Compare the shops", "Franxit puts the prices of all the shops together in one list, so you see right away where it's cheapest."),
            ("Get advice", "Is it a good moment to buy? Franxit looks at the price history and explains. The final decision is yours."),
            ("Keep track", "All your products on one screen. Set your maximum price and get notified when it's reached.")],
     see_h="What it looks like",
