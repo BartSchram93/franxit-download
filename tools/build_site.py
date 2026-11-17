@@ -47,6 +47,8 @@ def page(code):
     install = "\n".join(f"      <li>{x}</li>" for x in t["install_steps"])
     faq_items = [f"  <details>\n    <summary>{q}</summary>\n    {a.replace('[[privacy]]', privacy)}\n  </details>" for q, a in t["faq"]]
     share = "https://wa.me/?text=" + urllib.parse.quote(t["share_text"], safe="")
+    ios_a, ios_b = (t["ios_note"].split(". ", 1) + [""])[:2]
+    ios_a += "."
     share_plain = t["share_text"].rsplit("https://", 1)[0].strip()
     js_texts = json.dumps(dict(version=t["version_label"], updated=t["updated_label"], months=MONTHS[code], decimal=t["decimal"]), ensure_ascii=False)
     def plain(s):
@@ -115,7 +117,7 @@ def page(code):
     <p class="brand"><img src="{root}icon.png" alt="" width="28" height="28">FRANXIT</p>
     <h1>{t["h1"]}</h1>
     <p class="lead">{t["lead"]}</p>
-    <p class="ios-note">{t["ios_note"]}</p>
+    <p class="ios-note"><span>{ios_a}</span> <span class="ios-b">{ios_b}</span></p>
     <div class="qr"><img src="{root}qr.svg" alt="{esc(t["qr_alt"])}" width="160" height="160"><span><strong>{t["qr_strong"]}</strong><br>{t["qr_text"]}</span></div>
     <a class="get" id="download" href="{APK}">
       <span class="get-top">

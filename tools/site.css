@@ -390,3 +390,5 @@
     footer .foot-meta #updated { display: inline; margin: 0; }
     footer .foot-meta #updated:not(:empty)::before { content: " · "; }
   }
+
+  .ios-note .ios-b { display: block; margin-top: 6px; }
