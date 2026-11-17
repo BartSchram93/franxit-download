@@ -248,6 +248,10 @@
 
   .wide > .shots { margin-top: 56px; }
   @media (min-width: 640px) { .wide > .shots { margin-top: 72px; } }
+
+  /* The step text sits under its screen. */
+  .step { margin: 18px 0 0; flex: none; }
+  .phone img { order: 0; }
 </style>
 </head>
 <body>
@@ -279,10 +283,10 @@
   <section class="wide">
 
   <div class="shots" id="shots">
-    <figure class="phone"><div class="step"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>3</b><div><strong>Reçois un conseil</strong><span>Si tu dois acheter maintenant ou attendre, avec l'explication.</span></div></div><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone extra"><div class="step"><b>4</b><div><strong>Garde le fil</strong><span>Tous tes produits au même endroit, chacun avec son conseil.</span></div></div><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"><div class="step"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div></figure>
+    <figure class="phone"><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" loading="lazy"><div class="step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div></figure>
+    <figure class="phone"><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"><div class="step"><b>3</b><div><strong>Reçois un conseil</strong><span>Si tu dois acheter maintenant ou attendre, avec l'explication.</span></div></div></figure>
+    <figure class="phone extra"><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"><div class="step"><b>4</b><div><strong>Garde le fil</strong><span>Tous tes produits au même endroit, chacun avec son conseil.</span></div></div></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <p class="advice-h">Voici ce que chaque conseil veut dire :</p>

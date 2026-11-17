@@ -222,3 +222,7 @@
 
   .wide > .shots { margin-top: 56px; }
   @media (min-width: 640px) { .wide > .shots { margin-top: 72px; } }
+
+  /* The step text sits under its screen. */
+  .step { margin: 18px 0 0; flex: none; }
+  .phone img { order: 0; }

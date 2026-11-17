@@ -249,6 +249,10 @@
 
   .wide > .shots { margin-top: 56px; }
   @media (min-width: 640px) { .wide > .shots { margin-top: 72px; } }
+
+  /* The step text sits under its screen. */
+  .step { margin: 18px 0 0; flex: none; }
+  .phone img { order: 0; }
 </style>
 </head>
 <body>
@@ -280,10 +284,10 @@
   <section class="wide">
 
   <div class="shots" id="shots">
-    <figure class="phone"><div class="step"><b>1</b><div><strong>Kies een product</strong><span>Typ de naam, of deel een winkelpagina met Franxit.</span></div></div><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>2</b><div><strong>Laat Franxit analyseren</strong><span>De prijs per winkel, en wat het product het voorbije jaar kostte.</span></div></div><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>3</b><div><strong>Krijg advies</strong><span>Of je nu best koopt of wacht, met uitleg erbij.</span></div></div><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone extra"><div class="step"><b>4</b><div><strong>Hou het bij</strong><span>Al je producten op één plek, elk met zijn advies.</span></div></div><img src="screens/nl/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"><div class="step"><b>1</b><div><strong>Kies een product</strong><span>Typ de naam, of deel een winkelpagina met Franxit.</span></div></div></figure>
+    <figure class="phone"><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" loading="lazy"><div class="step"><b>2</b><div><strong>Laat Franxit analyseren</strong><span>De prijs per winkel, en wat het product het voorbije jaar kostte.</span></div></div></figure>
+    <figure class="phone"><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"><div class="step"><b>3</b><div><strong>Krijg advies</strong><span>Of je nu best koopt of wacht, met uitleg erbij.</span></div></div></figure>
+    <figure class="phone extra"><img src="screens/nl/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="969" loading="lazy"><div class="step"><b>4</b><div><strong>Hou het bij</strong><span>Al je producten op één plek, elk met zijn advies.</span></div></div></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <p class="advice-h">Dit betekent elk advies:</p>
