@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bartschram.franxit",
+      "sha256_cert_fingerprints": ["76:95:4F:4C:23:65:CE:BE:58:1C:32:A2:B5:4E:1A:7C:EC:91:1D:24:BB:4A:A7:E3:7E:75:FF:5A:86:12:8D:C7"]
+    }
+  }
+]
