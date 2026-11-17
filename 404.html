@@ -403,6 +403,18 @@
     .legend-card .legend li { align-items: center; align-content: center; }
   }
 
+  /* Desktop polish: no lone words on the last line of a step, a hover cue on the questions, a slightly higher start, equal section headings. */
+  @media (min-width: 900px) {
+    .step span { text-wrap: pretty; }
+    summary::after { right: 2px; color: var(--ink); opacity: .55; }
+    summary:hover { color: var(--blue); }
+    summary:hover::after { opacity: 1; }
+    details[open] summary::after { opacity: 1; }
+    .hero { padding-top: 22px; }
+    .wide > .shots { margin-top: 40px; }
+    h2, .minor { font-size: 24px; margin-top: 88px; margin-bottom: 16px; }
+  }
+
   main { text-align: center; padding-top: 18vh; } img { width: 72px; height: 72px; border-radius: 18px; }
 </style></head><body><main>
   <img src="/icon.png" alt="" width="72" height="72">
