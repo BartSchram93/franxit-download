@@ -262,6 +262,25 @@
     .story p:nth-of-type(2) { font-size: 22px; line-height: 1.5; }
   }
 
+  /* Polish: depth, a soft glow behind the hero phone, and phones that still show up in dark mode. */
+  :root { color-scheme: light dark; }
+  ::selection { background: color-mix(in srgb, var(--blue) 25%, transparent); }
+  .hero { position: relative; }
+  .phone img, .hero-shot img { box-shadow: 0 28px 50px -18px rgba(22, 44, 96, .30), 0 6px 16px rgba(0, 0, 0, .07); }
+  .qr, .get, .ios .ios-note { box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 14px 30px -18px rgba(22, 44, 96, .25); }
+  .step b { box-shadow: 0 0 0 5px color-mix(in srgb, var(--blue) 14%, transparent); }
+  @media (min-width: 900px) {
+    .hero::before { content: ""; position: absolute; right: -20px; top: -30px; width: 580px; height: 700px; z-index: -1; pointer-events: none;
+      background: radial-gradient(closest-side, color-mix(in srgb, var(--blue) 17%, transparent), transparent); }
+    h1 { letter-spacing: -1.2px; }
+    .hero-shot { -webkit-mask-image: linear-gradient(#000 62%, transparent); mask-image: linear-gradient(#000 62%, transparent); }
+  }
+  @media (prefers-color-scheme: dark) {
+    .phone img, .hero-shot img { border-color: #3a3a40; box-shadow: 0 28px 50px -18px rgba(0, 0, 0, .8), 0 0 0 1px #4a4a52; }
+    .qr, .get { box-shadow: none; }
+  }
+  .qr img { border-radius: 10px; }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }
