@@ -89,7 +89,7 @@ def page(code):
     <button class="copy" type="button" data-done="{esc(t["copied"])}" data-url="{url}">{t["copy_label"]}</button>
     <p class="source">{t["source"]}</p>
    </div>
-   <div class="hero-shot"><span class="chip">{t["chip"]}</span><img src="{root}screens/{code}/advice.webp" alt="{esc(t["shots"][2][1])}" width="460" height="969" fetchpriority="high"></div>
+   <div class="hero-shot"><img src="{root}screens/{code}/advice.webp" alt="{esc(t["shots"][2][1])}" width="460" height="969" fetchpriority="high"></div>
   </section>
 
   <section class="wide">

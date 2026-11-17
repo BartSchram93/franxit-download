@@ -47,14 +47,15 @@
   .hero-shot img { display: block; width: 100%; height: auto; border: 7px solid #111; border-radius: 34px; box-shadow: 0 8px 24px rgba(0,0,0,.14); background: var(--card); }
   @media (min-width: 900px) {
     .hero { display: grid; grid-template-columns: 1fr 340px; gap: 96px; align-items: center; text-align: left; padding: 40px 0 0; }
-    .hero-shot { margin: 0; width: 340px; height: auto; overflow: visible; -webkit-mask-image: none; mask-image: none; }
+    .hero-shot { margin: 0; width: 380px; height: auto; overflow: visible; -webkit-mask-image: none; mask-image: none; }
     .hero .lead { margin-left: 0; }
-    h1 { font-size: 52px; }
+    h1 { font-size: 56px; }
     .lead { font-size: 21px; }
     h2 { margin-top: 96px; font-size: 28px; }
-    .desktop .qr { max-width: 480px; }
+    .desktop .qr { max-width: 520px; }
     .qr img { width: 160px; height: 160px; }
-    .hero .calm, .hero .source { max-width: 480px; }
+    .hero .calm, .hero .source { max-width: 520px; }
+    .desktop .copy { display: block; width: 100%; max-width: 440px; text-align: center; }
     .desktop .qr, .calm, .source { margin-left: 0; margin-right: 0; text-align: left; }
     .desktop .hero .qr { margin: 0 0 14px; }
     .hero .calm, .hero .source { margin-left: 0; margin-right: 0; max-width: 440px; text-align: center; }
@@ -123,7 +124,7 @@
   .dots span.on { background: var(--ink); }
   /* Tablet or a narrow window: two by two, nothing to scroll. On a computer all four in a row. */
   @media (min-width: 640px) { .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; overflow: visible; margin: 0; padding: 4px 0 14px; } .phone { flex: none; } .dots { display: none; } }
-  @media (min-width: 900px) { .shots { grid-template-columns: repeat(3, 1fr); gap: 40px; } .phone { max-width: 330px; margin: 0 auto; } }
+  @media (min-width: 900px) { .shots { grid-template-columns: repeat(3, minmax(0, 330px)); justify-content: space-between; } .phone { max-width: 330px; } }
     /* The advice names: the label with its dot, and its explanation under it. The same on every screen and in every language. */
   /* The five advice names as coloured labels, each with its explanation. The same on every screen and language. */
   .advice-h { margin: 36px 0 14px; font-weight: 700; font-size: 17px; }
@@ -169,6 +170,7 @@
 
   /* The language choice: there for whoever looks for it, not competing with the page. */
   .langs { text-align: right; font-size: 13px; padding-top: 6px; color: var(--muted); opacity: .75; letter-spacing: .2px; }
+  .langs { margin-right: -6px; }
   .langs a { color: var(--muted); text-decoration: none; display: inline-block; padding: 8px 6px; }
   .langs a:hover { text-decoration: underline; opacity: 1; }
   .langs b { color: var(--muted); font-weight: 500; display: inline-block; padding: 8px 6px; text-decoration: underline; text-underline-offset: 3px; }
@@ -202,7 +204,7 @@
   .step span { color: var(--muted); font-size: 15px; display: block; }
   .phone figcaption { display: none; }
   .minor { font-size: 20px; }
-  .copy, .closing, .chip { display: none; }
+  .copy, .closing { display: none; }
   .copy { font: inherit; font-size: 14px; color: var(--muted); background: none; border: 0; padding: 8px 0 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
   .desktop .copy { display: inline-block; }
   .desktop .closing { display: block; }
@@ -212,12 +214,13 @@
   .closing-qr strong { color: var(--ink); }
   .closing-qr img { width: 140px; height: 140px; image-rendering: pixelated; background: #fff; }
   @media (min-width: 900px) {
-    .hero { grid-template-columns: minmax(0, 560px) 340px; justify-content: center; gap: 120px; }
+    .hero { grid-template-columns: minmax(0, 1fr) 380px; gap: 64px; }
     .hero-shot { position: relative; }
-    .desktop .chip { display: block; position: absolute; left: -190px; top: 128px; z-index: 2; background: var(--card); color: var(--red); font-weight: 700; font-size: 17px; padding: 12px 18px; border-radius: 14px; box-shadow: 0 10px 28px rgba(0,0,0,.18); border: 1px solid var(--line); white-space: nowrap; }
     .step { min-height: 92px; }
     .minor { margin-top: 80px; }
   }
+
+  @media (min-width: 900px) { .desktop .hero .qr { max-width: 440px; } .desktop .hero .qr img { width: 150px; height: 150px; flex: none; } }
 </style>
 </head>
 <body>
@@ -243,7 +246,7 @@
     <button class="copy" type="button" data-done="Link copied" data-url="https://franxit.be/en/">Or copy the link</button>
     <p class="source">Android will warn you when installing, because Franxit isn't on the Play Store. <a href="#installeren">Here's how to get past that</a>.</p>
    </div>
-   <div class="hero-shot"><span class="chip">Wait — currently expensive</span><img src="../screens/en/advice.webp" alt="Product screen with the cheapest shop" width="460" height="969" fetchpriority="high"></div>
+   <div class="hero-shot"><img src="../screens/en/advice.webp" alt="Product screen with the cheapest shop" width="460" height="969" fetchpriority="high"></div>
   </section>
 
   <section class="wide">
