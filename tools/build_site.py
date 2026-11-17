@@ -187,7 +187,7 @@ def page(code):
       <a href="/{ARTICLES[code]["path"]}">{ARTICLES[code]["title"]}</a>
       <a href="{privacy}">{t["privacy_label"]}</a>
     </nav>
-    <p class="foot-meta">{t["made_by"]} · {t["only_android"]}<span id="updated"></span></p>
+    <p class="foot-meta"><span>{t["made_by"]}</span><span>{t["only_android"]}</span><span id="updated"></span></p>
   </footer>
 </main>
 <script>

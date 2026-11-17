@@ -496,6 +496,21 @@
     footer { margin-top: 44px; }
   }
 
+  /* Footer. Desktop: the small print on one line with dots. Phone: a thin rule, the links side by side, every small-print line a complete sentence. */
+  footer .foot-meta span { display: inline; }
+  @media (min-width: 900px) {
+    footer .foot-meta span + span::before { content: " · "; }
+    footer .foot-meta #updated:empty::before { content: none; }
+  }
+  @media (max-width: 899px) {
+    footer { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line); }
+    footer .foot-links { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px 24px; margin-bottom: 18px; }
+    footer .foot-meta span, footer .foot-meta #updated { display: block; margin: 0; line-height: 1.7; }
+    footer .foot-meta #updated::before { content: none; }
+    main { padding-bottom: 36px; }
+  }
+  @media (max-width: 899px) { .faq details:last-of-type { border-bottom: 0; } }
+
   main { max-width: 680px; } article h1 { font-size: 36px; margin: 8px 0 14px; } article h2 { font-size: 21px; margin: 36px 0 6px; }
   article p { margin: 0 0 12px; } .intro { font-size: 19px; color: var(--muted); }
   .example { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; margin: 14px 0; }
