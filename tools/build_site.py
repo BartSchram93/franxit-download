@@ -222,7 +222,7 @@ def page(code):
       var ph = w.querySelector(".phone img"), card = w.querySelector(".legend-card");
       if (!ph || !card || !matchMedia("(min-width: 900px)").matches) return;
       var wr = w.getBoundingClientRect(), p = ph.getBoundingClientRect(), c = card.getBoundingClientRect();
-      var top = p.top - wr.top + p.height * 0.52, bottom = c.bottom - wr.top + 48;   // fades in from just over half of the phones, ends a little under the card
+      var top = p.top - wr.top + p.height * 0.52, bottom = c.top - wr.top + c.height * 0.75;   // fades in from just over half of the phones, ends behind the legend card
       w.style.setProperty("--band-top", Math.round(top) + "px");
       w.style.setProperty("--band-h", Math.max(0, Math.round(bottom - top)) + "px");
     }}
