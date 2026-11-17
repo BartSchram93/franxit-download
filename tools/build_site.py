@@ -124,7 +124,7 @@ def page(code):
 
   <h2 id="installeren">{t["install_h"]}</h2>
   <p class="sub">{t["install_sub"]}</p>
-  <div class="card">
+  <div class="card install">
     <ol>
 {install}
     </ol>
@@ -134,7 +134,9 @@ def page(code):
   <a class="dl2" href="{APK}">{t["download"]}</a>
 
   <h2>{t["faq_h"]}</h2>
+  <div class="faq">
 {faq}
+  </div>
 
   </section>
 
