@@ -323,6 +323,17 @@
     .shots.end { -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); }
     .phone { flex: 0 0 66vw; scroll-snap-align: center; }
   }
+  /* Phone: tighter rhythm between the blocks, and the shared caption is only as tall as its longest step. */
+  @media (max-width: 639px) {
+    .live { display: grid; min-height: 0; margin-top: 10px; }
+    .live .live-step, .live .live-step.on { display: grid; grid-area: 1 / 1; visibility: hidden; }
+    .live .live-step.on { visibility: visible; }
+    .wide > .shots { margin-top: 36px; }
+    .advice-h { margin-top: 36px; }
+    h2 { margin-top: 44px; }
+    .dots { margin-top: 14px; }
+    footer { margin-top: 40px; }
+  }
 </style>
 </head>
 <body>
