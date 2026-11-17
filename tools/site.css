@@ -442,3 +442,10 @@
   }
   @media (min-width: 900px) { .hero { padding-top: 48px; } }
   @media (min-width: 900px) { .wide > .shots { margin-top: 78px; } }
+
+  /* Desktop: the legend card has the same width as the story and the questions under it. */
+  @media (min-width: 900px) {
+    .legend-card { max-width: 720px; margin-left: auto; margin-right: auto; padding: 24px 26px 26px; }
+    .legend-card .legend li { grid-template-columns: 182px 1fr; gap: 12px; }
+    .legend-card .legend li span { font-size: 15px; }
+  }

@@ -478,6 +478,13 @@
   }
   @media (min-width: 900px) { .hero { padding-top: 48px; } }
   @media (min-width: 900px) { .wide > .shots { margin-top: 78px; } }
+
+  /* Desktop: the legend card has the same width as the story and the questions under it. */
+  @media (min-width: 900px) {
+    .legend-card { max-width: 720px; margin-left: auto; margin-right: auto; padding: 24px 26px 26px; }
+    .legend-card .legend li { grid-template-columns: 182px 1fr; gap: 12px; }
+    .legend-card .legend li span { font-size: 15px; }
+  }
 </style>
 </head>
 <body>
@@ -528,7 +535,7 @@
     <li><strong style="--c:var(--blue)"><i></i>Overwegen</strong><span>Goed, maar niet uitzonderlijk.</span></li>
     <li><strong style="--c:var(--orange)"><i></i>Wachten</strong><span>Niet bijzonder aantrekkelijk. Wacht, of zet een 🔔 prijsalert.</span></li>
     <li><strong style="--c:var(--red)"><i></i>Beter niet</strong><span>De prijs is nu hoog vergeleken met de prijsgeschiedenis.</span></li>
-    <li><strong style="--c:var(--muted)"><i></i>Nog geen advies</strong><span>Nog te weinig geschiedenis om te oordelen. Franxit is daar eerlijk over.</span></li>
+    <li><strong style="--c:var(--muted)"><i></i>Nog geen advies</strong><span>Te weinig geschiedenis om te oordelen. Franxit is daar eerlijk over.</span></li>
   </ul>
   </div>
 
