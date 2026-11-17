@@ -229,6 +229,11 @@
   .step { flex: 1 1 auto; align-content: start; }
   .phone img { flex: none; }
 
+  /* The overview: in the carousel as the last card on phones and tablets, big in the hero on a computer. */
+  .step.plain { grid-template-columns: 1fr; }
+  @media (max-width: 899px) { .hero-shot { display: none; } }
+  @media (min-width: 900px) { .phone.extra { display: none; } }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }
