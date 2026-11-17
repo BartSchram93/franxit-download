@@ -138,23 +138,6 @@ def page(code):
   </footer>
 </main>
 <script>
-  // Things rise a little as they come into view. What is on screen already stays as it is (no flicker);
-  // no motion for people who asked for less of it, and without this script everything simply shows.
-  (function () {{
-    if (!("IntersectionObserver" in window) || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
-    var io = new IntersectionObserver(function (entries) {{
-      entries.forEach(function (e) {{ if (e.isIntersecting) {{ e.target.classList.add("in"); io.unobserve(e.target); }} }});
-    }}, {{ rootMargin: "0px 0px -8% 0px", threshold: 0.08 }});
-    var all = document.querySelectorAll("main h2, main .sub, main .note, .steps li, .phone, .legend li, .feature, main .card, main details, main .dl2");
-    Array.prototype.forEach.call(all, function (el) {{
-      if (el.getBoundingClientRect().top < window.innerHeight) return;
-      var inGroup = el.parentNode.tagName !== "MAIN";
-      var i = inGroup ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
-      el.style.setProperty("--d", Math.min(i, 5) * 80 + "ms");
-      el.classList.add("reveal");
-      io.observe(el);
-    }});
-  }})();
   // Remember a language chosen by hand, so the page doesn't switch it back.
   document.querySelectorAll(".langs a").forEach(function (a) {{
     a.addEventListener("click", function () {{ try {{ localStorage.setItem("lang", a.getAttribute("data-lang")); }} catch (e) {{}} }});
