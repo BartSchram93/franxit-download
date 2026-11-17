@@ -76,7 +76,12 @@ def page(code):
 <meta property="og:image" content="https://franxit.be/{PREVIEW[code]}?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Franxit">
+<meta property="og:image:alt" content="{esc(t["og_title"])}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(t["og_title"])}">
+<meta name="twitter:description" content="{esc(t["desc"])}">
+<meta name="twitter:image" content="https://franxit.be/{PREVIEW[code]}?v=3">
 <link rel="canonical" href="{url}">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 {jsonld}
@@ -308,4 +313,15 @@ if __name__ == "__main__":
     sm += f"  <url>\n    <loc>https://franxit.be/privacy.html</loc>\n    <lastmod>{today}</lastmod>\n  </url>\n</urlset>\n"
     open("sitemap.xml", "w", encoding="utf-8").write(sm)
     open("llms.txt", "w", encoding="utf-8").write(LLMS)
+    lines = "".join(f'  <p lang="{c}" style="margin:0 0 6px">{LANGS[c]["nf"]} <a href="/{LANGS[c]["path"]}">Franxit</a></p>\n' for c in ORDER)
+    open("404.html", "w", encoding="utf-8").write(f"""<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>404 · Franxit</title><link rel="icon" href="/icon.png">
+<style>{CSS}
+  main {{ text-align: center; padding-top: 18vh; }} img {{ width: 72px; height: 72px; border-radius: 18px; }}
+</style></head><body><main>
+  <img src="/icon.png" alt="" width="72" height="72">
+  <h1 style="margin-top:18px">404</h1>
+{lines}</main></body></html>
+""")
     print("wrote robots.txt, sitemap.xml, llms.txt")

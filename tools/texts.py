@@ -19,6 +19,7 @@ def date_text(lang):
 
 LANGS = {
 "nl": dict(
+    nf="Deze pagina bestaat niet. Naar",
     code="nl", name="Nederlands", og_locale="nl_BE", path="", whatsapp_lang="nl",
     title="Franxit – gratis Android-app: waar en wanneer koop je best?",
     desc="Franxit analyseert de prijzen en geeft advies: waar het goedkoopst is en of nu het juiste moment is. Gratis, voor Android.",
@@ -80,6 +81,7 @@ LANGS = {
     p_android_only="Franxit is er enkel voor Android.", p_button="Franxit downloaden", p_more="Meer over Franxit",
 ),
 "fr": dict(
+    nf="Cette page n'existe pas. Vers",
     code="fr", name="Français", og_locale="fr_BE", path="fr/", whatsapp_lang="fr",
     title="Franxit – appli Android gratuite : où et quand acheter au mieux ?",
     desc="Franxit analyse les prix et te conseille : où c'est le moins cher et si c'est le bon moment. Gratuit, pour Android.",
@@ -140,6 +142,7 @@ LANGS = {
     p_android_only="Franxit n'existe que pour Android.", p_button="Télécharger Franxit", p_more="En savoir plus sur Franxit",
 ),
 "en": dict(
+    nf="This page doesn't exist. Go to",
     code="en", name="English", og_locale="en_GB", path="en/", whatsapp_lang="en",
     title="Franxit – free Android app: where and when to buy?",
     desc="Franxit analyses prices and gives you advice: where it's cheapest and whether now is the right moment. Free, for Android.",
