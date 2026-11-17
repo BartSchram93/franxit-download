@@ -188,7 +188,7 @@ def page(code):
     a.addEventListener("click", function () {{ try {{ localStorage.setItem("lang", a.getAttribute("data-lang")); }} catch (e) {{}} }});
   }});
   try {{ localStorage.setItem("lang", "{code}"); }} catch (e) {{}}
-  // Phone: when you stop scrolling with the whole phone screen in view but its caption cut off at the bottom,
+  // Phone: when you stop scrolling with the phone screen in view (all but its last 10%) but its caption cut off at the bottom,
   // nudge the page down just enough to show it. Never upwards, never when it is already visible.
   (function () {{
     var sh = document.getElementById("shots"), lv = document.getElementById("live");
@@ -199,7 +199,7 @@ def page(code):
       var vh = window.innerHeight; if (vh < 520) return;
       var ph = sh.querySelector(".phone img"); if (!ph) return;
       var pr = ph.getBoundingClientRect(), top = sh.getBoundingClientRect().top, bottom = lv.getBoundingClientRect().bottom;
-      if (pr.top < 0 || pr.bottom > vh || top < 14) return;         // only once the whole phone is in view, never when already past it
+      if (pr.top < 0 || pr.bottom > vh + pr.height * 0.1 || top < 14) return;   // phone in view (its last 10% may still be below), never when already past it
       var need = bottom - (vh - 16), room = top - 14;               // how far to go, how far we may go
       var d = Math.min(need, room);
       if (d > 6) window.scrollBy({{ top: d, behavior: "smooth" }});
