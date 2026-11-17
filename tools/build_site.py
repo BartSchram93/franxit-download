@@ -45,13 +45,16 @@ def page(code):
     features = "\n".join(f'    <li class="feature"><strong>{a}</strong><p>{b}</p></li>' for a, b in t["features"])
     story = "\n".join(f"    <p>{p}</p>" for p in t["story"])
     install = "\n".join(f"      <li>{x}</li>" for x in t["install_steps"])
-    faq = "\n".join(f"  <details>\n    <summary>{q}</summary>\n    {a.replace('[[privacy]]', privacy)}\n  </details>" for q, a in t["faq"])
+    faq_items = [f"  <details>\n    <summary>{q}</summary>\n    {a.replace('[[privacy]]', privacy)}\n  </details>" for q, a in t["faq"]]
     share = "https://wa.me/?text=" + urllib.parse.quote(t["share_text"], safe="")
     share_plain = t["share_text"].rsplit("https://", 1)[0].strip()
     js_texts = json.dumps(dict(version=t["version_label"], updated=t["updated_label"], months=MONTHS[code], decimal=t["decimal"]), ensure_ascii=False)
     def plain(s):
         return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", s.replace("[[privacy]]", privacy))).strip()
-    qa = [(t["what_q"], t["what_a"]), (t["install_q"], "<p>" + t["install_sub"] + " " + " ".join(f"{i + 1}. {x}" for i, x in enumerate(t["install_steps"])) + "</p>")] + list(t["faq"])
+    # the visible order: what it costs first, then what it is, how to install, then the rest
+    faq_cost = faq_items[1]
+    faq_rest = "\n".join(faq_items[i] for i in (0, 2, 3))
+    qa = [t["faq"][1], (t["what_q"], t["what_a"]), (t["install_q"], "<p>" + t["install_sub"] + " " + " ".join(f"{i + 1}. {x}" for i, x in enumerate(t["install_steps"])) + "</p>"), t["faq"][0], t["faq"][2], t["faq"][3]]
     site = "https://franxit.be/"
     ld = [
         {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Franxit", "url": url, "inLanguage": code,
@@ -155,6 +158,7 @@ def page(code):
 
   <h2 class="minor">{t["faq_h"]}</h2>
   <div class="faq">
+{faq_cost}
   <details>
     <summary>{t["what_q"]}</summary>
     {t["what_a"]}
@@ -167,7 +171,7 @@ def page(code):
     </ol>
     <p class="small">{t["install_note"]}</p>
   </details>
-{faq}
+{faq_rest}
   </div>
 
   <a class="dl2" href="{APK}">{t["download"]}</a>
