@@ -322,6 +322,25 @@
     footer { margin-top: 40px; }
   }
 
+  /* Desktop: a narrower, centred column. The FAQ, story and legend stack instead of sitting side by side. */
+  @media (min-width: 900px) {
+    main { max-width: 980px; }
+    .hero { grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; }
+    .hero-shot { width: 320px; height: 500px; }
+    h1 { font-size: 46px; }
+    .shots { grid-template-columns: repeat(3, minmax(0, 270px)); }
+    .phone { max-width: 270px; }
+    .narrow { max-width: 720px; margin-left: auto; margin-right: auto; }
+    .legend { grid-template-columns: 1fr; gap: 14px; max-width: 720px; margin-left: auto; margin-right: auto; }
+    .advice-h { max-width: 720px; margin-left: auto; margin-right: auto; }
+    .legend li { grid-template-columns: 190px 1fr; gap: 18px; align-items: center; }
+    .story { columns: 1; max-width: none; }
+    .story p, .story p:nth-of-type(2) { font-size: 18px; }
+    .faq { grid-template-columns: 1fr; }
+    .faq details:nth-last-of-type(-n+2) { border-bottom: 0; }
+    .faq details:last-of-type { border-bottom: 1px solid var(--line); }
+  }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }
