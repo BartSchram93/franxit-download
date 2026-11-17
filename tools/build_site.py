@@ -29,7 +29,7 @@ def page(code):
     shots = "\n".join(
         f'    <figure class="phone"><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"><figcaption>{cap}</figcaption></figure>'
         for n, alt, cap in t["shots"])
-    legend = "\n".join(f'    <li><strong><i style="background:var(--{c})"></i>{n}</strong><span>{d}</span></li>' for c, n, d in t["legend"])
+    legend = "\n".join(f'    <li><strong style="--c:var(--{c})"><i></i>{n}</strong><span>{d}</span></li>' for c, n, d in t["legend"])
     features = "\n".join(f'    <li class="feature"><strong>{a}</strong><p>{b}</p></li>' for a, b in t["features"])
     story = "\n".join(f"    <p>{p}</p>" for p in t["story"])
     install = "\n".join(f"      <li>{x}</li>" for x in t["install_steps"])
@@ -72,7 +72,8 @@ def page(code):
   <nav class="langs" aria-label="Language">{langs_nav}</nav>
 
   <section class="hero">
-    <p class="brand">FRANXIT</p>
+   <div class="hero-copy">
+    <p class="brand"><img src="{root}icon.png" alt="" width="28" height="28">FRANXIT</p>
     <h1>{t["h1"]}</h1>
     <p class="lead">{t["lead"]}</p>
     <p class="ios-note">{t["ios_note"]}</p>
@@ -86,7 +87,11 @@ def page(code):
     </a>
     <p class="calm">{t["calm"]}</p>
     <p class="source">{t["source"]}</p>
+   </div>
+   <div class="hero-shot"><img src="{root}screens/{code}/advice.webp" alt="{esc(t["shots"][2][1])}" width="460" height="969" fetchpriority="high"></div>
   </section>
+
+  <section class="wide">
 
   <h2>{t["steps_h"]}</h2>
   <ol class="steps">
@@ -95,26 +100,26 @@ def page(code):
 
   <h2>{t["see_h"]}</h2>
   <p class="sub">{t["see_sub"].format(date=date_text(code))}</p>
-  <div class="shots">
+  <div class="shots" id="shots">
 {shots}
   </div>
-  <div class="advice-card">
-    <p class="advice-h">{t["legend_note"]}</p>
-    <ul class="legend">
+  <div class="dots" id="dots" aria-hidden="true">{"<span></span>" * len(t["shots"])}</div>
+  <p class="advice-h">{t["legend_note"]}</p>
+  <ul class="legend">
 {legend}
-    </ul>
-  </div>
+  </ul>
 
   <h2>{t["more_h"]}</h2>
-  <p class="sub">{t["more_sub"]}</p>
   <ul class="features">
 {features}
   </ul>
+  </section>
 
+  <section class="narrow">
   <h2>{t["why_h"]}</h2>
-  <div class="card">
+  <div class="story">
 {story}
-    <p class="small">{t["signature"]}</p>
+    <p class="signature">{t["signature"]}</p>
   </div>
 
   <h2 id="installeren">{t["install_h"]}</h2>
@@ -131,6 +136,8 @@ def page(code):
   <h2>{t["faq_h"]}</h2>
 {faq}
 
+  </section>
+
   <footer>
     <p>{t["made_by"]}</p>
     <p>{t["only_android"]}</p>
@@ -144,6 +151,16 @@ def page(code):
     a.addEventListener("click", function () {{ try {{ localStorage.setItem("lang", a.getAttribute("data-lang")); }} catch (e) {{}} }});
   }});
   try {{ localStorage.setItem("lang", "{code}"); }} catch (e) {{}}
+  // Dots under the screens (phones only): which one is in view.
+  (function () {{
+    var s = document.getElementById("shots"), d = document.querySelectorAll("#dots span");
+    if (!s || !d.length) return;
+    function mark() {{
+      var w = s.scrollWidth - s.clientWidth, i = w > 0 ? Math.round(s.scrollLeft / w * (d.length - 1)) : 0;
+      d.forEach(function (x, n) {{ x.className = n === i ? "on" : ""; }});
+    }}
+    s.addEventListener("scroll", mark, {{ passive: true }}); mark();
+  }})();
   // Fills in the version and size of the latest release (no problem if this fails).
   var T = {js_texts};
   fetch("{RELEASES_API}")
