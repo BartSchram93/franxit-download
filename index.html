@@ -54,6 +54,7 @@
     .lead { font-size: 21px; }
     h2 { margin-top: 96px; font-size: 28px; }
     .desktop .qr { max-width: 480px; }
+    .qr img { width: 160px; height: 160px; }
     .hero .calm, .hero .source { max-width: 480px; }
     .desktop .qr, .calm, .source { margin-left: 0; margin-right: 0; text-align: left; }
     .desktop .hero .qr { margin: 0 0 14px; }
@@ -83,7 +84,7 @@
   .ios .get, .ios .source { display: none; }
   .desktop .qr { display: flex; align-items: center; gap: 16px; max-width: 440px; margin: 0 auto 14px; text-align: left; color: var(--muted); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
   .qr strong { color: var(--ink); }
-  .qr img { width: 160px; height: 160px; flex: none; background: #fff; image-rendering: pixelated; }
+  .qr img { width: 124px; height: 124px; flex: none; background: #fff; image-rendering: pixelated; }
 .steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 20px; counter-reset: s; }
   .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin: 0; }
   .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); font-weight: 700; display: grid; place-items: center; }
@@ -115,7 +116,7 @@
 
   .shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -22px; padding: 4px 22px 14px; scrollbar-width: none; }
   .shots::-webkit-scrollbar { display: none; }
-  .phone { flex: 0 0 58%; scroll-snap-align: center; margin: 0; text-align: center; }
+  .phone { flex: 0 0 70%; scroll-snap-align: center; margin: 0; text-align: center; }
   .phone img { display: block; width: 100%; height: auto; border: 7px solid #111; border-radius: 30px; box-shadow: 0 8px 24px rgba(0,0,0,.14); background: var(--card); }
   .phone figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
   .dots { display: flex; justify-content: center; gap: 7px; margin: 2px 0 0; }
@@ -194,6 +195,30 @@
   }
 
   @media (min-width: 900px) { footer { margin-top: 80px; padding-top: 28px; border-top: 1px solid var(--line); } }
+
+  /* Each screen has its step on top. */
+  .step { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; text-align: left; margin-bottom: 18px; }
+  .step b { width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); display: grid; place-items: center; }
+  .step strong { display: block; }
+  .step span { color: var(--muted); font-size: 15px; display: block; }
+  .phone figcaption { display: none; }
+  .minor { font-size: 20px; }
+  .copy, .closing, .chip { display: none; }
+  .copy { font: inherit; font-size: 14px; color: var(--muted); background: none; border: 0; padding: 8px 0 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .desktop .copy { display: inline-block; }
+  .desktop .closing { display: block; }
+  .closing { margin: 96px 0 0; padding: 44px 24px; border-radius: 24px; text-align: center; background: color-mix(in srgb, var(--blue) 9%, var(--bg)); }
+  .closing h2 { margin: 0 0 22px; }
+  .closing-qr { display: inline-flex; align-items: center; gap: 22px; text-align: left; color: var(--muted); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 22px; }
+  .closing-qr strong { color: var(--ink); }
+  .closing-qr img { width: 140px; height: 140px; image-rendering: pixelated; background: #fff; }
+  @media (min-width: 900px) {
+    .hero { grid-template-columns: minmax(0, 560px) 340px; justify-content: center; gap: 120px; }
+    .hero-shot { position: relative; }
+    .desktop .chip { display: block; position: absolute; left: -190px; top: 128px; z-index: 2; background: var(--card); color: var(--red); font-weight: 700; font-size: 17px; padding: 12px 18px; border-radius: 14px; box-shadow: 0 10px 28px rgba(0,0,0,.18); border: 1px solid var(--line); white-space: nowrap; }
+    .step { min-height: 92px; }
+    .minor { margin-top: 80px; }
+  }
 </style>
 </head>
 <body>
@@ -216,26 +241,20 @@
       <span class="get-go">Downloaden</span>
     </a>
     <p class="calm">Gratis. Geen account. Geen reclame.</p>
+    <button class="copy" type="button" data-done="Link gekopieerd" data-url="https://franxit.be/">Of kopieer de link</button>
     <p class="source">Android waarschuwt je bij het installeren, omdat Franxit niet in de Play Store staat. <a href="#installeren">Zo los je dat op</a>.</p>
    </div>
-   <div class="hero-shot"><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" fetchpriority="high"></div>
+   <div class="hero-shot"><span class="chip">Wachten — nu duur</span><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" fetchpriority="high"></div>
   </section>
 
   <section class="wide">
 
   <h2>Zo werkt het</h2>
-  <ol class="steps">
-    <li><div><strong>Kies een product</strong><span>Typ de naam, of deel een winkelpagina met Franxit.</span></div></li>
-    <li><div><strong>Franxit analyseert</strong><span>De prijs per winkel, en wat het product het voorbije jaar kostte.</span></div></li>
-    <li><div><strong>Je krijgt advies</strong><span>De goedkoopste winkel, en of je nu best koopt of wacht.</span></div></li>
-  </ol>
-
-  <h2>Zo ziet het eruit</h2>
   <p class="sub">Echte schermen uit de app, met de echte prijzen van 17 november 2026.</p>
   <div class="shots" id="shots">
-    <figure class="phone"><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"><figcaption>Deel een winkelpagina met Franxit</figcaption></figure>
-    <figure class="phone"><img src="screens/nl/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="969" loading="lazy"><figcaption>Je producten en hun advies</figcaption></figure>
-    <figure class="phone"><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"><figcaption>Het advies, met uitleg</figcaption></figure>
+    <figure class="phone"><div class="step"><b>1</b><div><strong>Kies een product</strong><span>Typ de naam, of deel een winkelpagina met Franxit.</span></div></div><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>2</b><div><strong>Franxit analyseert</strong><span>De prijs per winkel, en wat het product het voorbije jaar kostte.</span></div></div><img src="screens/nl/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>3</b><div><strong>Je krijgt advies</strong><span>De goedkoopste winkel, en of je nu best koopt of wacht.</span></div></div><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <p class="advice-h">Dit betekent elk advies:</p>
@@ -247,7 +266,7 @@
     <li><strong style="--c:var(--muted)"><i></i>Nog geen advies</strong><span>Te weinig geschiedenis om te oordelen. Franxit zegt dat eerlijk.</span></li>
   </ul>
 
-  <h2>Wat je er verder mee kan</h2>
+  <h2 class="minor">Wat je er verder mee kan</h2>
   <ul class="features">
     <li class="feature"><strong>Geschiedenis vanaf dag één</strong><p>Je hoeft geen maanden te wachten: de prijzen van het voorbije jaar zijn er meteen.</p></li>
     <li class="feature"><strong>De prijs per winkel</strong><p>Je ziet wat elke winkel vraagt, na hun kortingen, en tikt door naar de winkel.</p></li>
@@ -264,7 +283,7 @@
     <p class="signature">Bart</p>
   </div>
 
-  <h2 id="installeren">Zo krijg je het op je gsm</h2>
+  <h2 id="installeren" class="minor">Zo krijg je het op je gsm</h2>
   <p class="sub">Franxit staat niet in de Play Store, dus Android vraagt eerst toestemming.</p>
   <div class="card install">
     <ol>
@@ -277,7 +296,7 @@
 
   <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Downloaden</a>
 
-  <h2>Vragen</h2>
+  <h2 class="minor">Vragen</h2>
   <div class="faq">
   <details>
     <summary>Hoe betrouwbaar is het advies?</summary>
@@ -299,6 +318,11 @@
 
   </section>
 
+  <section class="closing">
+    <h2>Klaar om het te proberen?</h2>
+    <div class="closing-qr"><img src="qr.svg" alt="QR-code naar franxit.be" width="140" height="140"><span><strong>Scan de code met je gsm</strong><br>Dan installeer je Franxit meteen op je telefoon.</span></div>
+  </section>
+
   <footer>
     <p>Gemaakt door Bart Schram</p>
     <p>Enkel voor Android</p>
@@ -312,6 +336,12 @@
     a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
   });
   try { localStorage.setItem("lang", "nl"); } catch (e) {}
+  // "Copy the link" under the QR code.
+  var cp = document.querySelector(".copy");
+  if (cp) cp.addEventListener("click", function () {
+    var done = function () { var o = cp.textContent; cp.textContent = cp.getAttribute("data-done"); setTimeout(function () { cp.textContent = o; }, 2000); };
+    try { navigator.clipboard.writeText(cp.getAttribute("data-url")).then(done, function () {}); } catch (e) {}
+  });
   // Dots under the screens (phones only): which one is in view.
   (function () {
     var s = document.getElementById("shots"), d = document.querySelectorAll("#dots span");

@@ -53,6 +53,7 @@
     .lead { font-size: 21px; }
     h2 { margin-top: 96px; font-size: 28px; }
     .desktop .qr { max-width: 480px; }
+    .qr img { width: 160px; height: 160px; }
     .hero .calm, .hero .source { max-width: 480px; }
     .desktop .qr, .calm, .source { margin-left: 0; margin-right: 0; text-align: left; }
     .desktop .hero .qr { margin: 0 0 14px; }
@@ -82,7 +83,7 @@
   .ios .get, .ios .source { display: none; }
   .desktop .qr { display: flex; align-items: center; gap: 16px; max-width: 440px; margin: 0 auto 14px; text-align: left; color: var(--muted); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
   .qr strong { color: var(--ink); }
-  .qr img { width: 160px; height: 160px; flex: none; background: #fff; image-rendering: pixelated; }
+  .qr img { width: 124px; height: 124px; flex: none; background: #fff; image-rendering: pixelated; }
 .steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 20px; counter-reset: s; }
   .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin: 0; }
   .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); font-weight: 700; display: grid; place-items: center; }
@@ -114,7 +115,7 @@
 
   .shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -22px; padding: 4px 22px 14px; scrollbar-width: none; }
   .shots::-webkit-scrollbar { display: none; }
-  .phone { flex: 0 0 58%; scroll-snap-align: center; margin: 0; text-align: center; }
+  .phone { flex: 0 0 70%; scroll-snap-align: center; margin: 0; text-align: center; }
   .phone img { display: block; width: 100%; height: auto; border: 7px solid #111; border-radius: 30px; box-shadow: 0 8px 24px rgba(0,0,0,.14); background: var(--card); }
   .phone figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
   .dots { display: flex; justify-content: center; gap: 7px; margin: 2px 0 0; }
@@ -193,6 +194,30 @@
   }
 
   @media (min-width: 900px) { footer { margin-top: 80px; padding-top: 28px; border-top: 1px solid var(--line); } }
+
+  /* Each screen has its step on top. */
+  .step { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; text-align: left; margin-bottom: 18px; }
+  .step b { width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); display: grid; place-items: center; }
+  .step strong { display: block; }
+  .step span { color: var(--muted); font-size: 15px; display: block; }
+  .phone figcaption { display: none; }
+  .minor { font-size: 20px; }
+  .copy, .closing, .chip { display: none; }
+  .copy { font: inherit; font-size: 14px; color: var(--muted); background: none; border: 0; padding: 8px 0 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .desktop .copy { display: inline-block; }
+  .desktop .closing { display: block; }
+  .closing { margin: 96px 0 0; padding: 44px 24px; border-radius: 24px; text-align: center; background: color-mix(in srgb, var(--blue) 9%, var(--bg)); }
+  .closing h2 { margin: 0 0 22px; }
+  .closing-qr { display: inline-flex; align-items: center; gap: 22px; text-align: left; color: var(--muted); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 22px; }
+  .closing-qr strong { color: var(--ink); }
+  .closing-qr img { width: 140px; height: 140px; image-rendering: pixelated; background: #fff; }
+  @media (min-width: 900px) {
+    .hero { grid-template-columns: minmax(0, 560px) 340px; justify-content: center; gap: 120px; }
+    .hero-shot { position: relative; }
+    .desktop .chip { display: block; position: absolute; left: -190px; top: 128px; z-index: 2; background: var(--card); color: var(--red); font-weight: 700; font-size: 17px; padding: 12px 18px; border-radius: 14px; box-shadow: 0 10px 28px rgba(0,0,0,.18); border: 1px solid var(--line); white-space: nowrap; }
+    .step { min-height: 92px; }
+    .minor { margin-top: 80px; }
+  }
 </style>
 </head>
 <body>
@@ -215,26 +240,20 @@
       <span class="get-go">Télécharger</span>
     </a>
     <p class="calm">Gratuit. Sans compte. Sans publicité.</p>
+    <button class="copy" type="button" data-done="Lien copié" data-url="https://franxit.be/fr/">Ou copie le lien</button>
     <p class="source">Android te met en garde à l'installation, car Franxit n'est pas sur le Play Store. <a href="#installeren">Voici comment faire</a>.</p>
    </div>
-   <div class="hero-shot"><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" fetchpriority="high"></div>
+   <div class="hero-shot"><span class="chip">Attendre — actuellement cher</span><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" fetchpriority="high"></div>
   </section>
 
   <section class="wide">
 
   <h2>Comment ça marche</h2>
-  <ol class="steps">
-    <li><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></li>
-    <li><div><strong>Franxit analyse</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></li>
-    <li><div><strong>Tu reçois un conseil</strong><span>Le magasin le moins cher, et si tu dois acheter maintenant ou attendre.</span></div></li>
-  </ol>
-
-  <h2>À quoi ça ressemble</h2>
   <p class="sub">De vrais écrans de l'appli, avec les vrais prix du 17 novembre 2026.</p>
   <div class="shots" id="shots">
-    <figure class="phone"><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"><figcaption>Partage une page de magasin avec Franxit</figcaption></figure>
-    <figure class="phone"><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"><figcaption>Tes produits et leur conseil</figcaption></figure>
-    <figure class="phone"><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"><figcaption>Le conseil, expliqué</figcaption></figure>
+    <figure class="phone"><div class="step"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>2</b><div><strong>Franxit analyse</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>3</b><div><strong>Tu reçois un conseil</strong><span>Le magasin le moins cher, et si tu dois acheter maintenant ou attendre.</span></div></div><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <p class="advice-h">Voici ce que chaque conseil veut dire :</p>
@@ -246,7 +265,7 @@
     <li><strong style="--c:var(--muted)"><i></i>Pas encore de conseil</strong><span>Trop peu d'historique pour juger. Franxit le dit honnêtement.</span></li>
   </ul>
 
-  <h2>Ce que tu peux faire d'autre</h2>
+  <h2 class="minor">Ce que tu peux faire d'autre</h2>
   <ul class="features">
     <li class="feature"><strong>L'historique dès le premier jour</strong><p>Pas besoin d'attendre des mois : les prix de l'année dernière sont là tout de suite.</p></li>
     <li class="feature"><strong>Le prix dans chaque magasin</strong><p>Tu vois ce que demande chaque magasin, réductions comprises, et tu files directement au magasin.</p></li>
@@ -263,7 +282,7 @@
     <p class="signature">Bart</p>
   </div>
 
-  <h2 id="installeren">Comment l'installer sur ton téléphone</h2>
+  <h2 id="installeren" class="minor">Comment l'installer sur ton téléphone</h2>
   <p class="sub">Franxit n'est pas sur le Play Store, donc Android demande d'abord ta permission.</p>
   <div class="card install">
     <ol>
@@ -276,7 +295,7 @@
 
   <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Télécharger</a>
 
-  <h2>Questions</h2>
+  <h2 class="minor">Questions</h2>
   <div class="faq">
   <details>
     <summary>Le conseil est-il fiable ?</summary>
@@ -298,6 +317,11 @@
 
   </section>
 
+  <section class="closing">
+    <h2>Prêt à essayer ?</h2>
+    <div class="closing-qr"><img src="../qr.svg" alt="Code QR vers franxit.be" width="140" height="140"><span><strong>Scanne le code avec ton téléphone</strong><br>Tu installes ainsi Franxit directement sur ton téléphone.</span></div>
+  </section>
+
   <footer>
     <p>Créé par Bart Schram</p>
     <p>Uniquement pour Android</p>
@@ -311,6 +335,12 @@
     a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
   });
   try { localStorage.setItem("lang", "fr"); } catch (e) {}
+  // "Copy the link" under the QR code.
+  var cp = document.querySelector(".copy");
+  if (cp) cp.addEventListener("click", function () {
+    var done = function () { var o = cp.textContent; cp.textContent = cp.getAttribute("data-done"); setTimeout(function () { cp.textContent = o; }, 2000); };
+    try { navigator.clipboard.writeText(cp.getAttribute("data-url")).then(done, function () {}); } catch (e) {}
+  });
   // Dots under the screens (phones only): which one is in view.
   (function () {
     var s = document.getElementById("shots"), d = document.querySelectorAll("#dots span");

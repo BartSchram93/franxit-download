@@ -25,10 +25,10 @@ def page(code):
         for c in ORDER)
     alternates = "\n".join(f'<link rel="alternate" hreflang="{c}" href="https://franxit.be/{LANGS[c]["path"]}">' for c in ORDER)
     alternates += '\n<link rel="alternate" hreflang="x-default" href="https://franxit.be/">'
-    steps = "\n".join(f"    <li><div><strong>{a}</strong><span>{b}</span></div></li>" for a, b in t["steps"])
+    shot_list = [s for s in t["shots"] if s[0] != "advice"]
     shots = "\n".join(
-        f'    <figure class="phone"><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"><figcaption>{cap}</figcaption></figure>'
-        for n, alt, cap in t["shots"] if n != "advice")
+        f'    <figure class="phone"><div class="step"><b>{i + 1}</b><div><strong>{t["steps"][i][0]}</strong><span>{t["steps"][i][1]}</span></div></div><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"></figure>'
+        for i, (n, alt, cap) in enumerate(shot_list))
     legend = "\n".join(f'    <li><strong style="--c:var(--{c})"><i></i>{n}</strong><span>{d}</span></li>' for c, n, d in t["legend"])
     features = "\n".join(f'    <li class="feature"><strong>{a}</strong><p>{b}</p></li>' for a, b in t["features"])
     story = "\n".join(f"    <p>{p}</p>" for p in t["story"])
@@ -86,19 +86,15 @@ def page(code):
       <span class="get-go">{t["download"]}</span>
     </a>
     <p class="calm">{t["calm"]}</p>
+    <button class="copy" type="button" data-done="{esc(t["copied"])}" data-url="{url}">{t["copy_label"]}</button>
     <p class="source">{t["source"]}</p>
    </div>
-   <div class="hero-shot"><img src="{root}screens/{code}/advice.webp" alt="{esc(t["shots"][2][1])}" width="460" height="969" fetchpriority="high"></div>
+   <div class="hero-shot"><span class="chip">{t["chip"]}</span><img src="{root}screens/{code}/advice.webp" alt="{esc(t["shots"][2][1])}" width="460" height="969" fetchpriority="high"></div>
   </section>
 
   <section class="wide">
 
   <h2>{t["steps_h"]}</h2>
-  <ol class="steps">
-{steps}
-  </ol>
-
-  <h2>{t["see_h"]}</h2>
   <p class="sub">{t["see_sub"].format(date=date_text(code))}</p>
   <div class="shots" id="shots">
 {shots}
@@ -109,7 +105,7 @@ def page(code):
 {legend}
   </ul>
 
-  <h2>{t["more_h"]}</h2>
+  <h2 class="minor">{t["more_h"]}</h2>
   <ul class="features">
 {features}
   </ul>
@@ -122,7 +118,7 @@ def page(code):
     <p class="signature">{t["signature"]}</p>
   </div>
 
-  <h2 id="installeren">{t["install_h"]}</h2>
+  <h2 id="installeren" class="minor">{t["install_h"]}</h2>
   <p class="sub">{t["install_sub"]}</p>
   <div class="card install">
     <ol>
@@ -133,11 +129,16 @@ def page(code):
 
   <a class="dl2" href="{APK}">{t["download"]}</a>
 
-  <h2>{t["faq_h"]}</h2>
+  <h2 class="minor">{t["faq_h"]}</h2>
   <div class="faq">
 {faq}
   </div>
 
+  </section>
+
+  <section class="closing">
+    <h2>{t["closing_h"]}</h2>
+    <div class="closing-qr"><img src="{root}qr.svg" alt="{esc(t["qr_alt"])}" width="140" height="140"><span><strong>{t["qr_strong"]}</strong><br>{t["qr_text"]}</span></div>
   </section>
 
   <footer>
@@ -153,6 +154,12 @@ def page(code):
     a.addEventListener("click", function () {{ try {{ localStorage.setItem("lang", a.getAttribute("data-lang")); }} catch (e) {{}} }});
   }});
   try {{ localStorage.setItem("lang", "{code}"); }} catch (e) {{}}
+  // "Copy the link" under the QR code.
+  var cp = document.querySelector(".copy");
+  if (cp) cp.addEventListener("click", function () {{
+    var done = function () {{ var o = cp.textContent; cp.textContent = cp.getAttribute("data-done"); setTimeout(function () {{ cp.textContent = o; }}, 2000); }};
+    try {{ navigator.clipboard.writeText(cp.getAttribute("data-url")).then(done, function () {{}}); }} catch (e) {{}}
+  }});
   // Dots under the screens (phones only): which one is in view.
   (function () {{
     var s = document.getElementById("shots"), d = document.querySelectorAll("#dots span");
