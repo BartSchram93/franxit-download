@@ -87,7 +87,7 @@ LANGS = {
     og_title="Franxit : où et quand acheter au mieux ?",
     h1="Où et quand acheter au mieux ?",
     lead="Franxit analyse les prix et te donne un conseil.",
-    ios_note="Désolé, Franxit ne fonctionne que sur Android. Tu as un téléphone Android ? Va sur franxit.be avec pour l'installer.",
+    ios_note="Désolé, Franxit ne fonctionne que sur Android. Tu as un téléphone Android ? Utilise-le pour aller sur franxit.be et l'installer.",
     qr_alt="Code QR vers franxit.be", qr_strong="Scanne le code avec ton téléphone", qr_text="Tu installes ainsi Franxit directement sur ton téléphone.",
     get_title="Franxit pour Android", android_min="Android 8 ou plus récent", download="Télécharger",
     calm="Gratuit. Sans compte. Sans publicité.",
