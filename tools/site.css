@@ -441,3 +441,4 @@
     .hero .calm, .hero .source { max-width: 380px; }
   }
   @media (min-width: 900px) { .hero { padding-top: 48px; } }
+  @media (min-width: 900px) { .wide > .shots { margin-top: 78px; } }
