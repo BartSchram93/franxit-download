@@ -98,11 +98,12 @@ def page(code):
   <div class="shots">
 {shots}
   </div>
-  <p class="note">{t["legend_note"]}</p>
-
-  <ul class="legend">
+  <div class="advice-card">
+    <p class="advice-h">{t["legend_note"]}</p>
+    <ul class="legend">
 {legend}
-  </ul>
+    </ul>
+  </div>
 
   <h2>{t["more_h"]}</h2>
   <p class="sub">{t["more_sub"]}</p>

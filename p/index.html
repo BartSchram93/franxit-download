@@ -92,7 +92,9 @@
   /* On a computer the four screens get the room to be readable: wider than the text column. */
   @media (min-width: 900px) { .shots { display: flex; width: min(980px, calc(100vw - 48px)); margin: 0 0 0 50%; transform: translateX(-50%); gap: 22px; } .phone { flex: 1 1 0; } }
   /* The advice names: the label with its dot, and its explanation under it. The same on every screen and in every language. */
-  .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 16px; }
+  .advice-card { margin: 28px 0 0; padding: 20px 20px 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+  .advice-h { margin: 0 0 16px; font-weight: 700; font-size: 17px; }
+  .legend { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
   .legend li { display: grid; grid-template-columns: 1fr; gap: 2px; margin: 0; font-size: 16px; line-height: 1.55; }
   .legend strong { display: flex; align-items: flex-start; gap: 8px; }
   .legend i { flex: none; width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-top: .62em; }

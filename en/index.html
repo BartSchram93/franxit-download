@@ -104,7 +104,9 @@
   /* On a computer the four screens get the room to be readable: wider than the text column. */
   @media (min-width: 900px) { .shots { display: flex; width: min(980px, calc(100vw - 48px)); margin: 0 0 0 50%; transform: translateX(-50%); gap: 22px; } .phone { flex: 1 1 0; } }
   /* The advice names: the label with its dot, and its explanation under it. The same on every screen and in every language. */
-  .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 16px; }
+  .advice-card { margin: 28px 0 0; padding: 20px 20px 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+  .advice-h { margin: 0 0 16px; font-weight: 700; font-size: 17px; }
+  .legend { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
   .legend li { display: grid; grid-template-columns: 1fr; gap: 2px; margin: 0; font-size: 16px; line-height: 1.55; }
   .legend strong { display: flex; align-items: flex-start; gap: 8px; }
   .legend i { flex: none; width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-top: .62em; }
@@ -176,15 +178,16 @@
     <figure class="phone"><img src="../screens/en/advice.webp" alt="Product screen with the cheapest shop" width="460" height="969" loading="lazy"><figcaption>The cheapest shop</figcaption></figure>
     <figure class="phone"><img src="../screens/en/details.webp" alt="Advice with explanation and price history" width="460" height="969" loading="lazy"><figcaption>The advice, explained</figcaption></figure>
   </div>
-  <p class="note">This is what each advice means:</p>
-
-  <ul class="legend">
+  <div class="advice-card">
+    <p class="advice-h">This is what each advice means:</p>
+    <ul class="legend">
     <li><strong><i style="background:var(--green)"></i>Buy now</strong><span>The price is historically very attractive.</span></li>
     <li><strong><i style="background:var(--blue)"></i>Consider</strong><span>Good, but not exceptional.</span></li>
     <li><strong><i style="background:var(--orange)"></i>Wait</strong><span>Not particularly attractive. Wait, or set a price alert.</span></li>
     <li><strong><i style="background:var(--red)"></i>Expensive</strong><span>High compared with the price history.</span></li>
     <li><strong><i style="background:var(--muted)"></i>No advice yet</strong><span>Too little history to judge. Franxit says so honestly.</span></li>
-  </ul>
+    </ul>
+  </div>
 
   <h2>What else you can do</h2>
   <p class="sub">What else Franxit does for you.</p>
