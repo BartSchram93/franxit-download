@@ -17,7 +17,7 @@ ARTICLES = {
     ex_p="Een voorbeeld uit de app, op 17 november 2026: de Sony PlayStation 5 Slim Digital Edition kostte € 699,99 bij MediaMarkt.be.",
     ex_lines=["€ 699,99 is 40% hoger dan de gebruikelijke prijs (€ 499).", "€ 351,99 hoger dan de laagste prijs ooit genoteerd.", "Advies: beter niet, de prijs is nu hoog."],
     cta_h="Franxit doet dit voor je",
-    cta_p="Franxit bekijkt de prijs in verschillende winkels en wat het product het voorbije jaar kostte, en geeft je advies, bijvoorbeeld “nu kopen” of “wachten”. Gratis, zonder account en zonder reclame. Enkel voor Android.",
+    cta_p="Franxit zoekt de goedkoopste winkel, kijkt of de prijs nu goed zit en geeft je advies, zoals “nu kopen” of “wachten”. Gratis, zonder account en zonder reclame. Enkel voor Android.",
     cta_button="Meer over Franxit", back="Franxit", hreflang_label="Nederlands",
 ),
 "fr": dict(
@@ -37,7 +37,7 @@ ARTICLES = {
     ex_p="Un exemple tiré de l'appli, le 17 novembre 2026 : la Sony PlayStation 5 Slim Digital Edition coûtait 699,99 € chez MediaMarkt.be.",
     ex_lines=["699,99 € est 40% plus cher que le prix habituel (499 €).", "351,99 € de plus que le prix le plus bas jamais relevé.", "Conseil : à éviter, le prix est élevé en ce moment."],
     cta_h="Franxit le fait pour toi",
-    cta_p="Franxit regarde le prix dans plusieurs magasins et ce que le produit a coûté l'année dernière, puis te donne un conseil, par exemple « acheter maintenant » ou « attendre ». Gratuit, sans compte et sans publicité. Uniquement pour Android.",
+    cta_p="Franxit trouve le magasin le moins cher, regarde si le prix est bon en ce moment et te donne un conseil, comme « acheter maintenant » ou « attendre ». Gratuit, sans compte et sans publicité. Uniquement pour Android.",
     cta_button="En savoir plus sur Franxit", back="Franxit", hreflang_label="Français",
 ),
 "en": dict(
@@ -57,7 +57,7 @@ ARTICLES = {
     ex_p="An example from the app, on 17 November 2026: the Sony PlayStation 5 Slim Digital Edition cost € 699.99 at MediaMarkt.be.",
     ex_lines=["€ 699.99 is 40% higher than the usual price (€ 499).", "€ 351.99 higher than the lowest price ever recorded.", "Advice: skip it, the price is high right now."],
     cta_h="Franxit does this for you",
-    cta_p="Franxit looks at the price in several shops and at what the product cost over the past year, and gives you advice, such as “buy now” or “wait”. Free, no account and no ads. Android only.",
+    cta_p="Franxit finds the cheapest shop, checks whether the price is good right now and gives you advice, like “buy now” or “wait”. Free, no account and no ads. Android only.",
     cta_button="More about Franxit", back="Franxit", hreflang_label="English",
 ),
 }
