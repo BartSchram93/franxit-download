@@ -446,6 +446,25 @@
     .wide > .shots { margin-top: 40px; }
     h2, .minor { font-size: 24px; margin-top: 88px; margin-bottom: 16px; }
   }
+
+  /* Desktop: number and title on one line, the text under them over the full column width, so it stays short (three lines). */
+  @media (min-width: 900px) {
+    .phone .step > div { display: contents; }
+    .phone .step { grid-template-columns: 34px 1fr; column-gap: 14px; row-gap: 8px; align-items: center; }
+    .phone .step strong { grid-column: 2; align-self: center; }
+    .phone .step span { grid-column: 1 / -1; }
+    .phone .step { min-height: 0; }
+  }
+  @media (min-width: 900px) { .phone .step span { font-size: 15px; line-height: 1.5; } }
+
+  /* Desktop, final: the number sits centred on the thin line above each step, title and text centred under it. */
+  @media (min-width: 900px) {
+    .phone .step { display: block; position: relative; text-align: center; padding-top: 30px; }
+    .phone .step > div { display: block; }
+    .phone .step b { position: absolute; top: -17px; left: 50%; transform: translateX(-50%); box-shadow: 0 0 0 9px var(--bg); }
+    .phone .step strong { display: block; margin-bottom: 6px; }
+    .phone .step span { display: block; max-width: 270px; margin: 0 auto; }
+  }
 </style>
 </head>
 <body>
