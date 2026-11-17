@@ -66,8 +66,8 @@
   .desktop .qr { display: flex; align-items: center; gap: 16px; max-width: 440px; margin: 0 auto 14px; text-align: left; color: var(--muted); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
   .qr strong { color: var(--ink); }
   .qr img { width: 124px; height: 124px; flex: none; background: #fff; image-rendering: pixelated; }
-  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; counter-reset: s; }
-  .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 12px 14px; }
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
   .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); font-weight: 700; display: grid; place-items: center; }
   @media (min-width: 640px) { .steps { grid-template-columns: repeat(3, 1fr); } .steps li { grid-template-columns: 1fr; gap: 10px; align-content: start; } }
   .steps strong { display: block; }
@@ -77,7 +77,7 @@
   .ios .dl2, .desktop .dl2, .desktop .get, .desktop .source { display: none; }
   .share { display: inline-block; margin-top: 10px; }
 
-  h2 { font-size: 24px; line-height: 1.2; margin: 48px 0 8px; letter-spacing: -0.3px; }
+  h2 { font-size: 24px; line-height: 1.2; margin: 64px 0 8px; letter-spacing: -0.3px; }
   .sub { color: var(--muted); margin: 0 0 20px; }
   .note { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
 
@@ -105,17 +105,16 @@
   /* On a computer the four screens get the room to be readable: wider than the text column. */
   @media (min-width: 900px) { .shots { display: flex; width: min(980px, calc(100vw - 48px)); margin: 0 0 0 50%; transform: translateX(-50%); gap: 22px; } .phone { flex: 1 1 0; } }
   /* The advice names: the label with its dot, and its explanation under it. The same on every screen and in every language. */
-  .legend { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 13px; }
+  .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 16px; }
   .legend li { display: grid; grid-template-columns: 1fr; gap: 2px; margin: 0; font-size: 16px; line-height: 1.55; }
   .legend strong { display: flex; align-items: flex-start; gap: 8px; }
   .legend i { flex: none; width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-top: .62em; }
   .legend span { color: var(--muted); padding-left: 17px; }
 
-  /* The extras: a light list, not boxes: it takes half the height. */
-  .features { display: grid; gap: 0; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
-  @media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; column-gap: 32px; } }
-  .feature { border-top: 1px solid var(--line); padding: 12px 0 14px; margin: 0; }
-  .feature strong { display: block; font-size: 16px; margin-bottom: 1px; }
+  .features { display: grid; gap: 12px; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
+  @media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; } }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; margin: 0; }
+  .feature strong { display: block; font-size: 17px; margin-bottom: 2px; }
   .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
@@ -153,10 +152,6 @@
     .steps li.reveal::before { transform: scale(.5); transition: transform .5s cubic-bezier(.3,1.5,.5,1); transition-delay: calc(var(--d, 0ms) + 200ms); }
     .steps li.reveal.in::before { transform: none; }
   }
-
-  /* The meaning of the advice names, folded: one line until someone wants it. */
-  details.meaning { margin-top: 18px; }
-  details.meaning .legend { margin: 0 0 16px; }
 </style>
 </head>
 <body>
@@ -196,16 +191,15 @@
     <figure class="phone"><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" loading="lazy"><figcaption>De goedkoopste winkel</figcaption></figure>
     <figure class="phone"><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"><figcaption>Het advies, met uitleg</figcaption></figure>
   </div>
-  <details class="meaning">
-    <summary>Dit betekent elk advies</summary>
-    <ul class="legend">
+  <p class="note">Dit betekent elk advies:</p>
+
+  <ul class="legend">
     <li><strong><i style="background:var(--green)"></i>Nu kopen</strong><span>De prijs is historisch erg aantrekkelijk.</span></li>
     <li><strong><i style="background:var(--blue)"></i>Overwegen</strong><span>Goed, maar niet uitzonderlijk.</span></li>
     <li><strong><i style="background:var(--orange)"></i>Wachten</strong><span>Niet bijzonder aantrekkelijk. Wacht, of zet een prijsalert.</span></li>
     <li><strong><i style="background:var(--red)"></i>Duur</strong><span>Hoog vergeleken met de prijsgeschiedenis.</span></li>
     <li><strong><i style="background:var(--muted)"></i>Nog geen advies</strong><span>Te weinig geschiedenis om te oordelen. Franxit zegt dat eerlijk.</span></li>
-    </ul>
-  </details>
+  </ul>
 
   <h2>Wat je er verder mee kan</h2>
   <p class="sub">Wat Franxit nog meer voor je doet.</p>
