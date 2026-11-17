@@ -143,11 +143,8 @@
   .feature strong { display: block; font-size: 17px; margin-bottom: 4px; text-wrap: wrap; }
   .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
-  /* The story as a quote: a soft panel with a blue quote mark and the signature underneath. */
-  .story { position: relative; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 6px 18px 18px 6px; padding: 30px 24px 22px 28px; }
-  .story::before { content: "\201C"; position: absolute; top: 6px; left: 20px; font: 700 64px/1 Georgia, "Times New Roman", serif; color: var(--blue); opacity: .35; }
+  /* The story: plain text, no panel. */
   .story p { font-size: 17px; line-height: 1.65; margin: 0 0 12px; }
-  .story p:first-of-type { padding-top: 14px; }
   @media (min-width: 900px) { .story p { font-size: 18px; } }
   .signature { color: var(--muted); font-size: 15px !important; margin: 16px 0 0 !important; }
   .signature::before { content: "— "; }
@@ -222,6 +219,16 @@
   }
 
   @media (min-width: 900px) { .desktop .hero .qr { max-width: 440px; } .desktop .hero .qr img { width: 150px; height: 150px; flex: none; } }
+
+  .story { padding: 0; }
+  @media (min-width: 900px) {
+    .story { display: block; max-width: 760px; }
+    .story p, .story p:nth-of-type(2) { font-size: 18px; line-height: 1.65; padding: 0; margin: 0 0 12px; grid-row: auto; }
+  }
+  details p { margin: 0 0 12px; }
+  .install-steps { margin: 0 0 12px; padding-left: 22px; color: var(--muted); }
+  .install-steps li { margin: 0 0 8px; }
+  .install-steps strong { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -269,13 +276,6 @@
     <li><strong style="--c:var(--muted)"><i></i>Nog geen advies</strong><span>Te weinig geschiedenis om te oordelen. Franxit zegt dat eerlijk.</span></li>
   </ul>
 
-  <h2 class="minor">Wat je er verder mee kan</h2>
-  <ul class="features">
-    <li class="feature"><strong>Geschiedenis vanaf dag één</strong><p>Je hoeft geen maanden te wachten: de prijzen van het voorbije jaar zijn er meteen.</p></li>
-    <li class="feature"><strong>De prijs per winkel</strong><p>Je ziet wat elke winkel vraagt, na hun kortingen, en tikt door naar de winkel.</p></li>
-    <li class="feature"><strong>Jouw korting</strong><p>Korting via je werkgever? Vul ze in en zie wat jij echt betaalt.</p></li>
-    <li class="feature"><strong>Prijsalert en widget</strong><p>Zakt de prijs onder jouw bedrag, dan krijg je een melding. Op je startscherm zie je het advies in één oogopslag.</p></li>
-  </ul>
   </section>
 
   <section class="narrow">
@@ -286,21 +286,18 @@
     <p class="signature">Bart</p>
   </div>
 
-  <h2 id="installeren" class="minor">Zo krijg je het op je gsm</h2>
-  <p class="sub">Franxit staat niet in de Play Store, dus Android vraagt eerst toestemming.</p>
-  <div class="card install">
-    <ol>
+  <h2 class="minor">Vragen</h2>
+  <div class="faq">
+  <details id="installeren">
+    <summary>Zo krijg je het op je gsm</summary>
+    <p>Franxit staat niet in de Play Store, dus Android vraagt eerst toestemming.</p>
+    <ol class="install-steps">
       <li>Tik op de downloadknop. Waarschuwt je browser? Kies <strong>Toch downloaden</strong>.</li>
       <li>Open <strong>franxit.apk</strong>. Android vraagt toestemming. Tik op <strong>Instellingen</strong>, zet het aan en ga terug.</li>
       <li>Tik op <strong>Installeren</strong>. Waarschuwt Play Protect? Kies <strong>Meer details</strong>, dan <strong>Toch installeren</strong>.</li>
     </ol>
-    <p class="small" style="margin-top:12px">Komt er een nieuwe versie, dan zegt de app het. Installeer ze over de oude heen. Je producten blijven staan.</p>
-  </div>
-
-  <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Downloaden</a>
-
-  <h2 class="minor">Vragen</h2>
-  <div class="faq">
+    <p class="small">Komt er een nieuwe versie, dan zegt de app het. Installeer ze over de oude heen. Je producten blijven staan.</p>
+  </details>
   <details>
     <summary>Hoe betrouwbaar is het advies?</summary>
     <p>Zo betrouwbaar als de prijsgeschiedenis. Heeft een product te weinig geschiedenis, dan zegt Franxit "Nog geen advies" in plaats van te gokken. Het kijkt achteruit en voorspelt niets.</p>
@@ -319,11 +316,7 @@
   </details>
   </div>
 
-  </section>
-
-  <section class="closing">
-    <h2>Klaar om het te proberen?</h2>
-    <div class="closing-qr"><img src="qr.svg" alt="QR-code naar franxit.be" width="140" height="140"><span><strong>Scan de code met je gsm</strong><br>Dan installeer je Franxit meteen op je telefoon.</span></div>
+  <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Downloaden</a>
   </section>
 
   <footer>
@@ -345,6 +338,9 @@
     var done = function () { var o = cp.textContent; cp.textContent = cp.getAttribute("data-done"); setTimeout(function () { cp.textContent = o; }, 2000); };
     try { navigator.clipboard.writeText(cp.getAttribute("data-url")).then(done, function () {}); } catch (e) {}
   });
+  // A link to the install steps opens them.
+  function openInstall() { if (location.hash === "#installeren") { var d = document.getElementById("installeren"); if (d) d.open = true; } }
+  openInstall(); window.addEventListener("hashchange", openInstall);
   // Dots under the screens (phones only): which one is in view.
   (function () {
     var s = document.getElementById("shots"), d = document.querySelectorAll("#dots span");

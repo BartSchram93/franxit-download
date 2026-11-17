@@ -105,10 +105,6 @@ def page(code):
 {legend}
   </ul>
 
-  <h2 class="minor">{t["more_h"]}</h2>
-  <ul class="features">
-{features}
-  </ul>
   </section>
 
   <section class="narrow">
@@ -118,27 +114,20 @@ def page(code):
     <p class="signature">{t["signature"]}</p>
   </div>
 
-  <h2 id="installeren" class="minor">{t["install_h"]}</h2>
-  <p class="sub">{t["install_sub"]}</p>
-  <div class="card install">
-    <ol>
-{install}
-    </ol>
-    <p class="small" style="margin-top:12px">{t["install_note"]}</p>
-  </div>
-
-  <a class="dl2" href="{APK}">{t["download"]}</a>
-
   <h2 class="minor">{t["faq_h"]}</h2>
   <div class="faq">
+  <details id="installeren">
+    <summary>{t["install_h"]}</summary>
+    <p>{t["install_sub"]}</p>
+    <ol class="install-steps">
+{install}
+    </ol>
+    <p class="small">{t["install_note"]}</p>
+  </details>
 {faq}
   </div>
 
-  </section>
-
-  <section class="closing">
-    <h2>{t["closing_h"]}</h2>
-    <div class="closing-qr"><img src="{root}qr.svg" alt="{esc(t["qr_alt"])}" width="140" height="140"><span><strong>{t["qr_strong"]}</strong><br>{t["qr_text"]}</span></div>
+  <a class="dl2" href="{APK}">{t["download"]}</a>
   </section>
 
   <footer>
@@ -160,6 +149,9 @@ def page(code):
     var done = function () {{ var o = cp.textContent; cp.textContent = cp.getAttribute("data-done"); setTimeout(function () {{ cp.textContent = o; }}, 2000); }};
     try {{ navigator.clipboard.writeText(cp.getAttribute("data-url")).then(done, function () {{}}); }} catch (e) {{}}
   }});
+  // A link to the install steps opens them.
+  function openInstall() {{ if (location.hash === "#installeren") {{ var d = document.getElementById("installeren"); if (d) d.open = true; }} }}
+  openInstall(); window.addEventListener("hashchange", openInstall);
   // Dots under the screens (phones only): which one is in view.
   (function () {{
     var s = document.getElementById("shots"), d = document.querySelectorAll("#dots span");

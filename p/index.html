@@ -130,11 +130,8 @@
   .feature strong { display: block; font-size: 17px; margin-bottom: 4px; text-wrap: wrap; }
   .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
-  /* The story as a quote: a soft panel with a blue quote mark and the signature underneath. */
-  .story { position: relative; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 6px 18px 18px 6px; padding: 30px 24px 22px 28px; }
-  .story::before { content: "\201C"; position: absolute; top: 6px; left: 20px; font: 700 64px/1 Georgia, "Times New Roman", serif; color: var(--blue); opacity: .35; }
+  /* The story: plain text, no panel. */
   .story p { font-size: 17px; line-height: 1.65; margin: 0 0 12px; }
-  .story p:first-of-type { padding-top: 14px; }
   @media (min-width: 900px) { .story p { font-size: 18px; } }
   .signature { color: var(--muted); font-size: 15px !important; margin: 16px 0 0 !important; }
   .signature::before { content: "— "; }
@@ -209,6 +206,16 @@
   }
 
   @media (min-width: 900px) { .desktop .hero .qr { max-width: 440px; } .desktop .hero .qr img { width: 150px; height: 150px; flex: none; } }
+
+  .story { padding: 0; }
+  @media (min-width: 900px) {
+    .story { display: block; max-width: 760px; }
+    .story p, .story p:nth-of-type(2) { font-size: 18px; line-height: 1.65; padding: 0; margin: 0 0 12px; grid-row: auto; }
+  }
+  details p { margin: 0 0 12px; }
+  .install-steps { margin: 0 0 12px; padding-left: 22px; color: var(--muted); }
+  .install-steps li { margin: 0 0 8px; }
+  .install-steps strong { color: var(--ink); }
 
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }

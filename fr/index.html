@@ -142,11 +142,8 @@
   .feature strong { display: block; font-size: 17px; margin-bottom: 4px; text-wrap: wrap; }
   .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
-  /* The story as a quote: a soft panel with a blue quote mark and the signature underneath. */
-  .story { position: relative; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 6px 18px 18px 6px; padding: 30px 24px 22px 28px; }
-  .story::before { content: "\201C"; position: absolute; top: 6px; left: 20px; font: 700 64px/1 Georgia, "Times New Roman", serif; color: var(--blue); opacity: .35; }
+  /* The story: plain text, no panel. */
   .story p { font-size: 17px; line-height: 1.65; margin: 0 0 12px; }
-  .story p:first-of-type { padding-top: 14px; }
   @media (min-width: 900px) { .story p { font-size: 18px; } }
   .signature { color: var(--muted); font-size: 15px !important; margin: 16px 0 0 !important; }
   .signature::before { content: "— "; }
@@ -221,6 +218,16 @@
   }
 
   @media (min-width: 900px) { .desktop .hero .qr { max-width: 440px; } .desktop .hero .qr img { width: 150px; height: 150px; flex: none; } }
+
+  .story { padding: 0; }
+  @media (min-width: 900px) {
+    .story { display: block; max-width: 760px; }
+    .story p, .story p:nth-of-type(2) { font-size: 18px; line-height: 1.65; padding: 0; margin: 0 0 12px; grid-row: auto; }
+  }
+  details p { margin: 0 0 12px; }
+  .install-steps { margin: 0 0 12px; padding-left: 22px; color: var(--muted); }
+  .install-steps li { margin: 0 0 8px; }
+  .install-steps strong { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -268,13 +275,6 @@
     <li><strong style="--c:var(--muted)"><i></i>Pas encore de conseil</strong><span>Trop peu d'historique pour juger. Franxit le dit honnêtement.</span></li>
   </ul>
 
-  <h2 class="minor">Ce que tu peux faire d'autre</h2>
-  <ul class="features">
-    <li class="feature"><strong>L'historique dès le premier jour</strong><p>Pas besoin d'attendre des mois : les prix de l'année dernière sont là tout de suite.</p></li>
-    <li class="feature"><strong>Le prix dans chaque magasin</strong><p>Tu vois ce que demande chaque magasin, réductions comprises, et tu files directement au magasin.</p></li>
-    <li class="feature"><strong>Ta réduction</strong><p>Une réduction via ton employeur ? Encode-la et vois ce que tu paies vraiment.</p></li>
-    <li class="feature"><strong>Alerte de prix et widget</strong><p>Si le prix passe sous ton montant, tu reçois une notification. Sur ton écran d'accueil, tu vois le conseil en un coup d'œil.</p></li>
-  </ul>
   </section>
 
   <section class="narrow">
@@ -285,21 +285,18 @@
     <p class="signature">Bart</p>
   </div>
 
-  <h2 id="installeren" class="minor">Comment l'installer sur ton téléphone</h2>
-  <p class="sub">Franxit n'est pas sur le Play Store, donc Android demande d'abord ta permission.</p>
-  <div class="card install">
-    <ol>
+  <h2 class="minor">Questions</h2>
+  <div class="faq">
+  <details id="installeren">
+    <summary>Comment l'installer sur ton téléphone</summary>
+    <p>Franxit n'est pas sur le Play Store, donc Android demande d'abord ta permission.</p>
+    <ol class="install-steps">
       <li>Touche le bouton de téléchargement. Ton navigateur te met en garde ? Choisis <strong>Télécharger quand même</strong>.</li>
       <li>Ouvre <strong>franxit.apk</strong>. Android demande une autorisation. Touche <strong>Paramètres</strong>, active l'option et reviens en arrière.</li>
       <li>Touche <strong>Installer</strong>. Play Protect te met en garde ? Choisis <strong>Plus de détails</strong>, puis <strong>Installer quand même</strong>.</li>
     </ol>
-    <p class="small" style="margin-top:12px">Quand une nouvelle version sort, l'appli te le dit. Installe-la par-dessus l'ancienne. Tes produits sont conservés.</p>
-  </div>
-
-  <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Télécharger</a>
-
-  <h2 class="minor">Questions</h2>
-  <div class="faq">
+    <p class="small">Quand une nouvelle version sort, l'appli te le dit. Installe-la par-dessus l'ancienne. Tes produits sont conservés.</p>
+  </details>
   <details>
     <summary>Le conseil est-il fiable ?</summary>
     <p>Aussi fiable que l'historique des prix. Si un produit a trop peu d'historique, Franxit dit « Pas encore de conseil » au lieu de deviner. Il regarde en arrière et ne prédit rien.</p>
@@ -318,11 +315,7 @@
   </details>
   </div>
 
-  </section>
-
-  <section class="closing">
-    <h2>Prêt à essayer ?</h2>
-    <div class="closing-qr"><img src="../qr.svg" alt="Code QR vers franxit.be" width="140" height="140"><span><strong>Scanne le code avec ton téléphone</strong><br>Tu installes ainsi Franxit directement sur ton téléphone.</span></div>
+  <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Télécharger</a>
   </section>
 
   <footer>
@@ -344,6 +337,9 @@
     var done = function () { var o = cp.textContent; cp.textContent = cp.getAttribute("data-done"); setTimeout(function () { cp.textContent = o; }, 2000); };
     try { navigator.clipboard.writeText(cp.getAttribute("data-url")).then(done, function () {}); } catch (e) {}
   });
+  // A link to the install steps opens them.
+  function openInstall() { if (location.hash === "#installeren") { var d = document.getElementById("installeren"); if (d) d.open = true; } }
+  openInstall(); window.addEventListener("hashchange", openInstall);
   // Dots under the screens (phones only): which one is in view.
   (function () {
     var s = document.getElementById("shots"), d = document.querySelectorAll("#dots span");
