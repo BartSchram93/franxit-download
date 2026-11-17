@@ -1,0 +1,83 @@
+# Franxit is happy to be read, summarised and cited by search engines and AI assistants.
+
+User-agent: GPTBot
+Allow: /
+Disallow: /p/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /p/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /p/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /p/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /p/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /p/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /p/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /p/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /p/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /p/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /p/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /p/
+
+User-agent: CCBot
+Allow: /
+Disallow: /p/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /p/
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /p/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /p/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /p/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /p/
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /p/
+
+User-agent: *
+Allow: /
+Disallow: /p/
+
+Sitemap: https://franxit.be/sitemap.xml

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Franxit · Waar en wanneer koop je best?</title>
+<title>Franxit – gratis Android-app: waar en wanneer koop je best?</title>
 <meta name="description" content="Franxit analyseert de prijzen en geeft advies: waar het goedkoopst is en of nu het juiste moment is. Gratis, voor Android.">
 <meta name="theme-color" content="#2f6fdb">
 <meta property="og:type" content="website">
@@ -16,6 +16,10 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://franxit.be/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Franxit", "url": "https://franxit.be/", "inLanguage": "nl", "applicationCategory": "ShoppingApplication", "operatingSystem": "Android 8.0 or newer", "description": "Franxit analyseert de prijzen en geeft advies: waar het goedkoopst is en of nu het juiste moment is. Gratis, voor Android.", "image": "https://franxit.be/icon.png", "downloadUrl": "https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "screenshot": ["https://franxit.be/screens/share.webp", "https://franxit.be/screens/nl/overview.webp", "https://franxit.be/screens/nl/advice.webp", "https://franxit.be/screens/nl/details.webp"], "featureList": ["Kies een product", "Laat Franxit analyseren", "Krijg advies", "Volg het op"], "dateModified": "2026-11-17"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Franxit", "url": "https://franxit.be/", "inLanguage": "nl"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "nl", "mainEntity": [{"@type": "Question", "name": "Wat is Franxit?", "acceptedAnswer": {"@type": "Answer", "text": "Franxit is een gratis Android-app voor wie iets wil kopen. Je kiest een product, Franxit bekijkt de prijs in verschillende winkels en wat het product het voorbije jaar kostte, en geeft advies: nu kopen, overwegen, wachten of duur. Er is geen account en geen reclame."}}, {"@type": "Question", "name": "Hoe installeer ik het?", "acceptedAnswer": {"@type": "Answer", "text": "Franxit staat niet in de Play Store, dus Android vraagt eerst toestemming. 1. Tik op de downloadknop. Waarschuwt je browser? Kies Toch downloaden. 2. Open franxit.apk. Android vraagt toestemming. Tik op Instellingen, zet het aan en ga terug. 3. Tik op Installeren. Waarschuwt Play Protect? Kies Meer details, dan Toch installeren."}}, {"@type": "Question", "name": "Hoe betrouwbaar is het advies?", "acceptedAnswer": {"@type": "Answer", "text": "Zo betrouwbaar als de prijsgeschiedenis. Heeft een product te weinig geschiedenis, dan zegt Franxit \"Nog geen advies\" in plaats van te gokken. Het kijkt achteruit en voorspelt niets."}}, {"@type": "Question", "name": "Kost het iets?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Geen abonnement en geen reclame. Voor extra winkels via Google Shopping maak je zelf een gratis account bij SerpApi."}}, {"@type": "Question", "name": "Is het veilig?", "acceptedAnswer": {"@type": "Answer", "text": "Franxit vraagt enkel toegang tot internet en meldingen. Er is geen account en je producten blijven op je gsm. Franxit telt enkel anoniem hoeveel toestellen de app per dag gebruiken. Het volledige verhaal staat hier.De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat."}}, {"@type": "Question", "name": "Waar komt de naam vandaan?", "acceptedAnswer": {"@type": "Answer", "text": "Van de Belgische frank en het Engelse \"sit\". Op je geld blijven zitten tot het de moeite is."}}, {"@type": "Question", "name": "Is er een versie voor iPhone?", "acceptedAnswer": {"@type": "Answer", "text": "Nee, Franxit is er enkel voor Android."}}]}</script>
 <link rel="alternate" hreflang="nl" href="https://franxit.be/">
 <link rel="alternate" hreflang="fr" href="https://franxit.be/fr/">
 <link rel="alternate" hreflang="en" href="https://franxit.be/en/">
@@ -353,6 +357,8 @@
     .faq details:nth-last-of-type(-n+2) { border-bottom: 0; }
     .faq details:last-of-type { border-bottom: 1px solid var(--line); }
   }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 </style>
 </head>
 <body>
@@ -381,6 +387,7 @@
   </section>
 
   <section class="wide">
+  <h2 class="sr-only">Zo werkt het</h2>
 
   <div class="shots" id="shots">
     <figure class="phone"><div class="step"><b>1</b><div><strong>Kies een product</strong><span>Typ de naam van wat je wil kopen, of deel een winkelpagina met Franxit. Meer moet je niet doen.</span></div></div><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"></figure>
@@ -395,7 +402,7 @@
     <div class="step live-step"><b>3</b><div><strong>Krijg advies</strong><span>Je ziet meteen of je nu best koopt of nog even wacht, en je leest ook waarom.</span></div></div>
     <div class="step live-step"><b>4</b><div><strong>Volg het op</strong><span>Alles wat je volgt staat samen op één scherm, met een eigen advies per product. Zakt de prijs onder jouw bedrag, dan laat Franxit het weten.</span></div></div>
   </div>
-  <p class="advice-h">Dit betekent elk advies:</p>
+  <h2 class="advice-h">Dit betekent elk advies:</h2>
   <ul class="legend">
     <li><strong style="--c:var(--green)"><i></i>Nu kopen</strong><span>De prijs is historisch erg aantrekkelijk.</span></li>
     <li><strong style="--c:var(--blue)"><i></i>Overwegen</strong><span>Goed, maar niet uitzonderlijk.</span></li>
@@ -416,6 +423,10 @@
 
   <h2 class="minor">Vragen</h2>
   <div class="faq">
+  <details>
+    <summary>Wat is Franxit?</summary>
+    <p>Franxit is een gratis Android-app voor wie iets wil kopen. Je kiest een product, Franxit bekijkt de prijs in verschillende winkels en wat het product het voorbije jaar kostte, en geeft advies: nu kopen, overwegen, wachten of duur. Er is geen account en geen reclame.</p>
+  </details>
   <details id="installeren">
     <summary>Hoe installeer ik het?</summary>
     <p>Franxit staat niet in de Play Store, dus Android vraagt eerst toestemming.</p>
@@ -441,6 +452,10 @@
   <details>
     <summary>Waar komt de naam vandaan?</summary>
     <p>Van de Belgische frank en het Engelse "sit". Op je geld blijven zitten tot het de moeite is.</p>
+  </details>
+  <details>
+    <summary>Is er een versie voor iPhone?</summary>
+    <p>Nee, Franxit is er enkel voor Android.</p>
   </details>
   </div>
 

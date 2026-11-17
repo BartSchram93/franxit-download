@@ -2,7 +2,7 @@
 """Builds the site's pages from tools/site.css and tools/texts.py:
 index.html (Dutch), fr/index.html, en/index.html and p/index.html (what a shared product link
 shows to someone without the app). Run from the repository root: python3 tools/build_site.py"""
-import json, os, sys, urllib.parse
+import datetime, json, os, re, sys, urllib.parse
 sys.path.insert(0, os.path.dirname(__file__))
 from texts import LANGS, MONTHS, date_text
 
@@ -39,6 +39,22 @@ def page(code):
     faq = "\n".join(f"  <details>\n    <summary>{q}</summary>\n    {a.replace('[[privacy]]', privacy)}\n  </details>" for q, a in t["faq"])
     share = "https://wa.me/?text=" + urllib.parse.quote(t["share_text"], safe="")
     js_texts = json.dumps(dict(version=t["version_label"], updated=t["updated_label"], months=MONTHS[code], decimal=t["decimal"]), ensure_ascii=False)
+    def plain(s):
+        return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", s.replace("[[privacy]]", privacy))).strip()
+    qa = [(t["what_q"], t["what_a"]), (t["install_q"], "<p>" + t["install_sub"] + " " + " ".join(f"{i + 1}. {x}" for i, x in enumerate(t["install_steps"])) + "</p>")] + list(t["faq"])
+    site = "https://franxit.be/"
+    ld = [
+        {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Franxit", "url": url, "inLanguage": code,
+         "applicationCategory": "ShoppingApplication", "operatingSystem": "Android 8.0 or newer",
+         "description": t["desc"], "image": site + "icon.png", "downloadUrl": APK,
+         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+         "screenshot": [site + ("screens/share.webp" if n == "share" else f"screens/{code}/{n}.webp") for n, _, _ in t["shots"]],
+         "featureList": [x for x, _ in t["steps"]], "dateModified": datetime.date.today().isoformat()},
+        {"@context": "https://schema.org", "@type": "WebSite", "name": "Franxit", "url": site, "inLanguage": code},
+        {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": code,
+         "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": plain(a)}} for q, a in qa]},
+    ]
+    jsonld = "\n".join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False).replace("</", "<\\/") + "</script>" for x in ld)
     redirect = ""
     if code == "nl":
         # First visit from a French or English phone: show that language (unless a language was chosen before).
@@ -62,6 +78,8 @@ def page(code):
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{url}">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+{jsonld}
 {alternates}
 <link rel="icon" href="{root}icon.png">
 <link rel="apple-touch-icon" href="{root}icon.png">
@@ -95,6 +113,7 @@ def page(code):
   </section>
 
   <section class="wide">
+  <h2 class="sr-only">{t["steps_h"]}</h2>
 
   <div class="shots" id="shots">
 {shots}
@@ -103,7 +122,7 @@ def page(code):
   <div class="live" id="live" aria-live="polite">
 {live}
   </div>
-  <p class="advice-h">{t["legend_note"]}</p>
+  <h2 class="advice-h">{t["legend_note"]}</h2>
   <ul class="legend">
 {legend}
   </ul>
@@ -119,6 +138,10 @@ def page(code):
 
   <h2 class="minor">{t["faq_h"]}</h2>
   <div class="faq">
+  <details>
+    <summary>{t["what_q"]}</summary>
+    {t["what_a"]}
+  </details>
   <details id="installeren">
     <summary>{t["install_q"]}</summary>
     <p>{t["install_sub"]}</p>
@@ -240,6 +263,28 @@ def landing():
 </html>
 """
 
+LLMS = """# Franxit
+
+> Franxit is a free Android app that tells you where a product is cheapest and whether now is a good moment to buy it. It looks at the price in several shops and at what the product cost over the past year, and gives advice: buy now, consider, wait, expensive, or "no advice yet" when there is too little price history. It gives advice, not forecasts. No account, no ads. Android only (Android 8 or newer). Available in Dutch, French and English.
+
+## Key facts
+- What it does: you pick a product (type its name, or share a shop page with the app); Franxit analyses the price per shop and the price history of the past year, and gives one of five pieces of advice.
+- The five advice labels: Buy now (the price is historically very attractive), Consider (good, but not exceptional), Wait (not particularly attractive; wait or set a price alert), Expensive (high compared with the price history), No advice yet (too little history to judge).
+- Price: free. No subscription, no account, no advertising.
+- Platform: Android only. There is no iPhone version. It is installed from an APK file because the app is not on the Google Play Store.
+- Privacy: tracked products stay on the phone. The app only counts, anonymously, how many devices use it per day.
+- Name: from the Belgian franc and the English "sit": sitting on your money until it is worth it.
+
+## Pages
+- [Franxit (Nederlands)](https://franxit.be/): what Franxit is, how it works, FAQ
+- [Franxit (Français)](https://franxit.be/fr/): what Franxit is, how it works, FAQ
+- [Franxit (English)](https://franxit.be/en/): what Franxit is, how it works, FAQ
+- [Privacy](https://franxit.be/privacy.html): what the app does and does not collect
+
+## Download
+- [franxit.apk (latest release)](https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk)
+"""
+
 if __name__ == "__main__":
     for c in ORDER:
         path = os.path.join(LANGS[c]["path"], "index.html")
@@ -249,3 +294,18 @@ if __name__ == "__main__":
     os.makedirs("p", exist_ok=True)
     open("p/index.html", "w", encoding="utf-8").write(landing())
     print("wrote p/index.html")
+    today = datetime.date.today().isoformat()
+    bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "Claude-SearchBot", "PerplexityBot", "Perplexity-User",
+            "Google-Extended", "Applebot-Extended", "Bingbot", "Googlebot", "CCBot", "cohere-ai", "Meta-ExternalAgent", "Bytespider", "Amazonbot", "DuckAssistBot", "MistralAI-User"]
+    robots = "# Franxit is happy to be read, summarised and cited by search engines and AI assistants.\n\n" + "".join(f"User-agent: {x}\nAllow: /\nDisallow: /p/\n\n" for x in bots)
+    robots += "User-agent: *\nAllow: /\nDisallow: /p/\n\nSitemap: https://franxit.be/sitemap.xml\n"
+    open("robots.txt", "w", encoding="utf-8").write(robots)
+    urls = ["https://franxit.be/" + LANGS[c]["path"] for c in ORDER]
+    alts = "".join(f'    <xhtml:link rel="alternate" hreflang="{c}" href="https://franxit.be/{LANGS[c]["path"]}"/>\n' for c in ORDER) + '    <xhtml:link rel="alternate" hreflang="x-default" href="https://franxit.be/"/>\n'
+    sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+    for u in urls:
+        sm += f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{today}</lastmod>\n{alts}  </url>\n"
+    sm += f"  <url>\n    <loc>https://franxit.be/privacy.html</loc>\n    <lastmod>{today}</lastmod>\n  </url>\n</urlset>\n"
+    open("sitemap.xml", "w", encoding="utf-8").write(sm)
+    open("llms.txt", "w", encoding="utf-8").write(LLMS)
+    print("wrote robots.txt, sitemap.xml, llms.txt")
