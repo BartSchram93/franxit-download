@@ -328,3 +328,10 @@
   }
 
   .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  /* Desktop and tablet: each step is anchored to its screen, same width, with a thin rule on top; less air above. */
+  @media (min-width: 640px) {
+    .phone .step { width: 100%; padding-top: 16px; border-top: 1px solid var(--line); margin-bottom: 20px; align-content: start; }
+    .step b { box-shadow: none; }
+    .wide > .shots { margin-top: 48px; }
+  }
