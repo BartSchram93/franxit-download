@@ -367,3 +367,11 @@
     .legend span { padding-top: 2px; }
   }
   @media (max-width: 639px) { .legend li { grid-template-columns: 40% 1fr; gap: 12px; } .legend strong { border-radius: 16px; padding: 4px 11px 4px 10px; } }
+  /* Phone, second attempt: a plain coloured dot and bold label, the explanation right under it; no pills, tight rhythm. */
+  @media (max-width: 639px) {
+    .legend { gap: 14px; }
+    .legend li { grid-template-columns: 1fr; gap: 1px; font-size: 15px; line-height: 1.45; }
+    .legend strong { background: none; border-radius: 0; padding: 0; gap: 9px; font-size: 16px; display: flex; justify-self: start; }
+    .legend i { width: 9px; height: 9px; }
+    .legend span { padding: 0 0 0 18px; }
+  }
