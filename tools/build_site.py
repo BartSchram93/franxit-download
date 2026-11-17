@@ -148,7 +148,7 @@ def page(code):
   try {{ localStorage.setItem("lang", "{code}"); }} catch (e) {{}}
   // A link to the install steps opens them.
   function openInstall() {{ if (location.hash === "#installeren") {{ var d = document.getElementById("installeren"); if (d) d.open = true; }} }}
-  openInstall(); window.addEventListener("hashchange", openInstall);
+  window.addEventListener("hashchange", openInstall);
   // Dots under the screens (phones only): which one is in view.
   (function () {{
     var s = document.getElementById("shots"), d = document.querySelectorAll("#dots span");
