@@ -88,7 +88,6 @@ def page(code):
       <span class="get-go">{t["download"]}</span>
     </a>
     <p class="calm">{t["calm"]}</p>
-    <button class="copy" type="button" data-done="{esc(t["copied"])}" data-url="{url}">{t["copy_label"]}</button>
     <p class="source">{t["source"]}</p>
    </div>
    <div class="hero-shot"><img src="{root}screens/{code}/overview.webp" alt="{esc(t["shots"][1][1])}" width="460" height="969" fetchpriority="high"></div>
@@ -143,12 +142,6 @@ def page(code):
     a.addEventListener("click", function () {{ try {{ localStorage.setItem("lang", a.getAttribute("data-lang")); }} catch (e) {{}} }});
   }});
   try {{ localStorage.setItem("lang", "{code}"); }} catch (e) {{}}
-  // "Copy the link" under the QR code.
-  var cp = document.querySelector(".copy");
-  if (cp) cp.addEventListener("click", function () {{
-    var done = function () {{ var o = cp.textContent; cp.textContent = cp.getAttribute("data-done"); setTimeout(function () {{ cp.textContent = o; }}, 2000); }};
-    try {{ navigator.clipboard.writeText(cp.getAttribute("data-url")).then(done, function () {{}}); }} catch (e) {{}}
-  }});
   // A link to the install steps opens them.
   function openInstall() {{ if (location.hash === "#installeren") {{ var d = document.getElementById("installeren"); if (d) d.open = true; }} }}
   openInstall(); window.addEventListener("hashchange", openInstall);

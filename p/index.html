@@ -281,6 +281,12 @@
   }
   .qr img { border-radius: 10px; }
 
+  /* Dark mode: no grey fade on the hero phone, a clean rounded cut instead. */
+  @media (prefers-color-scheme: dark) and (min-width: 900px) {
+    .hero-shot { -webkit-mask-image: none; mask-image: none; border-radius: 36px; box-shadow: 0 0 0 1px #4a4a52, 0 28px 50px -18px rgba(0,0,0,.8); }
+    .hero-shot img { box-shadow: none; border-bottom: 0; border-radius: 36px 36px 0 0; }
+  }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }

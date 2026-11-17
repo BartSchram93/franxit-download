@@ -292,6 +292,12 @@
     .qr, .get { box-shadow: none; }
   }
   .qr img { border-radius: 10px; }
+
+  /* Dark mode: no grey fade on the hero phone, a clean rounded cut instead. */
+  @media (prefers-color-scheme: dark) and (min-width: 900px) {
+    .hero-shot { -webkit-mask-image: none; mask-image: none; border-radius: 36px; box-shadow: 0 0 0 1px #4a4a52, 0 28px 50px -18px rgba(0,0,0,.8); }
+    .hero-shot img { box-shadow: none; border-bottom: 0; border-radius: 36px 36px 0 0; }
+  }
 </style>
 </head>
 <body>
@@ -314,7 +320,6 @@
       <span class="get-go">Download</span>
     </a>
     <p class="calm">Free. No account. No ads.</p>
-    <button class="copy" type="button" data-done="Link copied" data-url="https://franxit.be/en/">Or copy the link</button>
     <p class="source">Android will warn you when installing, because Franxit isn't on the Play Store. <a href="#installeren">Here's how to get past that</a>.</p>
    </div>
    <div class="hero-shot"><img src="../screens/en/overview.webp" alt="Franxit overview with products and their advice" width="460" height="969" fetchpriority="high"></div>
@@ -394,12 +399,6 @@
     a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
   });
   try { localStorage.setItem("lang", "en"); } catch (e) {}
-  // "Copy the link" under the QR code.
-  var cp = document.querySelector(".copy");
-  if (cp) cp.addEventListener("click", function () {
-    var done = function () { var o = cp.textContent; cp.textContent = cp.getAttribute("data-done"); setTimeout(function () { cp.textContent = o; }, 2000); };
-    try { navigator.clipboard.writeText(cp.getAttribute("data-url")).then(done, function () {}); } catch (e) {}
-  });
   // A link to the install steps opens them.
   function openInstall() { if (location.hash === "#installeren") { var d = document.getElementById("installeren"); if (d) d.open = true; } }
   openInstall(); window.addEventListener("hashchange", openInstall);
