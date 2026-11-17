@@ -30,7 +30,7 @@ def page(code):
         f'    <figure class="phone"><div class="step"><b>{i + 1}</b><div><strong>{t["steps"][i][0]}</strong><span>{t["steps"][i][1]}</span></div></div><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"></figure>'
         for i, (n, alt, cap) in enumerate(shot_list))
     ov = next(s for s in t["shots"] if s[0] == "overview")
-    shots += f'\n    <figure class="phone extra"><div class="step plain"><div><strong>{ov[2]}</strong></div></div><img src="{root}screens/{code}/overview.webp" alt="{esc(ov[1])}" width="460" height="969" loading="lazy"></figure>'
+    shots += f'\n    <figure class="phone extra"><div class="step"><b>4</b><div><strong>{t["steps"][3][0]}</strong><span>{t["steps"][3][1]}</span></div></div><img src="{root}screens/{code}/overview.webp" alt="{esc(ov[1])}" width="460" height="969" loading="lazy"></figure>'
     legend = "\n".join(f'    <li><strong style="--c:var(--{c})"><i></i>{n}</strong><span>{d}</span></li>' for c, n, d in t["legend"])
     features = "\n".join(f'    <li class="feature"><strong>{a}</strong><p>{b}</p></li>' for a, b in t["features"])
     story = "\n".join(f"    <p>{p}</p>" for p in t["story"])
