@@ -370,6 +370,14 @@
     .step b { box-shadow: none; }
     .wide > .shots { margin-top: 48px; }
   }
+
+  /* Footer: the links on one line, the small print under it. */
+  footer, footer p { display: block; }
+  footer .foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 26px; margin: 0 0 14px; font-size: 15px; }
+  footer .foot-links a { margin: 0; white-space: nowrap; }
+  footer .foot-meta { margin: 0; font-size: 13px; opacity: .85; }
+  footer p + p::before { content: none; }
+  @media (max-width: 639px) { footer .foot-links { flex-direction: column; align-items: center; gap: 10px; } }
 </style>
 </head>
 <body>
@@ -474,11 +482,12 @@
   </section>
 
   <footer>
-    <p>Made by Bart Schram</p>
-    <p>Android only</p>
-    <p><a class="share" href="https://wa.me/?text=Have%20a%20look%2C%20handy%20when%20you%20want%20to%20buy%20something%3A%20Franxit%20finds%20the%20cheapest%20shop%20and%20tells%20you%20if%20now%20is%20a%20good%20moment.%20Android%20only%3A%20https%3A%2F%2Ffranxit.be%2Fen%2F" rel="noopener">Share via WhatsApp</a></p>
-    <p><a href="/en/real-discounts/">How to tell if a discount is real</a></p>
-    <p><a href="../privacy.html#en">Privacy</a><span id="updated"></span></p>
+    <nav class="foot-links" aria-label="Links">
+      <a href="/en/real-discounts/">How to tell if a discount is real</a>
+      <a class="share" href="https://wa.me/?text=Have%20a%20look%2C%20handy%20when%20you%20want%20to%20buy%20something%3A%20Franxit%20finds%20the%20cheapest%20shop%20and%20tells%20you%20if%20now%20is%20a%20good%20moment.%20Android%20only%3A%20https%3A%2F%2Ffranxit.be%2Fen%2F" rel="noopener">Share via WhatsApp</a>
+      <a href="../privacy.html#en">Privacy</a>
+    </nav>
+    <p class="foot-meta">Made by Bart Schram · Android only<span id="updated"></span></p>
   </footer>
 </main>
 <script>

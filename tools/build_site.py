@@ -163,11 +163,12 @@ def page(code):
   </section>
 
   <footer>
-    <p>{t["made_by"]}</p>
-    <p>{t["only_android"]}</p>
-    <p><a class="share" href="{share}" rel="noopener">{t["share_label"]}</a></p>
-    <p><a href="/{ARTICLES[code]["path"]}">{ARTICLES[code]["title"]}</a></p>
-    <p><a href="{privacy}">{t["privacy_label"]}</a><span id="updated"></span></p>
+    <nav class="foot-links" aria-label="Links">
+      <a href="/{ARTICLES[code]["path"]}">{ARTICLES[code]["title"]}</a>
+      <a class="share" href="{share}" rel="noopener">{t["share_label"]}</a>
+      <a href="{privacy}">{t["privacy_label"]}</a>
+    </nav>
+    <p class="foot-meta">{t["made_by"]} · {t["only_android"]}<span id="updated"></span></p>
   </footer>
 </main>
 <script>
