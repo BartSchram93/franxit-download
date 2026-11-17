@@ -255,8 +255,8 @@
   @media (max-width: 899px) { .hero-shot { display: none; } }
   @media (min-width: 900px) { .phone.extra { display: none; } }
 
-  .wide > .shots { margin-top: 56px; }
-  @media (min-width: 640px) { .wide > .shots { margin-top: 72px; } }
+  .wide .shots { margin-top: 56px; }
+  @media (min-width: 640px) { .wide .shots { margin-top: 72px; } }
 
   /* The step text sits under its screen. */
   .step { margin: 18px 0 0; flex: none; }
@@ -336,7 +336,7 @@
     .live { display: grid; min-height: 0; margin-top: 10px; }
     .live .live-step, .live .live-step.on { display: grid; grid-area: 1 / 1; visibility: hidden; }
     .live .live-step.on { visibility: visible; }
-    .wide > .shots { margin-top: 36px; }
+    .wide .shots { margin-top: 36px; }
     .advice-h { margin-top: 36px; }
     h2 { margin-top: 44px; }
     .dots { margin-top: 14px; }
@@ -368,7 +368,7 @@
   @media (min-width: 640px) {
     .phone .step { width: 100%; padding-top: 16px; border-top: 1px solid var(--line); margin-bottom: 20px; align-content: start; }
     .step b { box-shadow: none; }
-    .wide > .shots { margin-top: 48px; }
+    .wide .shots { margin-top: 48px; }
   }
 
   /* Footer: the links on one line, the small print under it. */
@@ -443,7 +443,7 @@
     summary:hover::after { opacity: 1; }
     details[open] summary::after { opacity: 1; }
     .hero { padding-top: 22px; }
-    .wide > .shots { margin-top: 40px; }
+    .wide .shots { margin-top: 40px; }
     h2, .minor { font-size: 24px; margin-top: 88px; margin-bottom: 16px; }
   }
 
@@ -465,8 +465,8 @@
     .phone .step strong { display: block; margin-bottom: 6px; }
     .phone .step span { display: block; max-width: 270px; margin: 0 auto; }
   }
-  @media (min-width: 900px) { .wide > .shots { margin-top: 68px; } }
-  @media (min-width: 900px) { .wide > .shots { margin-top: 88px; } }
+  @media (min-width: 900px) { .wide .shots { margin-top: 68px; } }
+  @media (min-width: 900px) { .wide .shots { margin-top: 88px; } }
   @media (min-width: 900px) { .phone .step { margin-bottom: 38px; } }
 
   /* Desktop: a smaller QR code and a narrower card around it. */
@@ -476,7 +476,7 @@
     .hero .calm, .hero .source { max-width: 380px; }
   }
   @media (min-width: 900px) { .hero { padding-top: 48px; } }
-  @media (min-width: 900px) { .wide > .shots { margin-top: 78px; } }
+  @media (min-width: 900px) { .wide .shots { margin-top: 78px; } }
 
   /* Desktop: the legend card has the same width as the story and the questions under it. */
   @media (min-width: 900px) {
@@ -485,6 +485,13 @@
     .legend-card .legend li span { font-size: 15px; }
   }
   @media (min-width: 900px) { .legend-card { margin-top: 74px; } }
+
+  /* The band: full width, light blue like the story panel; it starts two thirds down the phones and ends three quarters down the legend card. */
+  html { overflow-x: clip; }
+  .bandwrap { position: relative; isolation: isolate; }
+  @media (min-width: 900px) {
+    .bandwrap::before { content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: var(--band-top, 0); height: var(--band-h, 0); background: color-mix(in srgb, var(--blue) 7%, var(--bg)); }
+  }
 </style>
 </head>
 <body>
@@ -515,6 +522,7 @@
   <section class="wide">
   <h2 class="sr-only">How it works</h2>
 
+  <div class="bandwrap" id="bandwrap">
   <div class="shots" id="shots">
     <figure class="phone"><div class="step"><b>1</b><div><strong>Pick a product</strong><span>Type the name of a product, or share an online shop page with Franxit. That's how we get started.</span></div></div><img src="../screens/share.webp?v=479d4881" alt="Sharing a shop page with Franxit" width="460" height="969" loading="lazy"></figure>
     <figure class="phone"><div class="step"><b>2</b><div><strong>Compare the shops</strong><span>Franxit puts the prices of all the shops together in one list, so you see right away where it's cheapest.</span></div></div><img src="../screens/en/advice.webp?v=e0182332" alt="Product screen with the cheapest shop" width="460" height="969" loading="lazy"></figure>
@@ -537,6 +545,7 @@
     <li><strong style="--c:var(--red)"><i></i>Skip it</strong><span>The price is high right now compared with its history.</span></li>
     <li><strong style="--c:var(--muted)"><i></i>No advice yet</strong><span>Not enough history to judge. Franxit is honest about that.</span></li>
   </ul>
+  </div>
   </div>
 
   </section>
@@ -618,6 +627,24 @@
       if (d > 6) window.scrollBy({ top: d, behavior: "smooth" });
     }
     window.addEventListener("scroll", function () { clearTimeout(timer); timer = setTimeout(nudge, 160); }, { passive: true });
+  })();
+  // Desktop: a soft band behind the lower third of the phones and the upper three quarters of the legend card.
+  (function () {
+    var w = document.getElementById("bandwrap");
+    if (!w || !window.matchMedia) return;
+    function band() {
+      var ph = w.querySelector(".phone img"), card = w.querySelector(".legend-card");
+      if (!ph || !card || !matchMedia("(min-width: 900px)").matches) return;
+      var wr = w.getBoundingClientRect(), p = ph.getBoundingClientRect(), c = card.getBoundingClientRect();
+      var top = p.top - wr.top + p.height * 2 / 3, bottom = c.top - wr.top + c.height * 0.75;
+      w.style.setProperty("--band-top", Math.round(top) + "px");
+      w.style.setProperty("--band-h", Math.max(0, Math.round(bottom - top)) + "px");
+    }
+    band();
+    window.addEventListener("resize", band);
+    window.addEventListener("load", band);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(band);
+    if (window.ResizeObserver) new ResizeObserver(band).observe(w);
   })();
   // A link to the install steps opens them.
   function openInstall() { if (location.hash === "#installeren") { var d = document.getElementById("installeren"); if (d) d.open = true; } }

@@ -223,8 +223,8 @@
   @media (max-width: 899px) { .hero-shot { display: none; } }
   @media (min-width: 900px) { .phone.extra { display: none; } }
 
-  .wide > .shots { margin-top: 56px; }
-  @media (min-width: 640px) { .wide > .shots { margin-top: 72px; } }
+  .wide .shots { margin-top: 56px; }
+  @media (min-width: 640px) { .wide .shots { margin-top: 72px; } }
 
   /* The step text sits under its screen. */
   .step { margin: 18px 0 0; flex: none; }
@@ -304,7 +304,7 @@
     .live { display: grid; min-height: 0; margin-top: 10px; }
     .live .live-step, .live .live-step.on { display: grid; grid-area: 1 / 1; visibility: hidden; }
     .live .live-step.on { visibility: visible; }
-    .wide > .shots { margin-top: 36px; }
+    .wide .shots { margin-top: 36px; }
     .advice-h { margin-top: 36px; }
     h2 { margin-top: 44px; }
     .dots { margin-top: 14px; }
@@ -336,7 +336,7 @@
   @media (min-width: 640px) {
     .phone .step { width: 100%; padding-top: 16px; border-top: 1px solid var(--line); margin-bottom: 20px; align-content: start; }
     .step b { box-shadow: none; }
-    .wide > .shots { margin-top: 48px; }
+    .wide .shots { margin-top: 48px; }
   }
 
   /* Footer: the links on one line, the small print under it. */
@@ -411,7 +411,7 @@
     summary:hover::after { opacity: 1; }
     details[open] summary::after { opacity: 1; }
     .hero { padding-top: 22px; }
-    .wide > .shots { margin-top: 40px; }
+    .wide .shots { margin-top: 40px; }
     h2, .minor { font-size: 24px; margin-top: 88px; margin-bottom: 16px; }
   }
 
@@ -433,8 +433,8 @@
     .phone .step strong { display: block; margin-bottom: 6px; }
     .phone .step span { display: block; max-width: 270px; margin: 0 auto; }
   }
-  @media (min-width: 900px) { .wide > .shots { margin-top: 68px; } }
-  @media (min-width: 900px) { .wide > .shots { margin-top: 88px; } }
+  @media (min-width: 900px) { .wide .shots { margin-top: 68px; } }
+  @media (min-width: 900px) { .wide .shots { margin-top: 88px; } }
   @media (min-width: 900px) { .phone .step { margin-bottom: 38px; } }
 
   /* Desktop: a smaller QR code and a narrower card around it. */
@@ -444,7 +444,7 @@
     .hero .calm, .hero .source { max-width: 380px; }
   }
   @media (min-width: 900px) { .hero { padding-top: 48px; } }
-  @media (min-width: 900px) { .wide > .shots { margin-top: 78px; } }
+  @media (min-width: 900px) { .wide .shots { margin-top: 78px; } }
 
   /* Desktop: the legend card has the same width as the story and the questions under it. */
   @media (min-width: 900px) {
@@ -453,6 +453,13 @@
     .legend-card .legend li span { font-size: 15px; }
   }
   @media (min-width: 900px) { .legend-card { margin-top: 74px; } }
+
+  /* The band: full width, light blue like the story panel; it starts two thirds down the phones and ends three quarters down the legend card. */
+  html { overflow-x: clip; }
+  .bandwrap { position: relative; isolation: isolate; }
+  @media (min-width: 900px) {
+    .bandwrap::before { content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: var(--band-top, 0); height: var(--band-h, 0); background: color-mix(in srgb, var(--blue) 7%, var(--bg)); }
+  }
 
   main { text-align: center; padding-top: 18vh; } img { width: 72px; height: 72px; border-radius: 18px; }
 </style></head><body><main>

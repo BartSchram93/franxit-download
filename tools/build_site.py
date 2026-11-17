@@ -135,6 +135,7 @@ def page(code):
   <section class="wide">
   <h2 class="sr-only">{t["steps_h"]}</h2>
 
+  <div class="bandwrap" id="bandwrap">
   <div class="shots" id="shots">
 {shots}
   </div>
@@ -147,6 +148,7 @@ def page(code):
   <ul class="legend">
 {legend}
   </ul>
+  </div>
   </div>
 
   </section>
@@ -211,6 +213,24 @@ def page(code):
       if (d > 6) window.scrollBy({{ top: d, behavior: "smooth" }});
     }}
     window.addEventListener("scroll", function () {{ clearTimeout(timer); timer = setTimeout(nudge, 160); }}, {{ passive: true }});
+  }})();
+  // Desktop: a soft band behind the lower third of the phones and the upper three quarters of the legend card.
+  (function () {{
+    var w = document.getElementById("bandwrap");
+    if (!w || !window.matchMedia) return;
+    function band() {{
+      var ph = w.querySelector(".phone img"), card = w.querySelector(".legend-card");
+      if (!ph || !card || !matchMedia("(min-width: 900px)").matches) return;
+      var wr = w.getBoundingClientRect(), p = ph.getBoundingClientRect(), c = card.getBoundingClientRect();
+      var top = p.top - wr.top + p.height * 2 / 3, bottom = c.top - wr.top + c.height * 0.75;
+      w.style.setProperty("--band-top", Math.round(top) + "px");
+      w.style.setProperty("--band-h", Math.max(0, Math.round(bottom - top)) + "px");
+    }}
+    band();
+    window.addEventListener("resize", band);
+    window.addEventListener("load", band);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(band);
+    if (window.ResizeObserver) new ResizeObserver(band).observe(w);
   }})();
   // A link to the install steps opens them.
   function openInstall() {{ if (location.hash === "#installeren") {{ var d = document.getElementById("installeren"); if (d) d.open = true; }} }}
