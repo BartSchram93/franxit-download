@@ -103,13 +103,12 @@
   @media (min-width: 640px) { .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; overflow: visible; margin: 0; padding: 4px 0 14px; } .phone { flex: none; } }
   /* On a computer the four screens get the room to be readable: wider than the text column. */
   @media (min-width: 900px) { .shots { display: flex; width: min(980px, calc(100vw - 48px)); margin: 0 0 0 50%; transform: translateX(-50%); gap: 22px; } .phone { flex: 1 1 0; } }
-  .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
-  .legend li { display: grid; grid-template-columns: 9.6rem 1fr; gap: 12px; align-items: start; margin: 0; font-size: 16px; line-height: 1.55; }
+  /* The advice names: the label with its dot, and its explanation under it. The same on every screen and in every language. */
+  .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 16px; }
+  .legend li { display: grid; grid-template-columns: 1fr; gap: 2px; margin: 0; font-size: 16px; line-height: 1.55; }
   .legend strong { display: flex; align-items: flex-start; gap: 8px; }
   .legend i { flex: none; width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-top: .62em; }
-  .legend span { color: var(--muted); }
-  /* On a phone the explanation gets the full width, under its label: long French labels and texts need the room. */
-  @media (max-width: 520px) { .legend { gap: 16px; } .legend li { grid-template-columns: 1fr; gap: 2px; } .legend span { padding-left: 17px; } }
+  .legend span { color: var(--muted); padding-left: 17px; }
 
   .features { display: grid; gap: 12px; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
   @media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; } }
