@@ -407,6 +407,12 @@
 
   .ios-note .ios-b { display: block; margin-top: 6px; }
 
+  /* Desktop legend: every row is as tall as the tallest, so the labels sit at an even distance. */
+  @media (min-width: 900px) {
+    .legend-card .legend { grid-auto-rows: 1fr; gap: 6px; }
+    .legend-card .legend li { align-items: center; align-content: center; }
+  }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }
