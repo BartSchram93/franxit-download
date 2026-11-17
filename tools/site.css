@@ -430,3 +430,4 @@
     .phone .step strong { display: block; margin-bottom: 6px; }
     .phone .step span { display: block; max-width: 270px; margin: 0 auto; }
   }
+  @media (min-width: 900px) { .wide > .shots { margin-top: 68px; } }
