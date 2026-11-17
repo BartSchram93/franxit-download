@@ -286,3 +286,5 @@
     .live .live-step.on { display: grid; }
   }
   @media (max-width: 639px) { .shots { padding-bottom: 36px; margin-bottom: -22px; } }
+
+  @media (max-width: 639px) { .live { min-height: 128px; } }

@@ -312,6 +312,8 @@
     .live .live-step.on { display: grid; }
   }
   @media (max-width: 639px) { .shots { padding-bottom: 36px; margin-bottom: -22px; } }
+
+  @media (max-width: 639px) { .live { min-height: 128px; } }
 </style>
 </head>
 <body>
@@ -342,17 +344,17 @@
   <section class="wide">
 
   <div class="shots" id="shots">
-    <figure class="phone"><div class="step"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>3</b><div><strong>Reçois un conseil</strong><span>Si tu dois acheter maintenant ou attendre, avec l'explication.</span></div></div><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone extra"><div class="step"><b>4</b><div><strong>Garde le fil</strong><span>Tous tes produits au même endroit, chacun avec son conseil.</span></div></div><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>1</b><div><strong>Choisis un produit</strong><span>Tape le nom de ce que tu veux acheter, ou partage une page de magasin avec Franxit. C'est tout.</span></div></div><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Franxit cherche le prix dans chaque magasin et le met à côté de ce que le produit a coûté l'année dernière.</span></div></div><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>3</b><div><strong>Reçois un conseil</strong><span>Tu vois tout de suite s'il vaut mieux acheter maintenant ou attendre, et tu lis pourquoi.</span></div></div><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone extra"><div class="step"><b>4</b><div><strong>Garde le fil</strong><span>Tout ce que tu suis est réuni sur un seul écran, chaque produit avec son propre conseil.</span></div></div><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="live" id="live" aria-live="polite">
-    <div class="step live-step on"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div>
-    <div class="step live-step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div>
-    <div class="step live-step"><b>3</b><div><strong>Reçois un conseil</strong><span>Si tu dois acheter maintenant ou attendre, avec l'explication.</span></div></div>
-    <div class="step live-step"><b>4</b><div><strong>Garde le fil</strong><span>Tous tes produits au même endroit, chacun avec son conseil.</span></div></div>
+    <div class="step live-step on"><b>1</b><div><strong>Choisis un produit</strong><span>Tape le nom de ce que tu veux acheter, ou partage une page de magasin avec Franxit. C'est tout.</span></div></div>
+    <div class="step live-step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Franxit cherche le prix dans chaque magasin et le met à côté de ce que le produit a coûté l'année dernière.</span></div></div>
+    <div class="step live-step"><b>3</b><div><strong>Reçois un conseil</strong><span>Tu vois tout de suite s'il vaut mieux acheter maintenant ou attendre, et tu lis pourquoi.</span></div></div>
+    <div class="step live-step"><b>4</b><div><strong>Garde le fil</strong><span>Tout ce que tu suis est réuni sur un seul écran, chaque produit avec son propre conseil.</span></div></div>
   </div>
   <p class="advice-h">Voici ce que chaque conseil veut dire :</p>
   <ul class="legend">

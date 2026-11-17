@@ -313,6 +313,8 @@
     .live .live-step.on { display: grid; }
   }
   @media (max-width: 639px) { .shots { padding-bottom: 36px; margin-bottom: -22px; } }
+
+  @media (max-width: 639px) { .live { min-height: 128px; } }
 </style>
 </head>
 <body>
@@ -343,17 +345,17 @@
   <section class="wide">
 
   <div class="shots" id="shots">
-    <figure class="phone"><div class="step"><b>1</b><div><strong>Kies een product</strong><span>Typ de naam, of deel een winkelpagina met Franxit.</span></div></div><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>2</b><div><strong>Laat Franxit analyseren</strong><span>De prijs per winkel, en wat het product het voorbije jaar kostte.</span></div></div><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>3</b><div><strong>Krijg advies</strong><span>Of je nu best koopt of wacht, met uitleg erbij.</span></div></div><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone extra"><div class="step"><b>4</b><div><strong>Hou het bij</strong><span>Al je producten op één plek, elk met zijn advies.</span></div></div><img src="screens/nl/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>1</b><div><strong>Kies een product</strong><span>Typ de naam van wat je wil kopen, of deel een winkelpagina met Franxit. Meer moet je niet doen.</span></div></div><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>2</b><div><strong>Laat Franxit analyseren</strong><span>Franxit zoekt de prijs in elke winkel en legt die naast wat het product het voorbije jaar kostte.</span></div></div><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>3</b><div><strong>Krijg advies</strong><span>Je ziet meteen of je nu best koopt of nog even wacht, en je leest ook waarom.</span></div></div><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone extra"><div class="step"><b>4</b><div><strong>Hou het bij</strong><span>Alles wat je volgt staat samen op één scherm, elk product met zijn eigen advies.</span></div></div><img src="screens/nl/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="969" loading="lazy"></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="live" id="live" aria-live="polite">
-    <div class="step live-step on"><b>1</b><div><strong>Kies een product</strong><span>Typ de naam, of deel een winkelpagina met Franxit.</span></div></div>
-    <div class="step live-step"><b>2</b><div><strong>Laat Franxit analyseren</strong><span>De prijs per winkel, en wat het product het voorbije jaar kostte.</span></div></div>
-    <div class="step live-step"><b>3</b><div><strong>Krijg advies</strong><span>Of je nu best koopt of wacht, met uitleg erbij.</span></div></div>
-    <div class="step live-step"><b>4</b><div><strong>Hou het bij</strong><span>Al je producten op één plek, elk met zijn advies.</span></div></div>
+    <div class="step live-step on"><b>1</b><div><strong>Kies een product</strong><span>Typ de naam van wat je wil kopen, of deel een winkelpagina met Franxit. Meer moet je niet doen.</span></div></div>
+    <div class="step live-step"><b>2</b><div><strong>Laat Franxit analyseren</strong><span>Franxit zoekt de prijs in elke winkel en legt die naast wat het product het voorbije jaar kostte.</span></div></div>
+    <div class="step live-step"><b>3</b><div><strong>Krijg advies</strong><span>Je ziet meteen of je nu best koopt of nog even wacht, en je leest ook waarom.</span></div></div>
+    <div class="step live-step"><b>4</b><div><strong>Hou het bij</strong><span>Alles wat je volgt staat samen op één scherm, elk product met zijn eigen advies.</span></div></div>
   </div>
   <p class="advice-h">Dit betekent elk advies:</p>
   <ul class="legend">
