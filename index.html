@@ -39,7 +39,7 @@
   p, li, .feature p, details p, .advice p { text-wrap: pretty; }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 1040px; margin: 0 auto; padding: 0 22px 64px; }
+  main { max-width: 1200px; margin: 0 auto; padding: 0 22px 64px; }
   .narrow { max-width: none; }
   a { color: var(--blue); }
 
@@ -47,10 +47,14 @@
   .hero-shot { margin: 34px auto 0; width: 230px; height: 300px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent); }
   .hero-shot img { display: block; width: 100%; height: auto; border: 7px solid #111; border-radius: 34px; box-shadow: 0 8px 24px rgba(0,0,0,.14); background: var(--card); }
   @media (min-width: 900px) {
-    .hero { display: grid; grid-template-columns: 1fr 300px; gap: 96px; align-items: center; text-align: left; padding: 40px 0 0; }
-    .hero-shot { margin: 0; width: 300px; height: auto; overflow: visible; -webkit-mask-image: none; mask-image: none; }
+    .hero { display: grid; grid-template-columns: 1fr 340px; gap: 96px; align-items: center; text-align: left; padding: 40px 0 0; }
+    .hero-shot { margin: 0; width: 340px; height: auto; overflow: visible; -webkit-mask-image: none; mask-image: none; }
     .hero .lead { margin-left: 0; }
-    h1 { font-size: 46px; }
+    h1 { font-size: 52px; }
+    .lead { font-size: 21px; }
+    h2 { margin-top: 96px; font-size: 28px; }
+    .desktop .qr { max-width: 480px; }
+    .hero .calm, .hero .source { max-width: 480px; }
     .desktop .qr, .calm, .source { margin-left: 0; margin-right: 0; text-align: left; }
     .desktop .hero .qr { margin: 0 0 14px; }
     .hero .calm, .hero .source { margin-left: 0; margin-right: 0; max-width: 440px; text-align: center; }
@@ -79,7 +83,7 @@
   .ios .get, .ios .source { display: none; }
   .desktop .qr { display: flex; align-items: center; gap: 16px; max-width: 440px; margin: 0 auto 14px; text-align: left; color: var(--muted); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
   .qr strong { color: var(--ink); }
-  .qr img { width: 124px; height: 124px; flex: none; background: #fff; image-rendering: pixelated; }
+  .qr img { width: 160px; height: 160px; flex: none; background: #fff; image-rendering: pixelated; }
 .steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 20px; counter-reset: s; }
   .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin: 0; }
   .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); font-weight: 700; display: grid; place-items: center; }
@@ -119,7 +123,7 @@
   .dots span.on { background: var(--ink); }
   /* Tablet or a narrow window: two by two, nothing to scroll. On a computer all four in a row. */
   @media (min-width: 640px) { .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; overflow: visible; margin: 0; padding: 4px 0 14px; } .phone { flex: none; } .dots { display: none; } }
-  @media (min-width: 900px) { .shots { grid-template-columns: repeat(4, 1fr); gap: 28px; } }
+  @media (min-width: 900px) { .shots { grid-template-columns: repeat(3, 1fr); gap: 40px; } .phone { max-width: 330px; margin: 0 auto; } }
     /* The advice names: the label with its dot, and its explanation under it. The same on every screen and in every language. */
   /* The five advice names as coloured labels, each with its explanation. The same on every screen and language. */
   .advice-h { margin: 36px 0 14px; font-weight: 700; font-size: 17px; }
@@ -134,7 +138,7 @@
   @media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 900px) { .features { grid-template-columns: repeat(4, 1fr); } }
   .feature { margin: 0; padding-top: 14px; border-top: 1px solid var(--line); }
-  .feature strong { display: block; font-size: 17px; margin-bottom: 4px; }
+  .feature strong { display: block; font-size: 17px; margin-bottom: 4px; text-wrap: wrap; }
   .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
   /* The story as a quote: a soft panel with a blue quote mark and the signature underneath. */
@@ -172,7 +176,7 @@
   /* On a computer the whole width is used: the blocks sit side by side instead of in one narrow column. */
   @media (min-width: 900px) {
     .legend { grid-template-columns: repeat(5, 1fr); gap: 28px; }
-    .legend li { grid-template-columns: 1fr; gap: 8px; align-items: start; }
+    .legend li { grid-template-columns: 1fr; gap: 8px; align-items: start; align-content: start; }
     .story { display: grid; grid-template-columns: 1.5fr 1fr; column-gap: 64px; padding: 34px 40px 30px 36px; }
     .story::before { left: 32px; }
     .story p { margin: 0; }
@@ -188,6 +192,8 @@
     .faq details:last-of-type { border-bottom: 0; }
     .faq details:nth-last-of-type(-n+2) { border-bottom: 1px solid var(--line); }
   }
+
+  @media (min-width: 900px) { footer { margin-top: 80px; padding-top: 28px; border-top: 1px solid var(--line); } }
 </style>
 </head>
 <body>
@@ -201,7 +207,7 @@
     <h1>Waar en wanneer koop je best?</h1>
     <p class="lead">Franxit analyseert de prijzen en geeft je advies.</p>
     <p class="ios-note">Franxit is er enkel voor Android. Open deze pagina op je Android-gsm om het te installeren.</p>
-    <div class="qr"><img src="qr.svg" alt="QR-code naar franxit.be" width="124" height="124"><span><strong>Scan de code met je gsm</strong><br>Dan installeer je Franxit meteen op je telefoon.</span></div>
+    <div class="qr"><img src="qr.svg" alt="QR-code naar franxit.be" width="160" height="160"><span><strong>Scan de code met je gsm</strong><br>Dan installeer je Franxit meteen op je telefoon.</span></div>
     <a class="get" id="download" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">
       <span class="get-top">
         <img class="get-icon" src="icon.png" alt="">
@@ -229,7 +235,6 @@
   <div class="shots" id="shots">
     <figure class="phone"><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"><figcaption>Deel een winkelpagina met Franxit</figcaption></figure>
     <figure class="phone"><img src="screens/nl/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="969" loading="lazy"><figcaption>Je producten en hun advies</figcaption></figure>
-    <figure class="phone"><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" loading="lazy"><figcaption>De goedkoopste winkel</figcaption></figure>
     <figure class="phone"><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"><figcaption>Het advies, met uitleg</figcaption></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>

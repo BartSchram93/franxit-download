@@ -28,7 +28,7 @@ def page(code):
     steps = "\n".join(f"    <li><div><strong>{a}</strong><span>{b}</span></div></li>" for a, b in t["steps"])
     shots = "\n".join(
         f'    <figure class="phone"><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"><figcaption>{cap}</figcaption></figure>'
-        for n, alt, cap in t["shots"])
+        for n, alt, cap in t["shots"] if n != "advice")
     legend = "\n".join(f'    <li><strong style="--c:var(--{c})"><i></i>{n}</strong><span>{d}</span></li>' for c, n, d in t["legend"])
     features = "\n".join(f'    <li class="feature"><strong>{a}</strong><p>{b}</p></li>' for a, b in t["features"])
     story = "\n".join(f"    <p>{p}</p>" for p in t["story"])
@@ -77,7 +77,7 @@ def page(code):
     <h1>{t["h1"]}</h1>
     <p class="lead">{t["lead"]}</p>
     <p class="ios-note">{t["ios_note"]}</p>
-    <div class="qr"><img src="{root}qr.svg" alt="{esc(t["qr_alt"])}" width="124" height="124"><span><strong>{t["qr_strong"]}</strong><br>{t["qr_text"]}</span></div>
+    <div class="qr"><img src="{root}qr.svg" alt="{esc(t["qr_alt"])}" width="160" height="160"><span><strong>{t["qr_strong"]}</strong><br>{t["qr_text"]}</span></div>
     <a class="get" id="download" href="{APK}">
       <span class="get-top">
         <img class="get-icon" src="{root}icon.png" alt="">
