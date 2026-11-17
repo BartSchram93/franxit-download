@@ -226,3 +226,24 @@
   /* The step text sits under its screen. */
   .step { margin: 18px 0 0; flex: none; }
   .phone img { order: 0; }
+
+  /* Finishing touches */
+  :root { --muted: #55554f; }
+  @media (prefers-color-scheme: dark) { :root { --muted: #a8a8a2; } }
+  .advice-h { margin-top: 48px; font-size: 18px; }
+  @media (min-width: 900px) {
+    .step span, .legend span, details p, .install-steps { font-size: 16px; }
+    .legend li { font-size: 16px; }
+    .advice-h { margin-top: 72px; }
+    .hero-copy { padding-bottom: 28px; }
+    .story { columns: 2; column-gap: 56px; max-width: none; display: block; }
+    .story p { break-inside: avoid; }
+    .story .signature { column-span: all; margin-top: 8px !important; }
+    footer { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; }
+    footer p { margin: 0; }
+    footer p + p::before { content: "·"; margin: 0 12px; }
+  }
+  @media (min-width: 900px) {
+    footer .share { margin-top: 0; }
+    .story p:nth-of-type(2) { font-size: 22px; line-height: 1.5; }
+  }
