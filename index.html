@@ -316,6 +316,13 @@
 
   @media (max-width: 639px) { .live { min-height: 128px; } }
   @media (max-width: 639px) { .dots { margin-top: 18px; } }
+  /* Phone: the chosen screen snaps to the middle, a sliver of its neighbours on both sides. */
+  @media (max-width: 639px) {
+    .shots { padding-left: 17vw; padding-right: 17vw; scroll-padding: 0; gap: 20px;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); }
+    .shots.end { -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); }
+    .phone { flex: 0 0 66vw; scroll-snap-align: center; }
+  }
 </style>
 </head>
 <body>
