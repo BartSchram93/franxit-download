@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Franxit · Où et quand acheter au mieux ?</title>
+<meta name="description" content="Franxit analyse les prix et te conseille : où c'est le moins cher et si c'est le bon moment. Gratuit, pour Android.">
+<meta name="theme-color" content="#2f6fdb">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://franxit.be/fr/">
+<meta property="og:locale" content="fr_BE">
+<meta property="og:title" content="Franxit : où et quand acheter au mieux ?">
+<meta property="og:description" content="Franxit analyse les prix et te conseille : où c'est le moins cher et si c'est le bon moment. Gratuit, pour Android.">
+<meta property="og:image" content="https://franxit.be/preview-fr.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://franxit.be/fr/">
+<link rel="alternate" hreflang="nl" href="https://franxit.be/">
+<link rel="alternate" hreflang="fr" href="https://franxit.be/fr/">
+<link rel="alternate" hreflang="en" href="https://franxit.be/en/">
+<link rel="alternate" hreflang="x-default" href="https://franxit.be/">
+<link rel="icon" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<script>(function(){var u=navigator.userAgent||"",d=document.documentElement;d.className=/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&navigator.maxTouchPoints>1)?"ios":/Android/.test(u)?"android":"desktop";})();</script>
+<style>
+  :root {
+    --bg: #f6f6f3; --card: #ffffff; --ink: #111111; --muted: #5d5d58; --line: #e2e2dc;
+    --blue: #2f6fdb; --on-blue: #ffffff; --green: #1f9d61; --orange: #d9822b; --red: #d9483b;
+    --track: #e6e6e0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f0f10; --card: #1a1a1c; --ink: #f2f2ee; --muted: #a2a29c; --line: #2c2c2f; --track: #2e2e31; }
+  }
+  * { box-sizing: border-box; }
+  /* No lonely words at the end of a line: short texts are balanced, longer ones kept even. */
+  h1, h2, .lead, .sub, .note, .calm, .source, figcaption, .feature strong, .advice .what, summary { text-wrap: balance; }
+  p, li, .feature p, details p, .advice p { text-wrap: pretty; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 0 22px 64px; }
+  a { color: var(--blue); }
+
+  .hero { padding: 44px 0 8px; text-align: center; }
+  .logo { width: 84px; height: 84px; border-radius: 21px; display: block; margin: 0 auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
+  .brand { font-weight: 700; letter-spacing: .5px; color: var(--muted); margin: 0 0 10px; }
+  h1 { font-size: 36px; line-height: 1.12; margin: 0 0 14px; letter-spacing: -0.6px; }
+  .lead { color: var(--muted); font-size: 19px; margin: 0 auto 26px; max-width: 540px; }
+  .get { display: block; max-width: 440px; margin: 0 auto; text-align: left; text-decoration: none; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+  .get-top { display: flex; align-items: center; gap: 14px; }
+  .get-icon { width: 52px; height: 52px; border-radius: 13px; flex: none; }
+  .get-text strong { display: block; font-size: 18px; line-height: 1.25; }
+  .get-text small { display: block; color: var(--muted); font-size: 14px; line-height: 1.4; margin-top: 3px; }
+  .get-text small span { display: block; white-space: nowrap; }
+  .get-text small #meta:empty, .get-text small #meta:not(.on) { display: none; }
+  .get-go { display: block; margin-top: 14px; text-align: center; background: var(--blue); color: var(--on-blue); font-weight: 600; font-size: 17px; padding: 12px; border-radius: 12px; }
+  .get:hover .get-go { filter: brightness(1.06); }
+  .source { color: var(--muted); font-size: 14px; text-align: center; margin: 6px auto 0; max-width: 440px; }
+  .version { color: var(--muted); font-size: 14px; text-align: center; margin: 10px 0 0; min-height: 1.4em; }
+  .calm { color: var(--ink); font-size: 15px; font-weight: 600; text-align: center; margin: 16px auto 0; max-width: 420px; }
+
+  .ios-note, .qr { display: none; }
+  .ios .ios-note { display: block; max-width: 440px; margin: 0 auto 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; font-size: 15px; color: var(--muted); text-align: left; }
+  .ios .get, .ios .source { display: none; }
+  .desktop .qr { display: flex; align-items: center; gap: 16px; max-width: 440px; margin: 0 auto 14px; text-align: left; color: var(--muted); font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
+  .qr strong { color: var(--ink); }
+  .qr img { width: 124px; height: 124px; flex: none; background: #fff; image-rendering: pixelated; }
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; }
+  .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); font-weight: 700; display: grid; place-items: center; }
+  @media (min-width: 640px) { .steps { grid-template-columns: repeat(3, 1fr); } .steps li { grid-template-columns: 1fr; gap: 10px; align-content: start; } }
+  .steps strong { display: block; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+  .steps span { color: var(--muted); font-size: 15px; }
+  .dl2 { display: block; max-width: 440px; margin: 16px auto 0; text-align: center; background: var(--blue); color: var(--on-blue); font-weight: 600; padding: 12px; border-radius: 12px; text-decoration: none; }
+  .ios .dl2, .desktop .dl2, .desktop .get, .desktop .source { display: none; }
+  .share { display: inline-block; margin-top: 10px; }
+
+  h2 { font-size: 24px; line-height: 1.2; margin: 64px 0 8px; letter-spacing: -0.3px; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .note { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+
+  /* The advice card, as the app shows it */
+  .advice { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 18px 20px; }
+  .advice .head { display: flex; align-items: flex-start; gap: 10px; }
+  .advice .dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--green); margin-top: 9px; }
+  .advice .title { font-size: 21px; font-weight: 600; color: var(--green); line-height: 1.3; }
+  .advice .what { color: var(--muted); font-size: 14px; margin-top: 1px; }
+  .bar { margin: 14px 0 12px; height: 8px; border-radius: 6px; background: var(--track); overflow: hidden; }
+  .bar span { display: block; height: 100%; width: 82%; background: var(--green); border-radius: 6px; }
+  .advice p { margin: 0 0 10px; font-size: 16px; }
+  .reasons { list-style: none; padding: 0; margin: 0 0 12px; }
+  .reasons li { position: relative; padding-left: 22px; margin: 0 0 6px; font-size: 15px; }
+  .reasons li::before { content: "+"; position: absolute; left: 4px; top: 0; font-weight: 700; color: var(--green); }
+  .advice .foot { color: var(--muted); font-size: 13px; margin: 0; }
+
+  .shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -22px; padding: 4px 22px 14px; scrollbar-width: none; }
+  .shots::-webkit-scrollbar { display: none; }
+  .phone { flex: 0 0 58%; scroll-snap-align: center; margin: 0; text-align: center; }
+  .phone img { display: block; width: 100%; height: auto; border: 7px solid #111; border-radius: 30px; box-shadow: 0 8px 24px rgba(0,0,0,.14); background: var(--card); }
+  .phone figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
+  /* Tablet or a narrow window: all four at once, two by two: nothing to scroll. */
+  @media (min-width: 640px) { .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; overflow: visible; margin: 0; padding: 4px 0 14px; } .phone { flex: none; } }
+  /* On a computer the four screens get the room to be readable: wider than the text column. */
+  @media (min-width: 900px) { .shots { display: flex; width: min(980px, calc(100vw - 48px)); margin: 0 0 0 50%; transform: translateX(-50%); gap: 22px; } .phone { flex: 1 1 0; } }
+  .legend { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
+  .legend li { display: grid; grid-template-columns: 9.6rem 1fr; gap: 12px; align-items: baseline; margin: 0; font-size: 16px; }
+  .legend strong { display: flex; align-items: center; gap: 8px; }
+  .legend i { flex: none; width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .legend span { color: var(--muted); }
+
+  .features { display: grid; gap: 12px; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
+  @media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; } }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; margin: 0; }
+  .feature strong { display: block; font-size: 17px; margin-bottom: 2px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
+  .card p { margin: 0 0 10px; } .card p:last-child { margin: 0; }
+  ol { padding-left: 22px; margin: 0; } li { margin: 0 0 10px; }
+  .small { color: var(--muted); font-size: 15px; }
+
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 0 18px; margin: 0 0 10px; }
+  summary { cursor: pointer; font-weight: 600; padding: 14px 0; list-style: none; position: relative; padding-right: 28px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 2px; top: 11px; font-size: 22px; font-weight: 400; color: var(--muted); }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 0 0 14px; color: var(--muted); }
+
+  footer { margin-top: 56px; color: var(--muted); font-size: 14px; text-align: center; }
+  footer p { margin: 0 0 6px; }
+  footer a { color: var(--muted); }
+
+  .langs { text-align: right; font-size: 14px; padding-top: 16px; color: var(--muted); }
+  .langs a { color: var(--muted); text-decoration: none; padding: 2px 4px; }
+  .langs a:hover { text-decoration: underline; }
+  .langs b { color: var(--ink); font-weight: 600; padding: 2px 4px; }
+</style>
+</head>
+<body>
+<main>
+
+  <nav class="langs" aria-label="Language"><a href="/" hreflang="nl" data-lang="nl">Nederlands</a> · <b>Français</b> · <a href="/en/" hreflang="en" data-lang="en">English</a></nav>
+
+  <section class="hero">
+    <p class="brand">FRANXIT</p>
+    <h1>Où et quand acheter au mieux ?</h1>
+    <p class="lead">Franxit analyse les prix et te conseille : où c'est le moins cher et si c'est le bon moment.</p>
+    <p class="ios-note">Franxit n'existe que pour Android. Ouvre cette page sur ton téléphone Android pour l'installer.</p>
+    <div class="qr"><img src="../qr.svg" alt="Code QR vers franxit.be" width="124" height="124"><span><strong>Scanne le code avec ton téléphone</strong><br>Tu installes ainsi Franxit directement sur ton téléphone.</span></div>
+    <a class="get" id="download" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">
+      <span class="get-top">
+        <img class="get-icon" src="../icon.png" alt="">
+        <span class="get-text"><strong>Franxit pour Android</strong><small><span id="meta">Android 8 ou plus récent</span><span>Android 8 ou plus récent</span></small></span>
+      </span>
+      <span class="get-go">Télécharger</span>
+    </a>
+    <p class="calm">Gratuit. Sans compte. Sans publicité.</p>
+    <p class="source">Android te met en garde à l'installation, car Franxit n'est pas sur le Play Store. <a href="#installeren">Voici comment faire</a>.</p>
+  </section>
+
+  <h2>Comment ça marche</h2>
+  <ol class="steps">
+    <li><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></li>
+    <li><div><strong>Franxit analyse</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></li>
+    <li><div><strong>Tu reçois un conseil</strong><span>Le magasin le moins cher, et si tu dois acheter maintenant ou attendre.</span></div></li>
+  </ol>
+
+  <h2>À quoi ça ressemble</h2>
+  <p class="sub">De vrais écrans de l'appli, avec les vrais prix du 17 novembre 2026.</p>
+  <div class="shots">
+    <figure class="phone"><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"><figcaption>Partage une page de magasin avec Franxit</figcaption></figure>
+    <figure class="phone"><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"><figcaption>Tes produits et leur conseil</figcaption></figure>
+    <figure class="phone"><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" loading="lazy"><figcaption>Le magasin le moins cher</figcaption></figure>
+    <figure class="phone"><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"><figcaption>Le conseil, expliqué</figcaption></figure>
+  </div>
+  <p class="note">Voici ce que chaque conseil veut dire :</p>
+
+  <ul class="legend">
+    <li><strong><i style="background:var(--green)"></i>Acheter maintenant</strong><span>Le prix est historiquement très intéressant.</span></li>
+    <li><strong><i style="background:var(--blue)"></i>À envisager</strong><span>Bon, mais pas exceptionnel.</span></li>
+    <li><strong><i style="background:var(--orange)"></i>Attendre</strong><span>Pas particulièrement intéressant. Attends, ou crée une alerte de prix.</span></li>
+    <li><strong><i style="background:var(--red)"></i>Cher</strong><span>Élevé par rapport à l'historique des prix.</span></li>
+    <li><strong><i style="background:var(--muted)"></i>Pas encore de conseil</strong><span>Trop peu d'historique pour juger. Franxit le dit honnêtement.</span></li>
+  </ul>
+
+  <h2>Ce que tu peux faire d'autre</h2>
+  <p class="sub">Ce que Franxit fait encore pour toi.</p>
+  <ul class="features">
+    <li class="feature"><strong>L'historique dès le premier jour</strong><p>Pas besoin d'attendre des mois : les prix de l'année dernière sont là tout de suite.</p></li>
+    <li class="feature"><strong>Le prix dans chaque magasin</strong><p>Tu vois ce que demande chaque magasin, réductions comprises, et tu files directement au magasin.</p></li>
+    <li class="feature"><strong>Ta réduction</strong><p>Une réduction via ton employeur ? Encode-la et vois ce que tu paies vraiment.</p></li>
+    <li class="feature"><strong>Alerte de prix et widget</strong><p>Si le prix passe sous ton montant, tu reçois une notification. Sur ton écran d'accueil, tu vois le conseil en un coup d'œil.</p></li>
+  </ul>
+
+  <h2>Pourquoi j'ai fait ça</h2>
+  <div class="card">
+    <p>Avant d'acheter quelque chose, j'essaie toujours de savoir deux choses : dans quel magasin c'est le moins cher, et si le prix est bon maintenant. Ça veut dire faire le tour des magasins, et je ne sais toujours pas si ce « -30% » est bien réel.</p>
+    <p>Maintenant, Franxit le fait pour moi. Peut-être que ça t'aidera aussi.</p>
+    <p class="small">Bart</p>
+  </div>
+
+  <h2 id="installeren">Comment l'installer sur ton téléphone</h2>
+  <p class="sub">Franxit n'est pas sur le Play Store, donc Android demande d'abord ta permission.</p>
+  <div class="card">
+    <ol>
+      <li>Touche le bouton de téléchargement. Ton navigateur te met en garde ? Choisis <strong>Télécharger quand même</strong>.</li>
+      <li>Ouvre <strong>franxit.apk</strong>. Android demande une autorisation. Touche <strong>Paramètres</strong>, active l'option et reviens en arrière.</li>
+      <li>Touche <strong>Installer</strong>. Play Protect te met en garde ? Choisis <strong>Plus de détails</strong>, puis <strong>Installer quand même</strong>.</li>
+    </ol>
+    <p class="small" style="margin-top:12px">Quand une nouvelle version sort, l'appli te le dit. Installe-la par-dessus l'ancienne. Tes produits sont conservés.</p>
+  </div>
+
+  <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Télécharger</a>
+
+  <h2>Questions</h2>
+  <details>
+    <summary>Le conseil est-il fiable ?</summary>
+    <p>Aussi fiable que l'historique des prix. Si un produit a trop peu d'historique, Franxit dit « Pas encore de conseil » au lieu de deviner. Il regarde en arrière et ne prédit rien.</p>
+  </details>
+  <details>
+    <summary>Est-ce que ça coûte quelque chose ?</summary>
+    <p>Non. Pas d'abonnement et pas de publicité. Pour des magasins supplémentaires via Google Shopping, tu crées toi-même un compte gratuit chez SerpApi.</p>
+  </details>
+  <details>
+    <summary>Est-ce sûr ?</summary>
+    <p>Franxit demande seulement l'accès à internet et aux notifications. Il n'y a pas de compte et tes produits restent sur ton téléphone. Franxit compte seulement, de façon anonyme, combien d'appareils utilisent l'appli par jour. <a href="../privacy.html#fr">Toute l'histoire est ici</a>.</p><p>L'avertissement à l'installation vient du fait que l'appli n'est pas sur le Play Store.</p>
+  </details>
+  <details>
+    <summary>D'où vient le nom ?</summary>
+    <p>Du franc belge et de l'anglais « sit ». Rester assis sur son argent jusqu'à ce que ça en vaille la peine.</p>
+  </details>
+
+  <footer>
+    <p>Créé par Bart Schram</p>
+    <p>Uniquement pour Android</p>
+    <p><a class="share" href="https://wa.me/?text=Regarde%2C%20pratique%20quand%20tu%20veux%20acheter%20quelque%20chose%C2%A0%3A%20Franxit%20trouve%20le%20magasin%20le%20moins%20cher%20et%20dit%20si%20c%27est%20le%20bon%20moment.%20Uniquement%20pour%20Android%C2%A0%3A%20https%3A%2F%2Ffranxit.be%2Ffr%2F" rel="noopener">Partager via WhatsApp</a></p>
+    <p><a href="../privacy.html#fr">Confidentialité</a><span id="updated"></span></p>
+  </footer>
+</main>
+<script>
+  // Remember a language chosen by hand, so the page doesn't switch it back.
+  document.querySelectorAll(".langs a").forEach(function (a) {
+    a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
+  });
+  try { localStorage.setItem("lang", "fr"); } catch (e) {}
+  // Fills in the version and size of the latest release (no problem if this fails).
+  var T = {"version": "Version", "updated": "Mis à jour le", "months": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"], "decimal": ","};
+  fetch("https://api.github.com/repos/BartSchram93/franxit-download/releases/latest")
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (rel) {
+      if (!rel || !rel.tag_name) return;
+      var apk = (rel.assets || []).filter(function (a) { return a.name === "franxit.apk"; })[0];
+      var parts = [T.version + " " + rel.tag_name.replace(/^v/, "")];
+      if (apk && apk.size) parts.push((apk.size / 1e6).toFixed(1).replace(".", T.decimal) + " MB");
+      var meta = document.getElementById("meta");
+      meta.textContent = parts.join(" · ");
+      meta.className = "on";
+      if (rel.published_at) {
+        var d = new Date(rel.published_at);
+        document.getElementById("updated").textContent = " · " + T.updated + " " + d.getDate() + " " + T.months[d.getMonth()] + " " + d.getFullYear();
+      }
+    })
+    .catch(function () {});
+</script>
+</body>
+</html>

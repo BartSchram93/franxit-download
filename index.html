@@ -8,14 +8,21 @@
 <meta name="theme-color" content="#2f6fdb">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://franxit.be/">
+<meta property="og:locale" content="nl_BE">
 <meta property="og:title" content="Franxit: waar en wanneer koop je best?">
 <meta property="og:description" content="Franxit analyseert de prijzen en geeft advies: waar het goedkoopst is en of nu het juiste moment is. Gratis, voor Android.">
-<meta property="og:image" content="https://franxit.be/preview.png?v=2">
+<meta property="og:image" content="https://franxit.be/preview.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://franxit.be/">
+<link rel="alternate" hreflang="nl" href="https://franxit.be/">
+<link rel="alternate" hreflang="fr" href="https://franxit.be/fr/">
+<link rel="alternate" hreflang="en" href="https://franxit.be/en/">
+<link rel="alternate" hreflang="x-default" href="https://franxit.be/">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
+<script>try{if(!localStorage.getItem("lang")){var l=(navigator.language||"").slice(0,2);if(l==="fr")location.replace("/fr/");else if(l==="en")location.replace("/en/");}}catch(e){}</script>
 <script>(function(){var u=navigator.userAgent||"",d=document.documentElement;d.className=/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&navigator.maxTouchPoints>1)?"ios":/Android/.test(u)?"android":"desktop";})();</script>
 <style>
   :root {
@@ -124,10 +131,17 @@
   footer { margin-top: 56px; color: var(--muted); font-size: 14px; text-align: center; }
   footer p { margin: 0 0 6px; }
   footer a { color: var(--muted); }
+
+  .langs { text-align: right; font-size: 14px; padding-top: 16px; color: var(--muted); }
+  .langs a { color: var(--muted); text-decoration: none; padding: 2px 4px; }
+  .langs a:hover { text-decoration: underline; }
+  .langs b { color: var(--ink); font-weight: 600; padding: 2px 4px; }
 </style>
 </head>
 <body>
 <main>
+
+  <nav class="langs" aria-label="Language"><b>Nederlands</b> · <a href="/fr/" hreflang="fr" data-lang="fr">Français</a> · <a href="/en/" hreflang="en" data-lang="en">English</a></nav>
 
   <section class="hero">
     <p class="brand">FRANXIT</p>
@@ -154,12 +168,12 @@
   </ol>
 
   <h2>Zo ziet het eruit</h2>
-  <p class="sub">Echte schermen uit de app, met de echte prijzen van 16 november 2026.</p>
+  <p class="sub">Echte schermen uit de app, met de echte prijzen van 17 november 2026.</p>
   <div class="shots">
-    <figure class="phone"><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="948" loading="lazy"><figcaption>Deel een winkelpagina met Franxit</figcaption></figure>
-    <figure class="phone"><img src="screens/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="948" loading="lazy"><figcaption>Je producten en hun advies</figcaption></figure>
-    <figure class="phone"><img src="screens/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="948" loading="lazy"><figcaption>De goedkoopste winkel</figcaption></figure>
-    <figure class="phone"><img src="screens/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="948" loading="lazy"><figcaption>Het advies, met uitleg</figcaption></figure>
+    <figure class="phone"><img src="screens/share.webp" alt="Een winkelpagina delen met Franxit" width="460" height="969" loading="lazy"><figcaption>Deel een winkelpagina met Franxit</figcaption></figure>
+    <figure class="phone"><img src="screens/nl/overview.webp" alt="Franxit-overzicht met producten en hun advies" width="460" height="969" loading="lazy"><figcaption>Je producten en hun advies</figcaption></figure>
+    <figure class="phone"><img src="screens/nl/advice.webp" alt="Productscherm met de goedkoopste winkel" width="460" height="969" loading="lazy"><figcaption>De goedkoopste winkel</figcaption></figure>
+    <figure class="phone"><img src="screens/nl/details.webp" alt="Advies met uitleg en prijsgeschiedenis" width="460" height="969" loading="lazy"><figcaption>Het advies, met uitleg</figcaption></figure>
   </div>
   <p class="note">Dit betekent elk advies:</p>
 
@@ -211,8 +225,7 @@
   </details>
   <details>
     <summary>Is het veilig?</summary>
-    <p>Franxit vraagt enkel toegang tot internet en meldingen. Er is geen account en je producten blijven op je gsm. Franxit telt enkel anoniem hoeveel toestellen de app per dag gebruiken. <a href="privacy.html">Het volledige verhaal staat hier</a>.</p>
-    <p>De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat.</p>
+    <p>Franxit vraagt enkel toegang tot internet en meldingen. Er is geen account en je producten blijven op je gsm. Franxit telt enkel anoniem hoeveel toestellen de app per dag gebruiken. <a href="privacy.html#nl">Het volledige verhaal staat hier</a>.</p><p>De waarschuwing bij het installeren komt er omdat de app niet in de Play Store staat.</p>
   </details>
   <details>
     <summary>Waar komt de naam vandaan?</summary>
@@ -223,25 +236,30 @@
     <p>Gemaakt door Bart Schram</p>
     <p>Enkel voor Android</p>
     <p><a class="share" href="https://wa.me/?text=Kijk%20eens%2C%20handig%20als%20je%20iets%20wil%20kopen%3A%20Franxit%20zoekt%20de%20goedkoopste%20winkel%20en%20zegt%20of%20nu%20een%20goed%20moment%20is.%20Enkel%20voor%20Android%3A%20https%3A%2F%2Ffranxit.be%2F" rel="noopener">Deel via WhatsApp</a></p>
-    <p><a href="privacy.html">Privacy</a><span id="updated"></span></p>
+    <p><a href="privacy.html#nl">Privacy</a><span id="updated"></span></p>
   </footer>
 </main>
 <script>
+  // Remember a language chosen by hand, so the page doesn't switch it back.
+  document.querySelectorAll(".langs a").forEach(function (a) {
+    a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
+  });
+  try { localStorage.setItem("lang", "nl"); } catch (e) {}
   // Fills in the version and size of the latest release (no problem if this fails).
+  var T = {"version": "Versie", "updated": "Bijgewerkt op", "months": ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"], "decimal": ","};
   fetch("https://api.github.com/repos/BartSchram93/franxit-download/releases/latest")
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (rel) {
       if (!rel || !rel.tag_name) return;
       var apk = (rel.assets || []).filter(function (a) { return a.name === "franxit.apk"; })[0];
-      var parts = ["Versie " + rel.tag_name.replace(/^v/, "")];
-      if (apk && apk.size) parts.push((apk.size / 1e6).toFixed(1).replace(".", ",") + " MB");
+      var parts = [T.version + " " + rel.tag_name.replace(/^v/, "")];
+      if (apk && apk.size) parts.push((apk.size / 1e6).toFixed(1).replace(".", T.decimal) + " MB");
       var meta = document.getElementById("meta");
       meta.textContent = parts.join(" · ");
       meta.className = "on";
       if (rel.published_at) {
         var d = new Date(rel.published_at);
-        var m = ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"];
-        document.getElementById("updated").textContent = " · Bijgewerkt op " + d.getDate() + " " + m[d.getMonth()] + " " + d.getFullYear();
+        document.getElementById("updated").textContent = " · " + T.updated + " " + d.getDate() + " " + T.months[d.getMonth()] + " " + d.getFullYear();
       }
     })
     .catch(function () {});
