@@ -137,10 +137,12 @@ def page(code):
   <div class="live" id="live" aria-live="polite">
 {live}
   </div>
+  <div class="legend-card">
   <h2 class="advice-h">{t["legend_note"]}</h2>
   <ul class="legend">
 {legend}
   </ul>
+  </div>
 
   </section>
 
@@ -215,7 +217,7 @@ def page(code):
       meta.className = "on";
       if (rel.published_at) {{
         var d = new Date(rel.published_at);
-        document.getElementById("updated").textContent = " · " + T.updated + " " + d.getDate() + " " + T.months[d.getMonth()] + " " + d.getFullYear();
+        document.getElementById("updated").textContent = T.updated + " " + d.getDate() + " " + T.months[d.getMonth()] + " " + d.getFullYear();
       }}
     }})
     .catch(function () {{}});

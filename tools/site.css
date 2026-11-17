@@ -346,3 +346,15 @@
 
   @media (max-width: 639px) { .dots { margin-top: 4px; } .live { margin-top: 28px; } }
   @media (max-width: 639px) { .shots { padding-bottom: 72px; margin-bottom: -58px; } }
+
+  /* Last refinements: fewer questions, the legend as a quiet card on desktop, the story as a soft panel, the date on its own line. */
+  .story { background: color-mix(in srgb, var(--blue) 6%, var(--bg)); border-radius: 20px; padding: 24px 24px 18px; }
+  .story p:last-child { margin-bottom: 0; }
+  #updated { display: block; margin-top: 4px; }
+  @media (min-width: 900px) {
+    .legend-card { max-width: 720px; margin: 72px auto 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px 30px 28px; }
+    .legend-card .advice-h { margin: 0 0 18px; max-width: none; }
+    .legend-card .legend { max-width: none; margin: 0; }
+    .hero-shot { height: 450px; }
+    .story { padding: 30px 34px 24px; }
+  }
