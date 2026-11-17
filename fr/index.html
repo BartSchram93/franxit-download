@@ -47,7 +47,7 @@
   .hero-shot img { display: block; width: 100%; height: auto; border: 7px solid #111; border-radius: 34px; box-shadow: 0 8px 24px rgba(0,0,0,.14); background: var(--card); }
   @media (min-width: 900px) {
     .hero { display: grid; grid-template-columns: 1fr 340px; gap: 96px; align-items: center; text-align: left; padding: 40px 0 0; }
-    .hero-shot { margin: 0; width: 380px; height: auto; overflow: visible; -webkit-mask-image: none; mask-image: none; }
+    .hero-shot { margin: 0; width: 380px; height: 590px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 80%, transparent); mask-image: linear-gradient(#000 80%, transparent); }
     .hero .lead { margin-left: 0; }
     h1 { font-size: 56px; }
     .lead { font-size: 21px; }
@@ -246,7 +246,7 @@
     <button class="copy" type="button" data-done="Lien copié" data-url="https://franxit.be/fr/">Ou copie le lien</button>
     <p class="source">Android te met en garde à l'installation, car Franxit n'est pas sur le Play Store. <a href="#installeren">Voici comment faire</a>.</p>
    </div>
-   <div class="hero-shot"><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" fetchpriority="high"></div>
+   <div class="hero-shot"><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" fetchpriority="high"></div>
   </section>
 
   <section class="wide">
@@ -255,8 +255,8 @@
   <p class="sub">De vrais écrans de l'appli, avec les vrais prix du 17 novembre 2026.</p>
   <div class="shots" id="shots">
     <figure class="phone"><div class="step"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>2</b><div><strong>Franxit analyse</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"></figure>
-    <figure class="phone"><div class="step"><b>3</b><div><strong>Tu reçois un conseil</strong><span>Le magasin le moins cher, et si tu dois acheter maintenant ou attendre.</span></div></div><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>2</b><div><strong>Franxit analyse</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>3</b><div><strong>Tu reçois un conseil</strong><span>Si tu dois acheter maintenant ou attendre, avec l'explication.</span></div></div><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <p class="advice-h">Voici ce que chaque conseil veut dire :</p>

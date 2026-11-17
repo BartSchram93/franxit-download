@@ -25,7 +25,7 @@ def page(code):
         for c in ORDER)
     alternates = "\n".join(f'<link rel="alternate" hreflang="{c}" href="https://franxit.be/{LANGS[c]["path"]}">' for c in ORDER)
     alternates += '\n<link rel="alternate" hreflang="x-default" href="https://franxit.be/">'
-    shot_list = [s for s in t["shots"] if s[0] != "advice"]
+    shot_list = [s for s in t["shots"] if s[0] != "overview"]
     shots = "\n".join(
         f'    <figure class="phone"><div class="step"><b>{i + 1}</b><div><strong>{t["steps"][i][0]}</strong><span>{t["steps"][i][1]}</span></div></div><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"></figure>'
         for i, (n, alt, cap) in enumerate(shot_list))
@@ -89,7 +89,7 @@ def page(code):
     <button class="copy" type="button" data-done="{esc(t["copied"])}" data-url="{url}">{t["copy_label"]}</button>
     <p class="source">{t["source"]}</p>
    </div>
-   <div class="hero-shot"><img src="{root}screens/{code}/advice.webp" alt="{esc(t["shots"][2][1])}" width="460" height="969" fetchpriority="high"></div>
+   <div class="hero-shot"><img src="{root}screens/{code}/overview.webp" alt="{esc(t["shots"][1][1])}" width="460" height="969" fetchpriority="high"></div>
   </section>
 
   <section class="wide">
