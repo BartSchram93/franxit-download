@@ -348,7 +348,7 @@ LLMS = """# Franxit
 
 ## Key facts
 - What it does: you pick a product (type its name, or share a shop page with the app); Franxit analyses the price per shop and the price history of the past year, and gives one of five pieces of advice.
-- The five advice labels: Buy now (the price is historically very attractive), Consider (good, but not exceptional), Wait (not particularly attractive; wait or set a price alert), Expensive (high compared with the price history), No advice yet (too little history to judge).
+- The five advice labels: Buy now (the price is historically very attractive), Consider (good, but not exceptional), Wait (not particularly attractive; wait or set a price alert), Skip it (the price is high right now compared with its history), No advice yet (too little history to judge).
 - Price: free. No subscription, no account, no advertising.
 - Platform: Android only. There is no iPhone version. It is installed from an APK file because the app is not on the Google Play Store.
 - Privacy: tracked products stay on the phone. The app only counts, anonymously, how many devices use it per day.
