@@ -34,7 +34,7 @@ LANGS = {
     source='Android waarschuwt je bij het installeren, omdat Franxit niet in de Play Store staat. <a href="#installeren">Zo los je dat op</a>.',
     steps_h="Zo werkt het",
     steps=[("Kies een product", "Typ de naam van een product in, of deel de winkelpagina ervan met Franxit. Zo staat het meteen in je lijst."),
-           ("Vergelijk de winkels", "Franxit zet de prijzen van alle winkels naast elkaar, zodat je meteen ziet waar het het goedkoopst is."),
+           ("Vergelijk de winkels", "Franxit zet de prijzen van alle winkels naast elkaar, zodat je meteen ziet waar je het goedkoopst koopt."),
            ("Krijg advies", "Is het een goed moment om te kopen? Franxit legt uit, op basis van de prijsgeschiedenis. Jij beslist zelf."),
            ("Volg het op", "Al je producten op één scherm. Geef je maximumprijs aan en krijg een melding wanneer het zover is.")],
     see_h="Zo ziet het eruit",
