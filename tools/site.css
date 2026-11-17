@@ -288,3 +288,4 @@
   @media (max-width: 639px) { .shots { padding-bottom: 36px; margin-bottom: -22px; } }
 
   @media (max-width: 639px) { .live { min-height: 128px; } }
+  @media (max-width: 639px) { .dots { margin-top: 18px; } }
