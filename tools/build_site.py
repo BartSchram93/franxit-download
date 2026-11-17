@@ -158,6 +158,7 @@ def page(code):
     function mark() {{
       var w = s.scrollWidth - s.clientWidth, i = w > 0 ? Math.round(s.scrollLeft / w * (d.length - 1)) : 0;
       d.forEach(function (x, n) {{ x.className = n === i ? "on" : ""; }});
+      s.className = "shots" + (w > 0 && s.scrollLeft >= w - 4 ? " end" : "");
     }}
     s.addEventListener("scroll", mark, {{ passive: true }}); mark();
   }})();

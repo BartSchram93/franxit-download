@@ -217,6 +217,13 @@
   .install-steps li { margin: 0 0 8px; }
   .install-steps strong { color: var(--ink); }
 
+  /* Phone: the cards line up on the left margin, only the next one peeks in (faded), nothing is cut off on the left. */
+  @media (max-width: 639px) {
+    .shots { gap: 24px; scroll-padding-left: 22px; -webkit-mask-image: linear-gradient(to right, #000 86%, transparent); mask-image: linear-gradient(to right, #000 86%, transparent); }
+    .shots.end { -webkit-mask-image: none; mask-image: none; }
+    .phone { flex: 0 0 76%; scroll-snap-align: start; }
+  }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }
