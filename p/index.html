@@ -400,6 +400,11 @@
     .shots { --pw: min(66vw, calc((100svh - 190px) / 2.05)); padding-left: calc((100vw - var(--pw)) / 2); padding-right: calc((100vw - var(--pw)) / 2); }
     .phone { flex: 0 0 var(--pw); }
   }
+  /* No magnet for people who asked their device for less movement. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-snap-type: none; scroll-behavior: auto; }
+    .shots { scroll-snap-align: none; }
+  }
 
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
