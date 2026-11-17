@@ -411,20 +411,10 @@
     .legend span { padding: 0 0 0 18px; }
   }
 
-  /* Phone: a soft magnet. Scrolling near the screens settles the page where the phone and its caption are in view together
-     (only "proximity": far away nothing happens). The phone shrinks on short screens so both always fit. */
-  @media (max-width: 639px) and (min-height: 520px) {
-    html { scroll-snap-type: y proximity; }
-    .shots { scroll-snap-align: start; scroll-margin-top: 14px; }
-  }
+  /* Phone: the phone is sized to the available height so it and its caption fit together (see the nudge in the page script). */
   @media (max-width: 639px) {
     .shots { --pw: min(66vw, calc((100svh - 190px) / 2.05)); padding-left: calc((100vw - var(--pw)) / 2); padding-right: calc((100vw - var(--pw)) / 2); }
     .phone { flex: 0 0 var(--pw); }
-  }
-  /* No magnet for people who asked their device for less movement. */
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-snap-type: none; scroll-behavior: auto; }
-    .shots { scroll-snap-align: none; }
   }
 </style>
 </head>
@@ -542,6 +532,23 @@
     a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
   });
   try { localStorage.setItem("lang", "fr"); } catch (e) {}
+  // Phone: when you stop scrolling with the screens in view but their caption cut off at the bottom,
+  // nudge the page down just enough to show it. Never upwards, never when it is already visible.
+  (function () {
+    var sh = document.getElementById("shots"), lv = document.getElementById("live");
+    if (!sh || !lv || !window.matchMedia) return;
+    var timer;
+    function nudge() {
+      if (!matchMedia("(max-width: 639px)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var vh = window.innerHeight; if (vh < 520) return;
+      var top = sh.getBoundingClientRect().top, bottom = lv.getBoundingClientRect().bottom;
+      if (top > vh * 0.6 || top < 14) return;                       // not in view, or already at/above the right place
+      var need = bottom - (vh - 16), room = top - 14;               // how far to go, how far we may go
+      var d = Math.min(need, room);
+      if (d > 6) window.scrollBy({ top: d, behavior: "smooth" });
+    }
+    window.addEventListener("scroll", function () { clearTimeout(timer); timer = setTimeout(nudge, 160); }, { passive: true });
+  })();
   // A link to the install steps opens them.
   function openInstall() { if (location.hash === "#installeren") { var d = document.getElementById("installeren"); if (d) d.open = true; } }
   window.addEventListener("hashchange", openInstall);

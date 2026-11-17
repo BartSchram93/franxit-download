@@ -188,6 +188,23 @@ def page(code):
     a.addEventListener("click", function () {{ try {{ localStorage.setItem("lang", a.getAttribute("data-lang")); }} catch (e) {{}} }});
   }});
   try {{ localStorage.setItem("lang", "{code}"); }} catch (e) {{}}
+  // Phone: when you stop scrolling with the screens in view but their caption cut off at the bottom,
+  // nudge the page down just enough to show it. Never upwards, never when it is already visible.
+  (function () {{
+    var sh = document.getElementById("shots"), lv = document.getElementById("live");
+    if (!sh || !lv || !window.matchMedia) return;
+    var timer;
+    function nudge() {{
+      if (!matchMedia("(max-width: 639px)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var vh = window.innerHeight; if (vh < 520) return;
+      var top = sh.getBoundingClientRect().top, bottom = lv.getBoundingClientRect().bottom;
+      if (top > vh * 0.6 || top < 14) return;                       // not in view, or already at/above the right place
+      var need = bottom - (vh - 16), room = top - 14;               // how far to go, how far we may go
+      var d = Math.min(need, room);
+      if (d > 6) window.scrollBy({{ top: d, behavior: "smooth" }});
+    }}
+    window.addEventListener("scroll", function () {{ clearTimeout(timer); timer = setTimeout(nudge, 160); }}, {{ passive: true }});
+  }})();
   // A link to the install steps opens them.
   function openInstall() {{ if (location.hash === "#installeren") {{ var d = document.getElementById("installeren"); if (d) d.open = true; }} }}
   window.addEventListener("hashchange", openInstall);

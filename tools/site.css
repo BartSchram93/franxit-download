@@ -376,18 +376,8 @@
     .legend span { padding: 0 0 0 18px; }
   }
 
-  /* Phone: a soft magnet. Scrolling near the screens settles the page where the phone and its caption are in view together
-     (only "proximity": far away nothing happens). The phone shrinks on short screens so both always fit. */
-  @media (max-width: 639px) and (min-height: 520px) {
-    html { scroll-snap-type: y proximity; }
-    .shots { scroll-snap-align: start; scroll-margin-top: 14px; }
-  }
+  /* Phone: the phone is sized to the available height so it and its caption fit together (see the nudge in the page script). */
   @media (max-width: 639px) {
     .shots { --pw: min(66vw, calc((100svh - 190px) / 2.05)); padding-left: calc((100vw - var(--pw)) / 2); padding-right: calc((100vw - var(--pw)) / 2); }
     .phone { flex: 0 0 var(--pw); }
-  }
-  /* No magnet for people who asked their device for less movement. */
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-snap-type: none; scroll-behavior: auto; }
-    .shots { scroll-snap-align: none; }
   }
