@@ -458,7 +458,9 @@
   html { overflow-x: clip; }
   .bandwrap { position: relative; isolation: isolate; }
   @media (min-width: 900px) {
-    .bandwrap::before { content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: var(--band-top, 0); height: var(--band-h, 0); background: color-mix(in srgb, var(--blue) 7%, var(--bg)); }
+    .bandwrap::before { content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: var(--band-top, 0); height: var(--band-h, 0);
+      background: linear-gradient(to bottom, transparent 0, color-mix(in srgb, var(--blue) 8%, var(--bg)) 170px); }
+    .bandwrap { padding-bottom: 48px; }
   }
 
   main { text-align: center; padding-top: 18vh; } img { width: 72px; height: 72px; border-radius: 18px; }

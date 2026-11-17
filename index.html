@@ -491,7 +491,9 @@
   html { overflow-x: clip; }
   .bandwrap { position: relative; isolation: isolate; }
   @media (min-width: 900px) {
-    .bandwrap::before { content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: var(--band-top, 0); height: var(--band-h, 0); background: color-mix(in srgb, var(--blue) 7%, var(--bg)); }
+    .bandwrap::before { content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: var(--band-top, 0); height: var(--band-h, 0);
+      background: linear-gradient(to bottom, transparent 0, color-mix(in srgb, var(--blue) 8%, var(--bg)) 170px); }
+    .bandwrap { padding-bottom: 48px; }
   }
 </style>
 </head>
@@ -629,7 +631,7 @@
     }
     window.addEventListener("scroll", function () { clearTimeout(timer); timer = setTimeout(nudge, 160); }, { passive: true });
   })();
-  // Desktop: a soft band behind the lower third of the phones and the upper three quarters of the legend card.
+  // Desktop: a soft band behind the lower half of the phones and the whole legend card.
   (function () {
     var w = document.getElementById("bandwrap");
     if (!w || !window.matchMedia) return;
@@ -637,7 +639,7 @@
       var ph = w.querySelector(".phone img"), card = w.querySelector(".legend-card");
       if (!ph || !card || !matchMedia("(min-width: 900px)").matches) return;
       var wr = w.getBoundingClientRect(), p = ph.getBoundingClientRect(), c = card.getBoundingClientRect();
-      var top = p.top - wr.top + p.height * 2 / 3, bottom = c.top - wr.top + c.height * 0.75;
+      var top = p.top - wr.top + p.height * 0.52, bottom = c.bottom - wr.top + 48;   // fades in from just over half of the phones, ends a little under the card
       w.style.setProperty("--band-top", Math.round(top) + "px");
       w.style.setProperty("--band-h", Math.max(0, Math.round(bottom - top)) + "px");
     }

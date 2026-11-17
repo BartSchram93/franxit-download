@@ -469,7 +469,9 @@
   html { overflow-x: clip; }
   .bandwrap { position: relative; isolation: isolate; }
   @media (min-width: 900px) {
-    .bandwrap::before { content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: var(--band-top, 0); height: var(--band-h, 0); background: color-mix(in srgb, var(--blue) 7%, var(--bg)); }
+    .bandwrap::before { content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; margin-left: -50vw; top: var(--band-top, 0); height: var(--band-h, 0);
+      background: linear-gradient(to bottom, transparent 0, color-mix(in srgb, var(--blue) 8%, var(--bg)) 170px); }
+    .bandwrap { padding-bottom: 48px; }
   }
 
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
