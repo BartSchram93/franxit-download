@@ -116,7 +116,7 @@ def page(code):
   <h2 class="minor">{t["faq_h"]}</h2>
   <div class="faq">
   <details id="installeren">
-    <summary>{t["install_h"]}</summary>
+    <summary>{t["install_q"]}</summary>
     <p>{t["install_sub"]}</p>
     <ol class="install-steps">
 {install}
