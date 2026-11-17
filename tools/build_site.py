@@ -342,7 +342,7 @@ def landing():
 
 LLMS = """# Franxit
 
-> Franxit is a free Android app that tells you where a product is cheapest and whether now is a good moment to buy it. It looks at the price in several shops and at what the product cost over the past year, and gives advice: buy now, consider, wait, expensive, or "no advice yet" when there is too little price history. It gives advice, not forecasts. No account, no ads. Android only (Android 8 or newer). Available in Dutch, French and English.
+> Franxit is a free Android app that tells you where a product is cheapest and whether now is a good moment to buy it. It looks at the price in several shops and at what the product cost over the past year, and gives advice such as "buy now" or "wait", or "no advice yet" when there is too little price history. It gives advice, not forecasts. No account, no ads. Android only (Android 8 or newer). Available in Dutch, French and English.
 
 ## Key facts
 - What it does: you pick a product (type its name, or share a shop page with the app); Franxit analyses the price per shop and the price history of the past year, and gives one of five pieces of advice.
