@@ -487,10 +487,6 @@
 
   <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Downloaden</a>
 
-  <div class="share-box">
-    <p>Ken je iemand die binnenkort iets wil kopen?</p>
-    <a class="share-btn" id="share" href="https://wa.me/?text=Kijk%20eens%2C%20handig%20als%20je%20iets%20wil%20kopen%3A%20Franxit%20zoekt%20de%20goedkoopste%20winkel%20en%20zegt%20of%20nu%20een%20goed%20moment%20is.%20Enkel%20voor%20Android%3A%20https%3A%2F%2Ffranxit.be%2F" rel="noopener" data-text="Kijk eens, handig als je iets wil kopen: Franxit zoekt de goedkoopste winkel en zegt of nu een goed moment is. Enkel voor Android:" data-url="https://franxit.be/">Stuur Franxit door</a>
-  </div>
   </section>
 
   <footer>
@@ -507,12 +503,6 @@
     a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
   });
   try { localStorage.setItem("lang", "nl"); } catch (e) {}
-  // The share button opens the phone's own share sheet when there is one, and WhatsApp otherwise.
-  var sh = document.getElementById("share");
-  if (sh && navigator.share) sh.addEventListener("click", function (e) {
-    e.preventDefault();
-    navigator.share({ title: "Franxit", text: sh.getAttribute("data-text"), url: sh.getAttribute("data-url") }).catch(function () {});
-  });
   // A link to the install steps opens them.
   function openInstall() { if (location.hash === "#installeren") { var d = document.getElementById("installeren"); if (d) d.open = true; } }
   window.addEventListener("hashchange", openInstall);

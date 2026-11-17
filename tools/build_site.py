@@ -162,10 +162,6 @@ def page(code):
 
   <a class="dl2" href="{APK}">{t["download"]}</a>
 
-  <div class="share-box">
-    <p>{t["share_q"]}</p>
-    <a class="share-btn" id="share" href="{share}" rel="noopener" data-text="{esc(share_plain)}" data-url="{url}">{t["share_cta"]}</a>
-  </div>
   </section>
 
   <footer>
@@ -182,12 +178,6 @@ def page(code):
     a.addEventListener("click", function () {{ try {{ localStorage.setItem("lang", a.getAttribute("data-lang")); }} catch (e) {{}} }});
   }});
   try {{ localStorage.setItem("lang", "{code}"); }} catch (e) {{}}
-  // The share button opens the phone's own share sheet when there is one, and WhatsApp otherwise.
-  var sh = document.getElementById("share");
-  if (sh && navigator.share) sh.addEventListener("click", function (e) {{
-    e.preventDefault();
-    navigator.share({{ title: "Franxit", text: sh.getAttribute("data-text"), url: sh.getAttribute("data-url") }}).catch(function () {{}});
-  }});
   // A link to the install steps opens them.
   function openInstall() {{ if (location.hash === "#installeren") {{ var d = document.getElementById("installeren"); if (d) d.open = true; }} }}
   window.addEventListener("hashchange", openInstall);
