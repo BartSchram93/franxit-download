@@ -274,3 +274,15 @@
   }
   @media (min-width: 900px) { .story p:nth-of-type(2) { font-size: 18px; line-height: 1.65; } }
   .step { margin-top: 34px; }
+
+  /* Steps: above their screen on tablet and computer; on a phone one shared caption under the carousel follows the screen in view. */
+  .step { margin: 0 0 24px; flex: 1 1 auto; }
+  .live { display: none; }
+  @media (max-width: 639px) {
+    .phone .step { display: none; }
+    .phone { flex: 0 0 66%; }
+    .live { display: block; margin-top: 18px; min-height: 96px; }
+    .live .live-step { display: none; margin: 0; }
+    .live .live-step.on { display: grid; }
+  }
+  @media (max-width: 639px) { .shots { padding-bottom: 36px; margin-bottom: -22px; } }

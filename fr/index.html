@@ -300,6 +300,18 @@
   }
   @media (min-width: 900px) { .story p:nth-of-type(2) { font-size: 18px; line-height: 1.65; } }
   .step { margin-top: 34px; }
+
+  /* Steps: above their screen on tablet and computer; on a phone one shared caption under the carousel follows the screen in view. */
+  .step { margin: 0 0 24px; flex: 1 1 auto; }
+  .live { display: none; }
+  @media (max-width: 639px) {
+    .phone .step { display: none; }
+    .phone { flex: 0 0 66%; }
+    .live { display: block; margin-top: 18px; min-height: 96px; }
+    .live .live-step { display: none; margin: 0; }
+    .live .live-step.on { display: grid; }
+  }
+  @media (max-width: 639px) { .shots { padding-bottom: 36px; margin-bottom: -22px; } }
 </style>
 </head>
 <body>
@@ -330,12 +342,18 @@
   <section class="wide">
 
   <div class="shots" id="shots">
-    <figure class="phone"><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"><div class="step"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div></figure>
-    <figure class="phone"><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" loading="lazy"><div class="step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div></figure>
-    <figure class="phone"><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"><div class="step"><b>3</b><div><strong>Reçois un conseil</strong><span>Si tu dois acheter maintenant ou attendre, avec l'explication.</span></div></div></figure>
-    <figure class="phone extra"><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"><div class="step"><b>4</b><div><strong>Garde le fil</strong><span>Tous tes produits au même endroit, chacun avec son conseil.</span></div></div></figure>
+    <figure class="phone"><div class="step"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div><img src="../screens/share.webp" alt="Partager une page de magasin avec Franxit" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div><img src="../screens/fr/advice.webp" alt="Écran d'un produit avec le magasin le moins cher" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone"><div class="step"><b>3</b><div><strong>Reçois un conseil</strong><span>Si tu dois acheter maintenant ou attendre, avec l'explication.</span></div></div><img src="../screens/fr/details.webp" alt="Conseil expliqué et historique des prix" width="460" height="969" loading="lazy"></figure>
+    <figure class="phone extra"><div class="step"><b>4</b><div><strong>Garde le fil</strong><span>Tous tes produits au même endroit, chacun avec son conseil.</span></div></div><img src="../screens/fr/overview.webp" alt="Aperçu de Franxit avec les produits et leur conseil" width="460" height="969" loading="lazy"></figure>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="live" id="live" aria-live="polite">
+    <div class="step live-step on"><b>1</b><div><strong>Choisis un produit</strong><span>Tape son nom, ou partage une page de magasin avec Franxit.</span></div></div>
+    <div class="step live-step"><b>2</b><div><strong>Laisse Franxit analyser</strong><span>Le prix dans chaque magasin, et ce que le produit a coûté l'année dernière.</span></div></div>
+    <div class="step live-step"><b>3</b><div><strong>Reçois un conseil</strong><span>Si tu dois acheter maintenant ou attendre, avec l'explication.</span></div></div>
+    <div class="step live-step"><b>4</b><div><strong>Garde le fil</strong><span>Tous tes produits au même endroit, chacun avec son conseil.</span></div></div>
+  </div>
   <p class="advice-h">Voici ce que chaque conseil veut dire :</p>
   <ul class="legend">
     <li><strong style="--c:var(--green)"><i></i>Acheter maintenant</strong><span>Le prix est historiquement très intéressant.</span></li>
@@ -412,6 +430,7 @@
       var w = s.scrollWidth - s.clientWidth, i = w > 0 ? Math.round(s.scrollLeft / w * (d.length - 1)) : 0;
       d.forEach(function (x, n) { x.className = n === i ? "on" : ""; });
       s.className = "shots" + (w > 0 && s.scrollLeft >= w - 4 ? " end" : "");
+      document.querySelectorAll("#live .live-step").forEach(function (x, n) { x.className = "step live-step" + (n === i ? " on" : ""); });
     }
     s.addEventListener("scroll", mark, { passive: true }); mark();
   })();

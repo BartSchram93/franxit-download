@@ -27,10 +27,11 @@ def page(code):
     alternates += '\n<link rel="alternate" hreflang="x-default" href="https://franxit.be/">'
     shot_list = [s for s in t["shots"] if s[0] != "overview"]
     shots = "\n".join(
-        f'    <figure class="phone"><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"><div class="step"><b>{i + 1}</b><div><strong>{t["steps"][i][0]}</strong><span>{t["steps"][i][1]}</span></div></div></figure>'
+        f'    <figure class="phone"><div class="step"><b>{i + 1}</b><div><strong>{t["steps"][i][0]}</strong><span>{t["steps"][i][1]}</span></div></div><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"></figure>'
         for i, (n, alt, cap) in enumerate(shot_list))
     ov = next(s for s in t["shots"] if s[0] == "overview")
-    shots += f'\n    <figure class="phone extra"><img src="{root}screens/{code}/overview.webp" alt="{esc(ov[1])}" width="460" height="969" loading="lazy"><div class="step"><b>4</b><div><strong>{t["steps"][3][0]}</strong><span>{t["steps"][3][1]}</span></div></div></figure>'
+    shots += f'\n    <figure class="phone extra"><div class="step"><b>4</b><div><strong>{t["steps"][3][0]}</strong><span>{t["steps"][3][1]}</span></div></div><img src="{root}screens/{code}/overview.webp" alt="{esc(ov[1])}" width="460" height="969" loading="lazy"></figure>'
+    live = "\n".join(f'    <div class="step live-step{" on" if i == 0 else ""}"><b>{i + 1}</b><div><strong>{a}</strong><span>{c}</span></div></div>' for i, (a, c) in enumerate(t["steps"]))
     legend = "\n".join(f'    <li><strong style="--c:var(--{c})"><i></i>{n}</strong><span>{d}</span></li>' for c, n, d in t["legend"])
     features = "\n".join(f'    <li class="feature"><strong>{a}</strong><p>{b}</p></li>' for a, b in t["features"])
     story = "\n".join(f"    <p>{p}</p>" for p in t["story"])
@@ -98,7 +99,10 @@ def page(code):
   <div class="shots" id="shots">
 {shots}
   </div>
-  <div class="dots" id="dots" aria-hidden="true">{"<span></span>" * len(t["shots"])}</div>
+  <div class="dots" id="dots" aria-hidden="true">{"<span></span>" * (len(shot_list) + 1)}</div>
+  <div class="live" id="live" aria-live="polite">
+{live}
+  </div>
   <p class="advice-h">{t["legend_note"]}</p>
   <ul class="legend">
 {legend}
@@ -153,6 +157,7 @@ def page(code):
       var w = s.scrollWidth - s.clientWidth, i = w > 0 ? Math.round(s.scrollLeft / w * (d.length - 1)) : 0;
       d.forEach(function (x, n) {{ x.className = n === i ? "on" : ""; }});
       s.className = "shots" + (w > 0 && s.scrollLeft >= w - 4 ? " end" : "");
+      document.querySelectorAll("#live .live-step").forEach(function (x, n) {{ x.className = "step live-step" + (n === i ? " on" : ""); }});
     }}
     s.addEventListener("scroll", mark, {{ passive: true }}); mark();
   }})();
