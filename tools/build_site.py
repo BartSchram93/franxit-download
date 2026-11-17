@@ -13,6 +13,14 @@ RELEASES_API = "https://api.github.com/repos/BartSchram93/franxit-download/relea
 ORDER = ["nl", "fr", "en"]
 PREVIEW = {"nl": "preview.png", "fr": "preview-fr.png", "en": "preview-en.png"}
 
+import hashlib
+def v(path):
+    """A short version tag from the file's content, so a changed image is never served from a cache."""
+    try:
+        return "?v=" + hashlib.md5(open(path, "rb").read()).hexdigest()[:8]
+    except OSError:
+        return ""
+
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
@@ -28,10 +36,10 @@ def page(code):
     alternates += '\n<link rel="alternate" hreflang="x-default" href="https://franxit.be/">'
     shot_list = [s for s in t["shots"] if s[0] != "overview"]
     shots = "\n".join(
-        f'    <figure class="phone"><div class="step"><b>{i + 1}</b><div><strong>{t["steps"][i][0]}</strong><span>{t["steps"][i][1]}</span></div></div><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}" alt="{esc(alt)}" width="460" height="969" loading="lazy"></figure>'
+        f'    <figure class="phone"><div class="step"><b>{i + 1}</b><div><strong>{t["steps"][i][0]}</strong><span>{t["steps"][i][1]}</span></div></div><img src="{root}screens/{"share.webp" if n == "share" else code + "/" + n + ".webp"}{v("screens/" + ("share.webp" if n == "share" else code + "/" + n + ".webp"))}" alt="{esc(alt)}" width="460" height="969" loading="lazy"></figure>'
         for i, (n, alt, cap) in enumerate(shot_list))
     ov = next(s for s in t["shots"] if s[0] == "overview")
-    shots += f'\n    <figure class="phone extra"><div class="step"><b>4</b><div><strong>{t["steps"][3][0]}</strong><span>{t["steps"][3][1]}</span></div></div><img src="{root}screens/{code}/overview.webp" alt="{esc(ov[1])}" width="460" height="969" loading="lazy"></figure>'
+    shots += f'\n    <figure class="phone extra"><div class="step"><b>4</b><div><strong>{t["steps"][3][0]}</strong><span>{t["steps"][3][1]}</span></div></div><img src="{root}screens/{code}/overview.webp{v("screens/" + code + "/overview.webp")}" alt="{esc(ov[1])}" width="460" height="969" loading="lazy"></figure>'
     live = "\n".join(f'    <div class="step live-step{" on" if i == 0 else ""}"><b>{i + 1}</b><div><strong>{a}</strong><span>{c}</span></div></div>' for i, (a, c) in enumerate(t["steps"]))
     legend = "\n".join(f'    <li><strong style="--c:var(--{c})"><i></i>{n}</strong><span>{d}</span></li>' for c, n, d in t["legend"])
     features = "\n".join(f'    <li class="feature"><strong>{a}</strong><p>{b}</p></li>' for a, b in t["features"])
@@ -116,7 +124,7 @@ def page(code):
     <p class="calm">{t["calm"]}</p>
     <p class="source">{t["source"]}</p>
    </div>
-   <div class="hero-shot"><img src="{root}screens/{code}/overview.webp" alt="{esc(t["shots"][1][1])}" width="460" height="969" fetchpriority="high"></div>
+   <div class="hero-shot"><img src="{root}screens/{code}/overview.webp{v("screens/" + code + "/overview.webp")}" alt="{esc(t["shots"][1][1])}" width="460" height="969" fetchpriority="high"></div>
   </section>
 
   <section class="wide">
