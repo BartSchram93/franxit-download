@@ -65,7 +65,7 @@
 .steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 20px; counter-reset: s; }
   .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; margin: 0; }
   .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: var(--on-blue); font-weight: 700; display: grid; place-items: center; }
-  @media (min-width: 640px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; } .steps li { grid-template-columns: 1fr; gap: 12px; align-content: start; } }
+  @media (min-width: 900px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; } .steps li { grid-template-columns: 1fr; gap: 12px; align-content: start; } }
     .steps strong { display: block; }
   a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
   .steps span { color: var(--muted); font-size: 15px; }
@@ -100,7 +100,7 @@
   .dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
   .dots span.on { background: var(--ink); }
   /* Tablet or a narrow window: two by two, nothing to scroll. On a computer all four in a row. */
-  @media (min-width: 640px) { .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; overflow: visible; margin: 0; padding: 4px 0 14px; } .phone { flex: none; } .dots { display: none; } }
+  @media (min-width: 900px) { .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; overflow: visible; margin: 0; padding: 4px 0 14px; } .phone { flex: none; } .dots { display: none; } }
   @media (min-width: 900px) { .shots { grid-template-columns: repeat(3, minmax(0, 330px)); justify-content: space-between; } .phone { max-width: 330px; } }
     /* The advice names: the label with its dot, and its explanation under it. The same on every screen and in every language. */
   /* The five advice names as coloured labels, each with its explanation. The same on every screen and language. */
@@ -110,7 +110,7 @@
   .legend strong { justify-self: start; display: inline-flex; align-items: center; gap: 7px; padding: 2px 10px 2px 9px; border-radius: 999px; font-size: 14px; font-weight: 600; background: color-mix(in srgb, var(--c) 13%, transparent); }
   .legend i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
   .legend span { color: var(--muted); }
-  @media (min-width: 640px) { .legend li { grid-template-columns: 170px 1fr; gap: 16px; align-items: center; } }
+  @media (min-width: 900px) { .legend li { grid-template-columns: 170px 1fr; gap: 16px; align-items: center; } }
 
     .features { display: grid; gap: 28px 40px; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
   @media (min-width: 560px) { .features { grid-template-columns: 1fr 1fr; } }
@@ -207,7 +207,7 @@
   .install-steps strong { color: var(--ink); }
 
   /* Phone: the cards line up on the left margin, only the next one peeks in (faded), nothing is cut off on the left. */
-  @media (max-width: 639px) {
+  @media (max-width: 899px) {
     .shots { gap: 24px; scroll-padding-left: 22px; -webkit-mask-image: linear-gradient(to right, #000 86%, transparent); mask-image: linear-gradient(to right, #000 86%, transparent); }
     .shots.end { -webkit-mask-image: none; mask-image: none; }
     .phone { flex: 0 0 76%; scroll-snap-align: start; }
@@ -224,7 +224,7 @@
   @media (min-width: 900px) { .phone.extra { display: none; } }
 
   .wide .shots { margin-top: 56px; }
-  @media (min-width: 640px) { .wide .shots { margin-top: 72px; } }
+  @media (min-width: 900px) { .wide .shots { margin-top: 72px; } }
 
   /* The step text sits under its screen. */
   .step { margin: 18px 0 0; flex: none; }
@@ -281,26 +281,26 @@
   /* Steps: above their screen on tablet and computer; on a phone one shared caption under the carousel follows the screen in view. */
   .step { margin: 0 0 24px; flex: 1 1 auto; }
   .live { display: none; }
-  @media (max-width: 639px) {
+  @media (max-width: 899px) {
     .phone .step { display: none; }
     .phone { flex: 0 0 66%; }
     .live { display: block; margin-top: 18px; min-height: 96px; }
     .live .live-step { display: none; margin: 0; }
     .live .live-step.on { display: grid; }
   }
-  @media (max-width: 639px) { .shots { padding-bottom: 36px; margin-bottom: -22px; } }
+  @media (max-width: 899px) { .shots { padding-bottom: 36px; margin-bottom: -22px; } }
 
-  @media (max-width: 639px) { .live { min-height: 128px; } }
-  @media (max-width: 639px) { .dots { margin-top: 18px; } }
+  @media (max-width: 899px) { .live { min-height: 128px; } }
+  @media (max-width: 899px) { .dots { margin-top: 18px; } }
   /* Phone: the chosen screen snaps to the middle, a sliver of its neighbours on both sides. */
-  @media (max-width: 639px) {
+  @media (max-width: 899px) {
     .shots { padding-left: 17vw; padding-right: 17vw; scroll-padding: 0; gap: 20px;
       -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); }
     .shots.end { -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent); }
     .phone { flex: 0 0 66vw; scroll-snap-align: center; }
   }
   /* Phone: tighter rhythm between the blocks, and the shared caption is only as tall as its longest step. */
-  @media (max-width: 639px) {
+  @media (max-width: 899px) {
     .live { display: grid; min-height: 0; margin-top: 10px; }
     .live .live-step, .live .live-step.on { display: grid; grid-area: 1 / 1; visibility: hidden; }
     .live .live-step.on { visibility: visible; }
@@ -333,7 +333,7 @@
   .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
   /* Desktop and tablet: each step is anchored to its screen, same width, with a thin rule on top; less air above. */
-  @media (min-width: 640px) {
+  @media (min-width: 900px) {
     .phone .step { width: 100%; padding-top: 16px; border-top: 1px solid var(--line); margin-bottom: 20px; align-content: start; }
     .step b { box-shadow: none; }
     .wide .shots { margin-top: 48px; }
@@ -345,10 +345,10 @@
   footer .foot-links a { margin: 0; white-space: nowrap; }
   footer .foot-meta { margin: 0; font-size: 13px; opacity: .85; }
   footer p + p::before { content: none; }
-  @media (max-width: 639px) { footer .foot-links { flex-direction: column; align-items: center; gap: 10px; } }
+  @media (max-width: 899px) { footer .foot-links { flex-direction: column; align-items: center; gap: 10px; } }
 
-  @media (max-width: 639px) { .dots { margin-top: 4px; } .live { margin-top: 28px; } }
-  @media (max-width: 639px) { .shots { padding-bottom: 72px; margin-bottom: -58px; } }
+  @media (max-width: 899px) { .dots { margin-top: 4px; } .live { margin-top: 28px; } }
+  @media (max-width: 899px) { .shots { padding-bottom: 72px; margin-bottom: -58px; } }
 
   /* Last refinements: fewer questions, the legend as a quiet card on desktop, the story as a soft panel, the date on its own line. */
   .story { background: color-mix(in srgb, var(--blue) 6%, var(--bg)); border-radius: 20px; padding: 24px 24px 18px; }
@@ -363,15 +363,15 @@
   }
 
   /* Phone: label on the left, explanation on the right, so the list is about half as tall. */
-  @media (max-width: 639px) {
+  @media (max-width: 899px) {
     .legend { gap: 16px; }
     .legend li { grid-template-columns: 42% 1fr; gap: 14px; align-items: start; font-size: 15px; line-height: 1.45; }
     .legend strong { white-space: normal; align-items: center; }
     .legend span { padding-top: 2px; }
   }
-  @media (max-width: 639px) { .legend li { grid-template-columns: 40% 1fr; gap: 12px; } .legend strong { border-radius: 16px; padding: 4px 11px 4px 10px; } }
+  @media (max-width: 899px) { .legend li { grid-template-columns: 40% 1fr; gap: 12px; } .legend strong { border-radius: 16px; padding: 4px 11px 4px 10px; } }
   /* Phone, second attempt: a plain coloured dot and bold label, the explanation right under it; no pills, tight rhythm. */
-  @media (max-width: 639px) {
+  @media (max-width: 899px) {
     .legend { gap: 14px; }
     .legend li { grid-template-columns: 1fr; gap: 1px; font-size: 15px; line-height: 1.45; }
     .legend strong { background: none; border-radius: 0; padding: 0; gap: 9px; font-size: 16px; display: flex; justify-self: start; }
@@ -380,8 +380,8 @@
   }
 
   /* Phone: the phone is sized to the available height so it and its caption fit together (see the nudge in the page script). */
-  @media (max-width: 639px) {
-    .shots { --pw: min(66vw, calc((100svh - 190px) / 2.05)); padding-left: calc((100vw - var(--pw)) / 2); padding-right: calc((100vw - var(--pw)) / 2); }
+  @media (max-width: 899px) {
+    .shots { --pw: min(66vw, 360px, calc((100svh - 190px) / 2.05)); padding-left: calc((100vw - var(--pw)) / 2); padding-right: calc((100vw - var(--pw)) / 2); }
     .phone { flex: 0 0 var(--pw); }
   }
 

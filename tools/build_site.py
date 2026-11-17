@@ -203,7 +203,7 @@ def page(code):
     if (!sh || !lv || !window.matchMedia) return;
     var timer;
     function nudge() {{
-      if (!matchMedia("(max-width: 639px)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (!matchMedia("(max-width: 899px)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       var vh = window.innerHeight; if (vh < 520) return;
       var ph = sh.querySelector(".phone img"); if (!ph) return;
       var pr = ph.getBoundingClientRect(), top = sh.getBoundingClientRect().top, bottom = lv.getBoundingClientRect().bottom;
