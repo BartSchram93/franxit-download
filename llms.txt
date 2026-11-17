@@ -14,6 +14,9 @@
 - [Franxit (Nederlands)](https://franxit.be/): what Franxit is, how it works, FAQ
 - [Franxit (Français)](https://franxit.be/fr/): what Franxit is, how it works, FAQ
 - [Franxit (English)](https://franxit.be/en/): what Franxit is, how it works, FAQ
+- [How to tell if a discount is real (English)](https://franxit.be/en/real-discounts/): how to use price history to check a discount
+- [Hoe herken je een echte korting? (Nederlands)](https://franxit.be/korting/)
+- [Comment reconnaître une vraie remise ? (Français)](https://franxit.be/fr/remise/)
 - [Privacy](https://franxit.be/privacy.html): what the app does and does not collect
 
 ## Download

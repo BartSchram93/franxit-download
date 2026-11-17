@@ -5,6 +5,7 @@ shows to someone without the app). Run from the repository root: python3 tools/b
 import datetime, json, os, re, sys, urllib.parse
 sys.path.insert(0, os.path.dirname(__file__))
 from texts import LANGS, MONTHS, date_text
+from articles import ARTICLES
 
 CSS = open(os.path.join(os.path.dirname(__file__), "site.css"), encoding="utf-8").read()
 APK = "https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk"
@@ -165,6 +166,7 @@ def page(code):
     <p>{t["made_by"]}</p>
     <p>{t["only_android"]}</p>
     <p><a class="share" href="{share}" rel="noopener">{t["share_label"]}</a></p>
+    <p><a href="/{ARTICLES[code]["path"]}">{ARTICLES[code]["title"]}</a></p>
     <p><a href="{privacy}">{t["privacy_label"]}</a><span id="updated"></span></p>
   </footer>
 </main>
@@ -208,6 +210,76 @@ def page(code):
     }})
     .catch(function () {{}});
 </script>
+</body>
+</html>
+"""
+
+def article(code):
+    a = ARTICLES[code]; t = LANGS[code]
+    url = "https://franxit.be/" + a["path"]
+    home = "/" + t["path"]
+    alts = "\n".join(f'<link rel="alternate" hreflang="{c}" href="https://franxit.be/{ARTICLES[c]["path"]}">' for c in ORDER)
+    alts += f'\n<link rel="alternate" hreflang="x-default" href="https://franxit.be/{ARTICLES["nl"]["path"]}">'
+    nav = " · ".join(f"<b>{ARTICLES[c]['hreflang_label']}</b>" if c == code else f'<a href="/{ARTICLES[c]["path"]}" hreflang="{c}">{ARTICLES[c]["hreflang_label"]}</a>' for c in ORDER)
+    body = "\n".join(f"  <h2>{esc(h)}</h2>\n  <p>{esc(p)}</p>" for h, p in a["sections"])
+    lines = "\n".join(f"    <li>{esc(x)}</li>" for x in a["ex_lines"])
+    ld = {"@context": "https://schema.org", "@type": "Article", "headline": a["title"], "description": a["desc"], "inLanguage": code,
+          "datePublished": a["date"], "dateModified": datetime.date.today().isoformat(), "mainEntityOfPage": url,
+          "image": "https://franxit.be/" + ("screens/" + code + "/details.webp"),
+          "author": {"@type": "Organization", "name": "Franxit", "url": "https://franxit.be/"}, "publisher": {"@type": "Organization", "name": "Franxit", "url": "https://franxit.be/", "logo": {"@type": "ImageObject", "url": "https://franxit.be/icon.png"}}}
+    return f"""<!doctype html>
+<html lang="{code}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(a["meta_title"])}</title>
+<meta name="description" content="{esc(a["desc"])}">
+<meta name="theme-color" content="#2f6fdb">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="{url}">
+{alts}
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Franxit">
+<meta property="og:url" content="{url}">
+<meta property="og:locale" content="{t["og_locale"]}">
+<meta property="og:title" content="{esc(a["title"])}">
+<meta property="og:description" content="{esc(a["desc"])}">
+<meta property="og:image" content="https://franxit.be/{PREVIEW[code]}?v=3">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")}</script>
+<style>
+{CSS}
+  main {{ max-width: 680px; }} article h1 {{ font-size: 36px; margin: 8px 0 14px; }} article h2 {{ font-size: 21px; margin: 36px 0 6px; }}
+  article p {{ margin: 0 0 12px; }} .intro {{ font-size: 19px; color: var(--muted); }}
+  .example {{ background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; margin: 14px 0; }}
+  .example ul {{ margin: 8px 0 0; padding-left: 20px; }} .cta {{ margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); }}
+  .btn {{ display: inline-block; background: var(--blue); color: var(--on-blue); text-decoration: none; font-weight: 600; padding: 12px 20px; border-radius: 12px; }}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Language">{nav}</nav>
+  <p style="margin-top:28px"><a href="{home}">← Franxit</a></p>
+  <article>
+  <h1>{esc(a["title"])}</h1>
+  <p class="intro">{esc(a["intro"])}</p>
+{body}
+  <h2>{esc(a["ex_h"])}</h2>
+  <div class="example">
+    <p style="margin:0">{esc(a["ex_p"])}</p>
+  <ul>
+{lines}
+  </ul>
+  </div>
+  <div class="cta">
+    <h2 style="margin-top:0">{esc(a["cta_h"])}</h2>
+    <p>{esc(a["cta_p"])}</p>
+    <p><a class="btn" href="{home}">{esc(a["cta_button"])}</a></p>
+  </div>
+  </article>
+</main>
 </body>
 </html>
 """
@@ -284,6 +356,9 @@ LLMS = """# Franxit
 - [Franxit (Nederlands)](https://franxit.be/): what Franxit is, how it works, FAQ
 - [Franxit (Français)](https://franxit.be/fr/): what Franxit is, how it works, FAQ
 - [Franxit (English)](https://franxit.be/en/): what Franxit is, how it works, FAQ
+- [How to tell if a discount is real (English)](https://franxit.be/en/real-discounts/): how to use price history to check a discount
+- [Hoe herken je een echte korting? (Nederlands)](https://franxit.be/korting/)
+- [Comment reconnaître une vraie remise ? (Français)](https://franxit.be/fr/remise/)
 - [Privacy](https://franxit.be/privacy.html): what the app does and does not collect
 
 ## Download
@@ -299,6 +374,10 @@ if __name__ == "__main__":
     os.makedirs("p", exist_ok=True)
     open("p/index.html", "w", encoding="utf-8").write(landing())
     print("wrote p/index.html")
+    for c in ORDER:
+        d = os.path.join(ARTICLES[c]["path"]); os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(article(c))
+        print("wrote", d + "index.html")
     today = datetime.date.today().isoformat()
     bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "Claude-SearchBot", "PerplexityBot", "Perplexity-User",
             "Google-Extended", "Applebot-Extended", "Bingbot", "Googlebot", "CCBot", "cohere-ai", "Meta-ExternalAgent", "Bytespider", "Amazonbot", "DuckAssistBot", "MistralAI-User"]
@@ -310,6 +389,9 @@ if __name__ == "__main__":
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
     for u in urls:
         sm += f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{today}</lastmod>\n{alts}  </url>\n"
+    aalts = "".join(f'    <xhtml:link rel="alternate" hreflang="{c}" href="https://franxit.be/{ARTICLES[c]["path"]}"/>\n' for c in ORDER)
+    for c in ORDER:
+        sm += f"  <url>\n    <loc>https://franxit.be/{ARTICLES[c]['path']}</loc>\n    <lastmod>{today}</lastmod>\n{aalts}  </url>\n"
     sm += f"  <url>\n    <loc>https://franxit.be/privacy.html</loc>\n    <lastmod>{today}</lastmod>\n  </url>\n</urlset>\n"
     open("sitemap.xml", "w", encoding="utf-8").write(sm)
     open("llms.txt", "w", encoding="utf-8").write(LLMS)
