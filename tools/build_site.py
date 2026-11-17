@@ -98,11 +98,12 @@ def page(code):
   <div class="shots">
 {shots}
   </div>
-  <p class="note">{t["legend_note"]}</p>
-
-  <ul class="legend">
+  <details class="meaning">
+    <summary>{t["legend_note"].rstrip(":").rstrip(chr(160))}</summary>
+    <ul class="legend">
 {legend}
-  </ul>
+    </ul>
+  </details>
 
   <h2>{t["more_h"]}</h2>
   <p class="sub">{t["more_sub"]}</p>
