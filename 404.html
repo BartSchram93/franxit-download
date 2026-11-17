@@ -385,6 +385,16 @@
     .phone { flex: 0 0 var(--pw); }
   }
 
+  /* Desktop refinements: hero text and phone share their top edge, even spacing before the legend, one-line footer, the money question first. */
+  @media (min-width: 900px) {
+    .hero { align-items: start; }
+    .hero-copy { padding-bottom: 0; }
+    .legend-card { margin-top: 48px; }
+    footer .foot-meta #updated { display: inline; margin: 0; }
+    footer .foot-meta #updated:not(:empty)::before { content: " · "; }
+    .faq details:nth-of-type(4) { order: -1; }
+  }
+
   main { text-align: center; padding-top: 18vh; } img { width: 72px; height: 72px; border-radius: 18px; }
 </style></head><body><main>
   <img src="/icon.png" alt="" width="72" height="72">

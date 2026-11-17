@@ -408,6 +408,16 @@
     .phone { flex: 0 0 var(--pw); }
   }
 
+  /* Desktop refinements: hero text and phone share their top edge, even spacing before the legend, one-line footer, the money question first. */
+  @media (min-width: 900px) {
+    .hero { align-items: start; }
+    .hero-copy { padding-bottom: 0; }
+    .legend-card { margin-top: 48px; }
+    footer .foot-meta #updated { display: inline; margin: 0; }
+    footer .foot-meta #updated:not(:empty)::before { content: " · "; }
+    .faq details:nth-of-type(4) { order: -1; }
+  }
+
   main { max-width: 680px; } article h1 { font-size: 36px; margin: 8px 0 14px; } article h2 { font-size: 21px; margin: 36px 0 6px; }
   article p { margin: 0 0 12px; } .intro { font-size: 19px; color: var(--muted); }
   .example { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; margin: 14px 0; }
