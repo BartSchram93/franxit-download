@@ -460,6 +460,13 @@
   @media (min-width: 900px) { .wide > .shots { margin-top: 88px; } }
   @media (min-width: 900px) { .phone .step { margin-bottom: 38px; } }
 
+  /* Desktop: a smaller QR code and a narrower card around it. */
+  @media (min-width: 900px) {
+    .desktop .hero .qr { max-width: 380px; padding: 14px 20px 14px 16px; gap: 18px; }
+    .desktop .hero .qr img { width: 118px; height: 118px; }
+    .hero .calm, .hero .source { max-width: 380px; }
+  }
+
   main { max-width: 680px; } article h1 { font-size: 36px; margin: 8px 0 14px; } article h2 { font-size: 21px; margin: 36px 0 6px; }
   article p { margin: 0 0 12px; } .intro { font-size: 19px; color: var(--muted); }
   .example { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; margin: 14px 0; }

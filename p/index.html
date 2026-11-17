@@ -448,6 +448,13 @@
   @media (min-width: 900px) { .wide > .shots { margin-top: 88px; } }
   @media (min-width: 900px) { .phone .step { margin-bottom: 38px; } }
 
+  /* Desktop: a smaller QR code and a narrower card around it. */
+  @media (min-width: 900px) {
+    .desktop .hero .qr { max-width: 380px; padding: 14px 20px 14px 16px; gap: 18px; }
+    .desktop .hero .qr img { width: 118px; height: 118px; }
+    .hero .calm, .hero .source { max-width: 380px; }
+  }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }

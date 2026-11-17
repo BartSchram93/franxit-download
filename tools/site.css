@@ -433,3 +433,10 @@
   @media (min-width: 900px) { .wide > .shots { margin-top: 68px; } }
   @media (min-width: 900px) { .wide > .shots { margin-top: 88px; } }
   @media (min-width: 900px) { .phone .step { margin-bottom: 38px; } }
+
+  /* Desktop: a smaller QR code and a narrower card around it. */
+  @media (min-width: 900px) {
+    .desktop .hero .qr { max-width: 380px; padding: 14px 20px 14px 16px; gap: 18px; }
+    .desktop .hero .qr img { width: 118px; height: 118px; }
+    .hero .calm, .hero .source { max-width: 380px; }
+  }
