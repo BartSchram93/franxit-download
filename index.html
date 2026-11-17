@@ -236,6 +236,11 @@
     .shots.end { -webkit-mask-image: none; mask-image: none; }
     .phone { flex: 0 0 76%; scroll-snap-align: start; }
   }
+
+  /* Every step text box is as tall as the tallest one, so the screens below start on the same line. */
+  .phone { display: flex; flex-direction: column; }
+  .step { flex: 1 1 auto; align-content: start; }
+  .phone img { flex: none; }
 </style>
 </head>
 <body>

@@ -224,6 +224,11 @@
     .phone { flex: 0 0 76%; scroll-snap-align: start; }
   }
 
+  /* Every step text box is as tall as the tallest one, so the screens below start on the same line. */
+  .phone { display: flex; flex-direction: column; }
+  .step { flex: 1 1 auto; align-content: start; }
+  .phone img { flex: none; }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }
