@@ -39,6 +39,7 @@ def page(code):
     install = "\n".join(f"      <li>{x}</li>" for x in t["install_steps"])
     faq = "\n".join(f"  <details>\n    <summary>{q}</summary>\n    {a.replace('[[privacy]]', privacy)}\n  </details>" for q, a in t["faq"])
     share = "https://wa.me/?text=" + urllib.parse.quote(t["share_text"], safe="")
+    share_plain = t["share_text"].rsplit("https://", 1)[0].strip()
     js_texts = json.dumps(dict(version=t["version_label"], updated=t["updated_label"], months=MONTHS[code], decimal=t["decimal"]), ensure_ascii=False)
     def plain(s):
         return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", s.replace("[[privacy]]", privacy))).strip()
@@ -160,12 +161,16 @@ def page(code):
   </div>
 
   <a class="dl2" href="{APK}">{t["download"]}</a>
+
+  <div class="share-box">
+    <p>{t["share_q"]}</p>
+    <a class="share-btn" id="share" href="{share}" rel="noopener" data-text="{esc(share_plain)}" data-url="{url}">{t["share_cta"]}</a>
+  </div>
   </section>
 
   <footer>
     <nav class="foot-links" aria-label="Links">
       <a href="/{ARTICLES[code]["path"]}">{ARTICLES[code]["title"]}</a>
-      <a class="share" href="{share}" rel="noopener">{t["share_label"]}</a>
       <a href="{privacy}">{t["privacy_label"]}</a>
     </nav>
     <p class="foot-meta">{t["made_by"]} · {t["only_android"]}<span id="updated"></span></p>
@@ -177,6 +182,12 @@ def page(code):
     a.addEventListener("click", function () {{ try {{ localStorage.setItem("lang", a.getAttribute("data-lang")); }} catch (e) {{}} }});
   }});
   try {{ localStorage.setItem("lang", "{code}"); }} catch (e) {{}}
+  // The share button opens the phone's own share sheet when there is one, and WhatsApp otherwise.
+  var sh = document.getElementById("share");
+  if (sh && navigator.share) sh.addEventListener("click", function (e) {{
+    e.preventDefault();
+    navigator.share({{ title: "Franxit", text: sh.getAttribute("data-text"), url: sh.getAttribute("data-url") }}).catch(function () {{}});
+  }});
   // A link to the install steps opens them.
   function openInstall() {{ if (location.hash === "#installeren") {{ var d = document.getElementById("installeren"); if (d) d.open = true; }} }}
   window.addEventListener("hashchange", openInstall);

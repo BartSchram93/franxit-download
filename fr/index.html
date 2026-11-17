@@ -378,6 +378,12 @@
   footer .foot-meta { margin: 0; font-size: 13px; opacity: .85; }
   footer p + p::before { content: none; }
   @media (max-width: 639px) { footer .foot-links { flex-direction: column; align-items: center; gap: 10px; } }
+
+  /* The share prompt under the questions. */
+  .share-box { text-align: center; margin: 64px auto 0; }
+  .share-box p { margin: 0 0 14px; font-weight: 600; font-size: 18px; }
+  .share-btn { display: inline-block; padding: 12px 22px; border-radius: 12px; border: 1.5px solid var(--blue); color: var(--blue); font-weight: 600; text-decoration: none; }
+  .share-btn:hover { background: color-mix(in srgb, var(--blue) 10%, transparent); }
 </style>
 </head>
 <body>
@@ -479,12 +485,16 @@
   </div>
 
   <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Télécharger</a>
+
+  <div class="share-box">
+    <p>Tu connais quelqu'un qui va bientôt acheter quelque chose ?</p>
+    <a class="share-btn" id="share" href="https://wa.me/?text=Regarde%2C%20pratique%20quand%20tu%20veux%20acheter%20quelque%20chose%C2%A0%3A%20Franxit%20trouve%20le%20magasin%20le%20moins%20cher%20et%20dit%20si%20c%27est%20le%20bon%20moment.%20Uniquement%20pour%20Android%C2%A0%3A%20https%3A%2F%2Ffranxit.be%2Ffr%2F" rel="noopener" data-text="Regarde, pratique quand tu veux acheter quelque chose : Franxit trouve le magasin le moins cher et dit si c'est le bon moment. Uniquement pour Android :" data-url="https://franxit.be/fr/">Envoie-lui Franxit</a>
+  </div>
   </section>
 
   <footer>
     <nav class="foot-links" aria-label="Links">
       <a href="/fr/remise/">Comment reconnaître une vraie remise ?</a>
-      <a class="share" href="https://wa.me/?text=Regarde%2C%20pratique%20quand%20tu%20veux%20acheter%20quelque%20chose%C2%A0%3A%20Franxit%20trouve%20le%20magasin%20le%20moins%20cher%20et%20dit%20si%20c%27est%20le%20bon%20moment.%20Uniquement%20pour%20Android%C2%A0%3A%20https%3A%2F%2Ffranxit.be%2Ffr%2F" rel="noopener">Partager via WhatsApp</a>
       <a href="../privacy.html#fr">Confidentialité</a>
     </nav>
     <p class="foot-meta">Créé par Bart Schram · Uniquement pour Android<span id="updated"></span></p>
@@ -496,6 +506,12 @@
     a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
   });
   try { localStorage.setItem("lang", "fr"); } catch (e) {}
+  // The share button opens the phone's own share sheet when there is one, and WhatsApp otherwise.
+  var sh = document.getElementById("share");
+  if (sh && navigator.share) sh.addEventListener("click", function (e) {
+    e.preventDefault();
+    navigator.share({ title: "Franxit", text: sh.getAttribute("data-text"), url: sh.getAttribute("data-url") }).catch(function () {});
+  });
   // A link to the install steps opens them.
   function openInstall() { if (location.hash === "#installeren") { var d = document.getElementById("installeren"); if (d) d.open = true; } }
   window.addEventListener("hashchange", openInstall);

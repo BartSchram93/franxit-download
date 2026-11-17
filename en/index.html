@@ -378,6 +378,12 @@
   footer .foot-meta { margin: 0; font-size: 13px; opacity: .85; }
   footer p + p::before { content: none; }
   @media (max-width: 639px) { footer .foot-links { flex-direction: column; align-items: center; gap: 10px; } }
+
+  /* The share prompt under the questions. */
+  .share-box { text-align: center; margin: 64px auto 0; }
+  .share-box p { margin: 0 0 14px; font-weight: 600; font-size: 18px; }
+  .share-btn { display: inline-block; padding: 12px 22px; border-radius: 12px; border: 1.5px solid var(--blue); color: var(--blue); font-weight: 600; text-decoration: none; }
+  .share-btn:hover { background: color-mix(in srgb, var(--blue) 10%, transparent); }
 </style>
 </head>
 <body>
@@ -479,12 +485,16 @@
   </div>
 
   <a class="dl2" href="https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk">Download</a>
+
+  <div class="share-box">
+    <p>Know someone who is about to buy something?</p>
+    <a class="share-btn" id="share" href="https://wa.me/?text=Have%20a%20look%2C%20handy%20when%20you%20want%20to%20buy%20something%3A%20Franxit%20finds%20the%20cheapest%20shop%20and%20tells%20you%20if%20now%20is%20a%20good%20moment.%20Android%20only%3A%20https%3A%2F%2Ffranxit.be%2Fen%2F" rel="noopener" data-text="Have a look, handy when you want to buy something: Franxit finds the cheapest shop and tells you if now is a good moment. Android only:" data-url="https://franxit.be/en/">Send them Franxit</a>
+  </div>
   </section>
 
   <footer>
     <nav class="foot-links" aria-label="Links">
       <a href="/en/real-discounts/">How to tell if a discount is real</a>
-      <a class="share" href="https://wa.me/?text=Have%20a%20look%2C%20handy%20when%20you%20want%20to%20buy%20something%3A%20Franxit%20finds%20the%20cheapest%20shop%20and%20tells%20you%20if%20now%20is%20a%20good%20moment.%20Android%20only%3A%20https%3A%2F%2Ffranxit.be%2Fen%2F" rel="noopener">Share via WhatsApp</a>
       <a href="../privacy.html#en">Privacy</a>
     </nav>
     <p class="foot-meta">Made by Bart Schram · Android only<span id="updated"></span></p>
@@ -496,6 +506,12 @@
     a.addEventListener("click", function () { try { localStorage.setItem("lang", a.getAttribute("data-lang")); } catch (e) {} });
   });
   try { localStorage.setItem("lang", "en"); } catch (e) {}
+  // The share button opens the phone's own share sheet when there is one, and WhatsApp otherwise.
+  var sh = document.getElementById("share");
+  if (sh && navigator.share) sh.addEventListener("click", function (e) {
+    e.preventDefault();
+    navigator.share({ title: "Franxit", text: sh.getAttribute("data-text"), url: sh.getAttribute("data-url") }).catch(function () {});
+  });
   // A link to the install steps opens them.
   function openInstall() { if (location.hash === "#installeren") { var d = document.getElementById("installeren"); if (d) d.open = true; } }
   window.addEventListener("hashchange", openInstall);
