@@ -393,6 +393,15 @@
     .hero-shot { height: 450px; }
     .story { padding: 30px 34px 24px; }
   }
+
+  /* Phone: label on the left, explanation on the right, so the list is about half as tall. */
+  @media (max-width: 639px) {
+    .legend { gap: 16px; }
+    .legend li { grid-template-columns: 42% 1fr; gap: 14px; align-items: start; font-size: 15px; line-height: 1.45; }
+    .legend strong { white-space: normal; align-items: center; }
+    .legend span { padding-top: 2px; }
+  }
+  @media (max-width: 639px) { .legend li { grid-template-columns: 40% 1fr; gap: 12px; } .legend strong { border-radius: 16px; padding: 4px 11px 4px 10px; } }
 </style>
 </head>
 <body>
@@ -441,7 +450,7 @@
   <ul class="legend">
     <li><strong style="--c:var(--green)"><i></i>Acheter maintenant</strong><span>Le prix est historiquement très intéressant.</span></li>
     <li><strong style="--c:var(--blue)"><i></i>À envisager</strong><span>Bon, mais pas exceptionnel.</span></li>
-    <li><strong style="--c:var(--orange)"><i></i>Attendre</strong><span>Pas particulièrement intéressant. Attends, ou crée une 🔔 alerte de prix.</span></li>
+    <li><strong style="--c:var(--orange)"><i></i>Attendre</strong><span>Pas particulièrement intéressant. Attends, ou crée une 🔔 alerte de prix.</span></li>
     <li><strong style="--c:var(--red)"><i></i>À éviter</strong><span>Le prix est élevé en ce moment par rapport à l'historique.</span></li>
     <li><strong style="--c:var(--muted)"><i></i>Pas encore de conseil</strong><span>Pas assez d'historique pour juger. Franxit est honnête là-dessus.</span></li>
   </ul>

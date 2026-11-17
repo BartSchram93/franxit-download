@@ -373,6 +373,15 @@
     .story { padding: 30px 34px 24px; }
   }
 
+  /* Phone: label on the left, explanation on the right, so the list is about half as tall. */
+  @media (max-width: 639px) {
+    .legend { gap: 16px; }
+    .legend li { grid-template-columns: 42% 1fr; gap: 14px; align-items: start; font-size: 15px; line-height: 1.45; }
+    .legend strong { white-space: normal; align-items: center; }
+    .legend span { padding-top: 2px; }
+  }
+  @media (max-width: 639px) { .legend li { grid-template-columns: 40% 1fr; gap: 12px; } .legend strong { border-radius: 16px; padding: 4px 11px 4px 10px; } }
+
   .logo { border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }
   section { text-align: center; }
   .ios-note-p { color: var(--muted); }
