@@ -96,7 +96,6 @@ def page(code):
 
   <section class="wide">
 
-  <h2>{t["steps_h"]}</h2>
   <div class="shots" id="shots">
 {shots}
   </div>

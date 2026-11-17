@@ -245,6 +245,9 @@
   .step.plain { grid-template-columns: 1fr; }
   @media (max-width: 899px) { .hero-shot { display: none; } }
   @media (min-width: 900px) { .phone.extra { display: none; } }
+
+  .wide > .shots { margin-top: 56px; }
+  @media (min-width: 640px) { .wide > .shots { margin-top: 72px; } }
 </style>
 </head>
 <body>
@@ -275,7 +278,6 @@
 
   <section class="wide">
 
-  <h2>How it works</h2>
   <div class="shots" id="shots">
     <figure class="phone"><div class="step"><b>1</b><div><strong>Pick a product</strong><span>Type its name, or share a shop page with Franxit.</span></div></div><img src="../screens/share.webp" alt="Sharing a shop page with Franxit" width="460" height="969" loading="lazy"></figure>
     <figure class="phone"><div class="step"><b>2</b><div><strong>Franxit analyses</strong><span>The price in each shop, and what the product cost over the past year.</span></div></div><img src="../screens/en/advice.webp" alt="Product screen with the cheapest shop" width="460" height="969" loading="lazy"></figure>
