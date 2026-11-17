@@ -137,9 +137,14 @@
   .feature strong { display: block; font-size: 17px; margin-bottom: 4px; }
   .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
-  .story p { font-size: 17px; line-height: 1.6; margin: 0 0 12px; }
+  /* The story as a quote: a soft panel with a blue quote mark and the signature underneath. */
+  .story { position: relative; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 6px 18px 18px 6px; padding: 30px 24px 22px 28px; }
+  .story::before { content: "\201C"; position: absolute; top: 6px; left: 20px; font: 700 64px/1 Georgia, "Times New Roman", serif; color: var(--blue); opacity: .35; }
+  .story p { font-size: 17px; line-height: 1.65; margin: 0 0 12px; }
+  .story p:first-of-type { padding-top: 14px; }
   @media (min-width: 900px) { .story p { font-size: 18px; } }
-  .signature { color: var(--muted); font-size: 16px !important; }
+  .signature { color: var(--muted); font-size: 15px !important; margin: 16px 0 0 !important; }
+  .signature::before { content: "— "; }
 
     .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
   .card p { margin: 0 0 10px; } .card p:last-child { margin: 0; }
