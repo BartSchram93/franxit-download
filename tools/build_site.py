@@ -95,7 +95,6 @@ def page(code):
   <section class="wide">
 
   <h2>{t["steps_h"]}</h2>
-  <p class="sub">{t["see_sub"].format(date=date_text(code))}</p>
   <div class="shots" id="shots">
 {shots}
   </div>
