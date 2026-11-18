@@ -101,7 +101,8 @@ def page(code):
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 {jsonld}
 {alternates}
-<link rel="icon" href="{root}icon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="{root}icon.png" sizes="256x256">
 <link rel="apple-touch-icon" href="{root}icon.png">
 {redirect}<script>(function(){{var u=navigator.userAgent||"",d=document.documentElement;d.className=/iPhone|iPad|iPod/.test(u)||(/Macintosh/.test(u)&&navigator.maxTouchPoints>1)?"ios":/Android/.test(u)?"android":"desktop";}})();</script>
 <style>
@@ -302,7 +303,7 @@ def article(code):
 <meta property="og:description" content="{esc(a["desc"])}">
 <meta property="og:image" content="https://franxit.be/{PREVIEW[code]}?v=3">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/icon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/icon.png" sizes="256x256">
 <link rel="apple-touch-icon" href="/icon.png">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")}</script>
 <style>
@@ -368,7 +369,8 @@ def landing():
 <meta property="og:title" content="Franxit">
 <meta property="og:description" content="{esc(LANGS["nl"]["p_title"])} · {esc(LANGS["fr"]["p_title"])} · {esc(LANGS["en"]["p_title"])}">
 <meta property="og:image" content="https://franxit.be/preview-en.png?v=3">
-<link rel="icon" href="../icon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="../icon.png" sizes="256x256">
 <style>
 {CSS}
   .logo {{ border-radius: 21px; display: block; margin: 40px auto 18px; box-shadow: 0 6px 20px rgba(47,111,219,.28); }}
@@ -454,7 +456,7 @@ if __name__ == "__main__":
     lines = "".join(f'  <p lang="{c}" style="margin:0 0 6px">{LANGS[c]["nf"]} <a href="/{LANGS[c]["path"]}">Franxit</a></p>\n' for c in ORDER)
     open("404.html", "w", encoding="utf-8").write(f"""<!doctype html>
 <html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex"><title>404 · Franxit</title><link rel="icon" href="/icon.png">
+<meta name="robots" content="noindex"><title>404 · Franxit</title><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/icon.png" sizes="256x256">
 <style>{CSS}
   main {{ text-align: center; padding-top: 18vh; }} img {{ width: 72px; height: 72px; border-radius: 18px; }}
 </style></head><body><main>
