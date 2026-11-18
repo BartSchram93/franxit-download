@@ -187,7 +187,6 @@ def page(code):
     <nav class="foot-links" aria-label="Links">
       <a href="/{ARTICLES[code]["path"]}">{ARTICLES[code]["title"]}</a>
       <a href="{privacy}">{t["privacy_label"]}</a>
-      <a href="https://buymeacoffee.com/bartschram" rel="noopener">{t["coffee_label"]}</a>
     </nav>
     <p class="foot-meta"><span>{t["made_by"]}</span><span>{t["only_android"]}</span><span id="updated"></span></p>
   </footer>
