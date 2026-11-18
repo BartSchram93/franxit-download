@@ -405,7 +405,7 @@ LLMS = """# Franxit
 - The five advice labels: Buy now (the price is historically very attractive), Consider (good, but not exceptional), Wait (not particularly attractive; wait or set a price alert), Skip it (the price is high right now compared with its history), No advice yet (too little history to judge).
 - Price: free. No subscription, no account, no advertising.
 - Platform: Android only for now. There is no iPhone version yet. It is installed from an APK file because the app is not on the Google Play Store.
-- Privacy: tracked products stay on the phone. The app only counts, anonymously, how many devices use it per day.
+- Privacy: tracked products stay on the phone. There is no account and the app collects no usage statistics.
 - Name: from the Belgian franc and the English "sit": sitting on your money until it is worth it.
 
 ## Pages
