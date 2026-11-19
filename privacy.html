@@ -39,7 +39,7 @@
   <h2>Met wie de app verbinding maakt</h2>
   <ul>
     <li><strong>Prijs- en winkelsites</strong>, om prijzen en prijsgeschiedenis te lezen. Zij zien je IP-adres en welke pagina of productnaam je opvraagt, zoals bij elk bezoek aan hun site.</li>
-    <li><strong>Zoekdienst van Franxit (Cloudflare)</strong>, voor producten met weinig winkels. De app stuurt dan de productnaam naar de zoekdienst van Franxit, die bij Cloudflare draait. Die vraagt Google Shopping (via SerpApi) om meer winkels te vinden. Cloudflare ziet daarbij je IP-adres; SerpApi en Google zien alleen de zoekdienst, niet jou. Antwoorden worden een dag bewaard en gedeeld, en per IP-adres wordt een dag lang geteld hoeveel zoekopdrachten er zijn, om misbruik te voorkomen.</li>
+    <li><strong>Zoekdienst van Franxit (Cloudflare)</strong>, voor producten met weinig winkels. De app stuurt dan de productnaam naar de zoekdienst van Franxit, die bij Cloudflare draait. Die vraagt Google Shopping (via LiteScrape) om meer winkels te vinden. Cloudflare ziet daarbij je IP-adres; LiteScrape en Google zien alleen de zoekdienst, niet jou. Antwoorden worden een dag bewaard en gedeeld, en per IP-adres wordt een dag lang geteld hoeveel zoekopdrachten er zijn, om misbruik te voorkomen.</li>
         <li><strong>Aptabase</strong>, voor een anonieme gebruiksmeting, <em>alleen in de versie van de downloadpagina</em> (zie hieronder).</li>
   </ul>
 
@@ -79,7 +79,7 @@
   <h2>Avec qui l'appli se connecte</h2>
   <ul>
     <li><strong>Des sites de prix et de magasins</strong>, pour lire les prix et l'historique des prix. Ils voient ton adresse IP et la page ou le nom de produit que tu demandes, comme lors de n'importe quelle visite sur leur site.</li>
-    <li><strong>Service de recherche de Franxit (Cloudflare)</strong>, pour les produits avec peu de magasins. L'appli envoie alors le nom du produit au service de recherche de Franxit, hébergé chez Cloudflare. Celui-ci interroge Google Shopping (via SerpApi) pour trouver plus de magasins. Cloudflare voit ton adresse IP ; SerpApi et Google ne voient que le service, pas toi. Les réponses sont gardées un jour et partagées, et le nombre de recherches par adresse IP est compté pendant un jour pour éviter les abus.</li>
+    <li><strong>Service de recherche de Franxit (Cloudflare)</strong>, pour les produits avec peu de magasins. L'appli envoie alors le nom du produit au service de recherche de Franxit, hébergé chez Cloudflare. Celui-ci interroge Google Shopping (via LiteScrape) pour trouver plus de magasins. Cloudflare voit ton adresse IP ; LiteScrape et Google ne voient que le service, pas toi. Les réponses sont gardées un jour et partagées, et le nombre de recherches par adresse IP est compté pendant un jour pour éviter les abus.</li>
         <li><strong>Aptabase</strong>, pour une mesure d'usage anonyme, <em>uniquement dans la version de la page de téléchargement</em> (voir ci-dessous).</li>
   </ul>
 
@@ -119,7 +119,7 @@
   <h2>What the app connects to</h2>
   <ul>
     <li><strong>Price and shop sites</strong>, to read prices and price history. They see your IP address and which page or product name you ask for, like any visit to their site.</li>
-    <li><strong>Franxit's search service (Cloudflare)</strong>, for products with few shops. The app then sends the product name to Franxit's search service, which runs at Cloudflare. It asks Google Shopping (through SerpApi) for more shops. Cloudflare sees your IP address; SerpApi and Google only see the service, not you. Answers are kept for a day and shared, and searches are counted per IP address for a day to prevent abuse.</li>
+    <li><strong>Franxit's search service (Cloudflare)</strong>, for products with few shops. The app then sends the product name to Franxit's search service, which runs at Cloudflare. It asks Google Shopping (through LiteScrape) for more shops. Cloudflare sees your IP address; LiteScrape and Google only see the service, not you. Answers are kept for a day and shared, and searches are counted per IP address for a day to prevent abuse.</li>
         <li><strong>Aptabase</strong>, for anonymous usage statistics, <em>only in the version from the download page</em> (see below).</li>
   </ul>
 
