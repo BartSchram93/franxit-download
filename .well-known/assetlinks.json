@@ -1,10 +1,17 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.bartschram.franxit",
-      "sha256_cert_fingerprints": ["76:95:4F:4C:23:65:CE:BE:58:1C:32:A2:B5:4E:1A:7C:EC:91:1D:24:BB:4A:A7:E3:7E:75:FF:5A:86:12:8D:C7"]
+      "sha256_cert_fingerprints": [
+        "76:95:4F:4C:23:65:CE:BE:58:1C:32:A2:B5:4E:1A:7C:EC:91:1D:24:BB:4A:A7:E3:7E:75:FF:5A:86:12:8D:C7",
+        "30:36:9E:50:64:C2:A5:48:A2:E3:38:15:BF:77:17:0F:BB:44:3B:58:DB:AF:44:65:DF:51:AC:CE:EC:A3:09:8F",
+        "B9:AE:24:FD:F3:F0:FC:15:A7:9D:EF:3A:23:D6:F5:19:1F:5D:F7:A4:B4:59:AE:BE:DA:19:E5:80:49:74:0A:F0",
+        "D6:E5:22:D2:14:35:67:8D:76:11:6D:76:E4:46:41:AF:A2:24:01:48:65:EC:B0:B6:D0:02:5A:28:14:65:EA:5D"
+      ]
     }
   }
 ]
