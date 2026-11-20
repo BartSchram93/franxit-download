@@ -52,8 +52,8 @@ def page(code):
         return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", s.replace("[[privacy]]", privacy))).strip()
     # the visible order: what it costs first, then what it is, how to install, then the rest
     faq_cost = faq_items[1]
-    faq_rest = "\n".join(faq_items[i] for i in (0, 2, 3))
-    qa = [t["faq"][1], (t["what_q"], t["what_a"]), t["faq"][0], t["faq"][2], t["faq"][3]]
+    faq_rest = "\n".join(faq_items[i] for i in (0, 2, 3, 4))
+    qa = [t["faq"][1], (t["what_q"], t["what_a"]), t["faq"][0], t["faq"][2], t["faq"][3], t["faq"][4]]
     site = "https://franxit.be/"
     ld = [
         {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Franxit", "url": url, "inLanguage": code,
