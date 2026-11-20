@@ -125,6 +125,7 @@ def page(code):
       <span class="get-go">{t["download"]}</span>
     </a>
     <p class="calm">{t["calm"]}</p>
+    <p class="source">{t["early"]}</p>
    </div>
    <div class="hero-shot"><img src="{root}screens/{code}/overview.webp{v("screens/" + code + "/overview.webp")}" alt="{esc(t["shots"][1][1])}" width="460" height="969" fetchpriority="high"></div>
   </section>
@@ -322,6 +323,7 @@ def landing():
     <h1>{t["p_title"]}</h1>
     <p class="lead">{t["p_text"]}</p>
     <a class="dl2 only-android" href="{APK}">{t["p_button"]}</a>
+    <p class="small only-android">{t["early"]}</p>
     <p class="ios-note-p only-other">{t["p_android_only"]}</p>
     <p class="small">{t["p_installed"]}</p>
     <p><a href="/{t["path"]}">{t["p_more"]}</a></p>
