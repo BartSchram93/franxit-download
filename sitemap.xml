@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://franxit.be/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://franxit.be/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://franxit.be/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://franxit.be/en/"/>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://franxit.be/fr/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://franxit.be/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://franxit.be/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://franxit.be/en/"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://franxit.be/en/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://franxit.be/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://franxit.be/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://franxit.be/en/"/>
@@ -26,27 +26,27 @@
   </url>
   <url>
     <loc>https://franxit.be/korting/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://franxit.be/korting/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://franxit.be/fr/remise/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://franxit.be/en/real-discounts/"/>
   </url>
   <url>
     <loc>https://franxit.be/fr/remise/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://franxit.be/korting/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://franxit.be/fr/remise/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://franxit.be/en/real-discounts/"/>
   </url>
   <url>
     <loc>https://franxit.be/en/real-discounts/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://franxit.be/korting/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://franxit.be/fr/remise/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://franxit.be/en/real-discounts/"/>
   </url>
   <url>
     <loc>https://franxit.be/privacy.html</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
 </urlset>

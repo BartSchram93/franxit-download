@@ -8,8 +8,7 @@ from texts import LANGS, MONTHS, date_text
 from articles import ARTICLES
 
 CSS = open(os.path.join(os.path.dirname(__file__), "site.css"), encoding="utf-8").read()
-APK = "https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk"
-RELEASES_API = "https://api.github.com/repos/BartSchram93/franxit-download/releases/latest"
+APK = "https://play.google.com/store/apps/details?id=com.bartschram.franxit"  # the Google Play listing
 ORDER = ["nl", "fr", "en"]
 PREVIEW = {"nl": "preview.png", "fr": "preview-fr.png", "en": "preview-en.png"}
 
@@ -44,24 +43,22 @@ def page(code):
     legend = "\n".join(f'    <li><strong style="--c:var(--{c})"><i></i>{n}</strong><span>{d}</span></li>' for c, n, d in t["legend"])
     features = "\n".join(f'    <li class="feature"><strong>{a}</strong><p>{b}</p></li>' for a, b in t["features"])
     story = "\n".join(f"    <p>{p}</p>" for p in t["story"])
-    install = "\n".join(f"      <li>{x}</li>" for x in t["install_steps"])
     faq_items = [f"  <details>\n    <summary>{q}</summary>\n    {a.replace('[[privacy]]', privacy)}\n  </details>" for q, a in t["faq"]]
     share = "https://wa.me/?text=" + urllib.parse.quote(t["share_text"], safe="")
     ios_a, ios_b = (t["ios_note"].split(". ", 1) + [""])[:2]
     ios_a += "."
     share_plain = t["share_text"].rsplit("https://", 1)[0].strip()
-    js_texts = json.dumps(dict(version=t["version_label"], updated=t["updated_label"], months=MONTHS[code], decimal=t["decimal"]), ensure_ascii=False)
     def plain(s):
         return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", s.replace("[[privacy]]", privacy))).strip()
     # the visible order: what it costs first, then what it is, how to install, then the rest
     faq_cost = faq_items[1]
     faq_rest = "\n".join(faq_items[i] for i in (0, 2, 3))
-    qa = [t["faq"][1], (t["what_q"], t["what_a"]), (t["install_q"], "<p>" + t["install_sub"] + " " + " ".join(f"{i + 1}. {x}" for i, x in enumerate(t["install_steps"])) + "</p>"), t["faq"][0], t["faq"][2], t["faq"][3]]
+    qa = [t["faq"][1], (t["what_q"], t["what_a"]), t["faq"][0], t["faq"][2], t["faq"][3]]
     site = "https://franxit.be/"
     ld = [
         {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Franxit", "url": url, "inLanguage": code,
          "applicationCategory": "ShoppingApplication", "operatingSystem": "Android 8.0 or newer",
-         "description": t["desc"], "image": site + "icon.png", "downloadUrl": APK,
+         "description": t["desc"], "image": site + "icon.png", "installUrl": APK,
          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
          "screenshot": [site + ("screens/share.webp" if n == "share" else f"screens/{code}/{n}.webp") for n, _, _ in t["shots"]],
          "featureList": [x for x, _ in t["steps"]], "dateModified": datetime.date.today().isoformat()},
@@ -123,12 +120,11 @@ def page(code):
     <a class="get" id="download" href="{APK}">
       <span class="get-top">
         <img class="get-icon" src="{root}icon.png" alt="">
-        <span class="get-text"><strong>{t["get_title"]}</strong><small><span id="meta">{t["android_min"]}</span><span>{t["android_min"]}</span></small></span>
+        <span class="get-text"><strong>{t["get_title"]}</strong><small><span>{t["android_min"]}</span></small></span>
       </span>
       <span class="get-go">{t["download"]}</span>
     </a>
     <p class="calm">{t["calm"]}</p>
-    <p class="source">{t["source"]}</p>
    </div>
    <div class="hero-shot"><img src="{root}screens/{code}/overview.webp{v("screens/" + code + "/overview.webp")}" alt="{esc(t["shots"][1][1])}" width="460" height="969" fetchpriority="high"></div>
   </section>
@@ -168,14 +164,6 @@ def page(code):
     <summary>{t["what_q"]}</summary>
     {t["what_a"]}
   </details>
-  <details id="installeren">
-    <summary>{t["install_q"]}</summary>
-    <p>{t["install_sub"]}</p>
-    <ol class="install-steps">
-{install}
-    </ol>
-    <p class="small">{t["install_note"]}</p>
-  </details>
 {faq_rest}
   </div>
 
@@ -188,7 +176,7 @@ def page(code):
       <a href="/{ARTICLES[code]["path"]}">{ARTICLES[code]["title"]}</a>
       <a href="{privacy}">{t["privacy_label"]}</a>
     </nav>
-    <p class="foot-meta"><span>{t["made_by"]}</span><span>{t["only_android"]}</span><span id="updated"></span></p>
+    <p class="foot-meta"><span>{t["made_by"]}</span><span>{t["only_android"]}</span></p>
   </footer>
 </main>
 <script>
@@ -248,24 +236,6 @@ def page(code):
     }}
     s.addEventListener("scroll", mark, {{ passive: true }}); mark();
   }})();
-  // Fills in the version and size of the latest release (no problem if this fails).
-  var T = {js_texts};
-  fetch("{RELEASES_API}")
-    .then(function (r) {{ return r.ok ? r.json() : null; }})
-    .then(function (rel) {{
-      if (!rel || !rel.tag_name) return;
-      var apk = (rel.assets || []).filter(function (a) {{ return a.name === "franxit.apk"; }})[0];
-      var parts = [T.version + " " + rel.tag_name.replace(/^v/, "")];
-      if (apk && apk.size) parts.push((apk.size / 1e6).toFixed(1).replace(".", T.decimal) + " MB");
-      var meta = document.getElementById("meta");
-      meta.textContent = parts.join(" · ");
-      meta.className = "on";
-      if (rel.published_at) {{
-        var d = new Date(rel.published_at);
-        document.getElementById("updated").textContent = T.updated + " " + d.getDate() + " " + T.months[d.getMonth()] + " " + d.getFullYear();
-      }}
-    }})
-    .catch(function () {{}});
 </script>
 </body>
 </html>
@@ -406,8 +376,8 @@ LLMS = """# Franxit
 - What it does: you pick a product (type its name, or share a shop page with the app); Franxit analyses the price per shop and the price history of the past year, and gives one of five pieces of advice.
 - The five advice labels: Buy now (the price is historically very attractive), Consider (good, but not exceptional), Wait (not particularly attractive; wait or set a price alert), Skip it (the price is high right now compared with its history), No advice yet (too little history to judge).
 - Price: free. No subscription, no account, no advertising.
-- Platform: Android only for now. There is no iPhone version yet. It is installed from an APK file because the app is not on the Google Play Store.
-- Privacy: tracked products stay on the phone. There is no account. The APK from this site sends anonymous usage events (never products, prices or personal data) to Aptabase; the Google Play version sends none.
+- Platform: Android only for now. There is no iPhone version yet. It is available on Google Play.
+- Privacy: tracked products stay on the phone. There is no account. The app contains no usage statistics.
 - Name: from the Belgian franc and the English "sit": sitting on your money until it is worth it.
 
 ## Pages
@@ -420,7 +390,7 @@ LLMS = """# Franxit
 - [Privacy](https://franxit.be/privacy.html): what the app does and does not collect
 
 ## Download
-- [franxit.apk (latest release)](https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk)
+- [Franxit on Google Play](https://play.google.com/store/apps/details?id=com.bartschram.franxit)
 """
 
 if __name__ == "__main__":

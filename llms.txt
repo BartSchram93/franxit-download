@@ -6,8 +6,8 @@
 - What it does: you pick a product (type its name, or share a shop page with the app); Franxit analyses the price per shop and the price history of the past year, and gives one of five pieces of advice.
 - The five advice labels: Buy now (the price is historically very attractive), Consider (good, but not exceptional), Wait (not particularly attractive; wait or set a price alert), Skip it (the price is high right now compared with its history), No advice yet (too little history to judge).
 - Price: free. No subscription, no account, no advertising.
-- Platform: Android only for now. There is no iPhone version yet. It is installed from an APK file because the app is not on the Google Play Store.
-- Privacy: tracked products stay on the phone. There is no account. The APK from this site sends anonymous usage events (never products, prices or personal data) to Aptabase; the Google Play version sends none.
+- Platform: Android only for now. There is no iPhone version yet. It is available on Google Play.
+- Privacy: tracked products stay on the phone. There is no account. The app contains no usage statistics.
 - Name: from the Belgian franc and the English "sit": sitting on your money until it is worth it.
 
 ## Pages
@@ -20,4 +20,4 @@
 - [Privacy](https://franxit.be/privacy.html): what the app does and does not collect
 
 ## Download
-- [franxit.apk (latest release)](https://github.com/BartSchram93/franxit-download/releases/latest/download/franxit.apk)
+- [Franxit on Google Play](https://play.google.com/store/apps/details?id=com.bartschram.franxit)
